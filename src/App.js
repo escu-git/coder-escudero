@@ -1,13 +1,13 @@
 import "./App.css"
-import NavBar from './componentes/navBar';
-import React, {Component, Fragment} from 'react';
+import NavBar from './Componentes/NavBar';
+import Content from './Componentes/Content';
 
 function App() {
   return (
     <div className = "App">
   <NavBar/>
+  <Content/> 
     </div>
-   
   );
 }
 
