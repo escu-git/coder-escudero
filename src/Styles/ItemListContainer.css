@@ -1,0 +1,9 @@
+.itemListDiv{
+    position:static;
+    text-align: center;
+
+}
+.greetings{
+    color: green;
+    font-size: 40px
+};

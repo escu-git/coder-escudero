@@ -1,11 +1,14 @@
 .appBar{
-    position:static;
+    position:static !important;
     display:flex;
     flex-direction: row;
 }
 .toolBar{
     background-color:green;
+    display:flex;
+    justify-content: space-between;
 }
 .iconButton{
-    background-color:green;
+    background-color:rgb(255, 251, 0);
 }
+

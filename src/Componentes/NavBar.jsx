@@ -1,5 +1,4 @@
 import React from 'react';
-import '../Styles/NavBar.css';
 import {
     AppBar,
     Toolbar,
@@ -9,6 +8,7 @@ import {
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import Logo from './CartWidget';
+import '../Styles/NavBar.css';
 
 const NavBar =  ()=> {
 return(
@@ -18,14 +18,11 @@ return(
         <MenuIcon />
         </IconButton>
         <Typography variant="h6">News</Typography>
+        <h2>Escudero Pablo Martín😀</h2>
         <Button float="right" color="inherit">Login</Button>
         <Logo />
     </Toolbar>
     </AppBar>
 );
 };
-
-
-
-
 export default NavBar;
