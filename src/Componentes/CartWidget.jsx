@@ -10,5 +10,3 @@ const Logo = ()=> {
 };
 
 export default Logo
-
-// float="right" edge="start" color="green" aria-label="menu"
