@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Item = ({props}) => {
+const Item = ({pictureUrl, alt, title, price}) => {
     return (
         <div>
-            <img src={props.pictureUrl} alt={props.alt}/>
-            <span className="title">{props.title}</span>
-            <span className="price">{props.price}</span>
+            <img src={pictureUrl} alt={alt}/>
+            <span className="title">{title}</span>
+            <span className="price">{price}</span>
         </div>
     )
 }

@@ -7,23 +7,20 @@ const arrayDelay = new Promise((resolve, reject)=>{
     setTimeout(()=>{
         resolve(ItemsArray)
     },2000)
-}).then((res)=>{
-    console.log(`Resolved array: ${res}`
-    )}).catch((err)=>{
-    console.log(err)
-});
+}).then((res)=>{console.log(`Resolved array: ${res}`
+)}).catch((err)=>{console.log(err)});
 
 const ItemList = () => {
     const[products, setProducts]=useState(null);
 
-    useEffect(async()=>{
-        await setProducts(ItemsArray);
+    useEffect(()=>{
+        setProducts(arrayDelay); //!Acá al colocar el array directo (ItemsArray) funca lo más bien y me renderiza las imagenes, pero al poner la función arrayDelay se muere todo ahí
         console.log(products)
     })
     return (
         <ProductContainer>
             {products?.map((product)=>{
-                <Item key={product.id} pictureUrl={product.pictureUrl} alt={product.alt} title={product.title} price={product.price}></Item>
+                return(<Item key={product.id} pictureUrl={product.pictureUrl} alt={product.alt} title={product.title} price={product.price}></Item>)
             })}
         </ProductContainer>
     )
