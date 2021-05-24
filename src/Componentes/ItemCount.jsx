@@ -32,7 +32,7 @@ const ChangeStock = ()=>{
 }
     
 const ItemCount = () => {
-    const {amount, itemAdd, itemDecrease, counter, /**cart*/} = ChangeStock();
+    const {amount, itemAdd, itemDecrease, counter} = ChangeStock();
     return (
         <div className="itemCount">
             <div className = "buttons">
@@ -41,11 +41,9 @@ const ItemCount = () => {
                 </button>
                 <span>{counter}</span>
                 <button onClick={()=>itemDecrease(-1)}>
-                    DECREASE
+                    DECREASE|
                 </button>
             </div>
-                {/* <button onClick={ () => cart()}>ADD TO CART</button> */}
-                 
             <span className="stock">Available stock: {amount}</span>
         </div>
     )

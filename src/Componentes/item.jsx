@@ -1,16 +1,13 @@
-import {React, useState, useEffect} from 'react'
+import React from 'react'
 
-const item = (img, alt, title, description) => {
+const Item = ({props}) => {
     return (
         <div>
-            <img src="img" alt="alt"/>
-            <span className="title">{title}</span>
-            <span className="description">{description}</span>
-            <span className="price">{price}</span>
+            <img src={props.pictureUrl} alt={props.alt}/>
+            <span className="title">{props.title}</span>
+            <span className="price">{props.price}</span>
         </div>
     )
-};
+}
 
-export default item
-
-
+export default Item

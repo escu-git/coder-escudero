@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
-import '../Styles/ItemListContainer.css'
-import {itemsArray} from './fakeFetch';
-import item from './item';
+import { React, useEffect, useState } from 'react';
+import '../Styles/ItemListContainer.css';
+import ItemList from './ItemList';
 
 
 const ItemListContainer = (props) => {
-    const [item, setItem] = useState([]);
-    useEffect(async()=>{
-
-    })
-    return(
+    return (
         <div className="itemListDiv">
             <h1 className="greetings">{props.greetings}</h1>
+            <ItemList/>
         </div>
     );
 };
