@@ -7,30 +7,38 @@ import cuadro4 from '../assets/images/cuadro4.jpg'
 const itemsArray= [
     {
         id:1,
-        title:"Art N°1",
+        title:"NASA",
         alt:"Cuadrito1",
-        price:"$100000",
+        price:"$300",
+        linea:"RETRO",
+        description:"Cuadrito espacial",
         pictureUrl:cuadro1
     },
     {
         id:2,
-        title:"Art N°2",
+        title:"CACTUS",
         alt:"Cuadrito2",
-        price:"$200000",
+        price:"$300",
+        linea:"RETRO",
+        description:"Cuadrito desertico",
         pictureUrl:cuadro2
     },
     {
         id:3,
-        title:"Art N°3",
+        title:"FEM POWAH",
         alt:"Cuadrito3",
-        price:"$300000",
+        price:"$300",
+        linea:"FEMINIST POWAH",
+        description:"Cuadrito fem power",
         pictureUrl:cuadro3
     },
     {
         id:4,
-        title:"Art N°4",
+        title:"FRESH BEER",
         alt:"Cuadrito4",
-        price:"$400000",
+        price:"$300",
+        linea:"BAR",
+        description:"Best in town",
         pictureUrl:cuadro4
     },
     

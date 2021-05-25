@@ -1,5 +1,7 @@
 import {React, useState} from 'react'
 import '../Styles/ItemCount.css';
+import Button from '@material-ui/core/Button';
+import buttonStyle from '../Componentes/material-ui/Buttons'
 
 let stock = 5;
 const ChangeStock = ()=>{
@@ -33,16 +35,17 @@ const ChangeStock = ()=>{
     
 const ItemCount = () => {
     const {amount, itemAdd, itemDecrease, counter} = ChangeStock();
+        const classes = buttonStyle();
     return (
         <div className="itemCount">
             <div className = "buttons">
-                <button onClick={()=>itemDecrease(-1)}>
-                    DECREASE|
-                </button>
-                <span>{counter}</span>
-                <button onClick={()=> itemAdd(1) }>
-                    INCREASE
-                </button>
+            <div className={classes.root}>
+                <Button variant="outlined" color="primary" onClick={()=>itemDecrease(-1)}>DECREASE</Button>
+            </div>
+            <span>{counter}</span>
+            <div className={classes.root}>
+                <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>INCREASE</Button>
+            </div>
             </div>
             <span className="stock">Available stock: {amount}</span>
         </div>
