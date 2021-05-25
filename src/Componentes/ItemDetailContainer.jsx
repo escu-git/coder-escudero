@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react';
+import styled from 'styled-components';
+import ItemDetail from '../Componentes/ItemDetail';
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({}) => {
+    const[details, setDetails]=useState(null)
+    
+    useEffect(()=>{
+
+    })
+
     return (
-        <Details>
-            
-        </Details>
+        <DetailsContainer>
+            <ItemDetail/>
+        </DetailsContainer>
     )
 }
 
-export default ItemDetailContainer
+const DetailsContainer = styled.div`
+width:100%;
+`
+
+export default ItemDetailContainer;

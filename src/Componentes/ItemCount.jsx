@@ -42,7 +42,7 @@ const ItemCount = () => {
             <div className={classes.root}>
                 <Button variant="outlined" color="primary" onClick={()=>itemDecrease(-1)}>DECREASE</Button>
             </div>
-            <span>{counter}</span>
+            <span className="counter">{counter}</span>
             <div className={classes.root}>
                 <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>INCREASE</Button>
             </div>

@@ -21,5 +21,3 @@ display: flex;
   align-items: center;
 `
 export default ItemList
-
-
