@@ -2,6 +2,7 @@
     position:static !important;
     display:flex;
     flex-direction: row;
+    font-family: 'Shadows Into Light', cursive;
 }
 .toolBar{
     background-color:green;

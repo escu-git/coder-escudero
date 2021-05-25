@@ -36,12 +36,12 @@ const ItemCount = () => {
     return (
         <div className="itemCount">
             <div className = "buttons">
-                <button onClick={()=> itemAdd(1) }>
-                    INCREASE
-                </button>
-                <span>{counter}</span>
                 <button onClick={()=>itemDecrease(-1)}>
                     DECREASE|
+                </button>
+                <span>{counter}</span>
+                <button onClick={()=> itemAdd(1) }>
+                    INCREASE
                 </button>
             </div>
             <span className="stock">Available stock: {amount}</span>

@@ -4,6 +4,8 @@
 
 }
 .greetings{
-    color: green;
-    font-size: 40px
+    color: rgb(26, 94, 26);
+    font-size: 40px;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 600;
 };

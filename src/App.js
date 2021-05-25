@@ -8,7 +8,7 @@ function App() {
   return (
     <div className = "App">
       <NavBar/>
-      <ItemListContainer className="itemListContainer" greetings="Welcome to my React app coders!"/>
+      <ItemListContainer className="itemListContainer" greetings="WELCOME TO DECO.ETC ONLINE SHOP!"/>
       <ItemCount className="itemCount"/>
     </div>
   );
