@@ -19,9 +19,7 @@ const ItemListContainer = (props) => {
     return (
         <div className="itemListDiv">
             <h1 className="greetings">{props.greetings}</h1>
-            <ItemList products={products}>
-
-            </ItemList>
+            <ItemList products={products}/>
         </div>
     );
 };

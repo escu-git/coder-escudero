@@ -11,7 +11,6 @@ function App() {
       <NavBar/>
       <ItemListContainer className="itemListContainer" greetings="WELCOME TO DECO.ETC ONLINE SHOP!"/>
       <ItemDetailContainer/>
-      <ItemCount className="itemCount"/>
     </div>
   );
 }

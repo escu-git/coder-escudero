@@ -3,9 +3,9 @@ import '../Styles/itemBox.css'
 import Button from '@material-ui/core/Button';
 import buttonStyle from '../Componentes/material-ui/Buttons'
 import ItemDetailContainer from './ItemDetailContainer';
+import ItemCount from './ItemCount';
 
-
-const Item = ({pictureUrl, alt, title, price}) => {
+const Item = ({pictureUrl, description, alt, title, price}) => {
     const classes = buttonStyle();
 
     return (
@@ -13,8 +13,9 @@ const Item = ({pictureUrl, alt, title, price}) => {
             <img src={pictureUrl} alt={alt}/>
             <span className="title">{title}</span>
             <span className="price">{price}</span>
+            <ItemCount className='itemCount'/>
             <div className={classes.root}>
-                <Button onClick={() => {}} variant="outlined">Detalles</Button>
+                <Button onClick={() => {console.log({pictureUrl,description, alt, title, price})}} variant="outlined">Detalles</Button>
             </div>
         </div>
     )

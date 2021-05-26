@@ -2,12 +2,10 @@ import React, { useState, useEffect} from 'react';
 import styled from 'styled-components';
 import ItemDetail from '../Componentes/ItemDetail';
 
-const ItemDetailContainer = ({}) => {
-    const[details, setDetails]=useState(null)
-    
-    useEffect(()=>{
 
-    })
+const ItemDetailContainer = (objects) => {
+    const[details, setDetails]=useState(objects)
+
 
     return (
         <DetailsContainer>

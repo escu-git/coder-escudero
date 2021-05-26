@@ -40,11 +40,11 @@ const ItemCount = () => {
         <div className="itemCount">
             <div className = "buttons">
             <div className={classes.root}>
-                <Button variant="outlined" color="primary" onClick={()=>itemDecrease(-1)}>DECREASE</Button>
+                <Button variant="outlined" color="primary" onClick={()=>itemDecrease(-1)}>-</Button>
             </div>
             <span className="counter">{counter}</span>
             <div className={classes.root}>
-                <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>INCREASE</Button>
+                <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>+</Button>
             </div>
             </div>
             <span className="stock">Available stock: {amount}</span>
