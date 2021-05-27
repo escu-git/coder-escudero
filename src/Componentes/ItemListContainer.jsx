@@ -11,8 +11,7 @@ const ItemListContainer = (props) => {
             setTimeout(()=>{
                 resolve(ItemsArray)
             },2000)
-        }).then((res)=>{console.log(`Resolved array: ${res}`)
-        setProducts(res); 
+        }).then((res)=>{setProducts(res)
     }).catch((err)=>{console.log(err)});
     })
 

@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ItemDetail = ({urlPicture, alt, title, description, linea, price}) => {
+const ItemDetail = ({details}) => {
     return (
         <Details>
-            <img src={urlPicture} alt={alt}/>
-            <span>{title}</span>
-            <span>{description}</span>
-            <span>{linea}</span>
-            <span>{price}</span>
+            <img src={details.urlPicture} alt={details.alt}/>
+            <span>{details.title}</span>
+            <span>{details.description}</span>
+            <span>{details.linea}</span>
+            <span>{details.price}</span>
         </Details>
     )
 }
