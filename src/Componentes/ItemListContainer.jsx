@@ -7,7 +7,7 @@ import ItemList from './ItemList';
 const ItemListContainer = (props) => {
     const[products, setProducts]=useState(null);
     useEffect(()=>{
-        const arrayDelay = new Promise((resolve, reject)=>{
+        new Promise((resolve, reject)=>{
             setTimeout(()=>{
                 resolve(ItemsArray)
             },2000)

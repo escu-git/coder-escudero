@@ -5,7 +5,7 @@ const ItemDetail = ({detail}) => {
 
     return (
         <Details>
-        <div className={detail!=0 ? "detailDiv" : null}>
+        <div className={detail!==0 ? "detailDiv" : null}>
             <img src={detail.pictureUrl} alt={detail.alt}/>
             <span className="detailTitle">{detail.title}</span>
             <span className="detailDescription">{detail.description}</span>

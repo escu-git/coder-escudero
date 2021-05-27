@@ -1,4 +1,3 @@
-import React from 'react'
 import cuadro1 from '../assets/images/cuadro1.jpg'
 import cuadro2 from '../assets/images/cuadro2.jpg'
 import cuadro3 from '../assets/images/cuadro3.jpg'
