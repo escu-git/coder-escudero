@@ -9,28 +9,29 @@ const ItemDetailContainer = () => {
     const[details, setDetails]=useState({})
     
     useEffect(()=>{
-        const getItem= (object)=>{
-            const detailsDelay = new Promise((resolve, reject)=>{
-                setTimeout(()=>{
-                    resolve(itemsArray)
-                },4000)
-            }).then((res)=>{console.log(`Resuelto!${res[0]}`)
+        new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                resolve(itemsArray)
+            },4000);
+        }).then(res=>{
             setDetails(res[0])
-            }).catch((err)=>{
-                console.log(err)
-            });
-        }
+            console.log(details)
+        }).catch(err=>{
+            console.log(err)
+        })
     })
 
+
     return (
-        <DetailsContainer>
-            {details?.map((detail)=>{return<ItemDetail detail={detail}/>})}
+        <DetailsContainer className="detailsContainer">
+            <ItemDetail detail={details}></ItemDetail>
         </DetailsContainer>
     )
 }
 
 const DetailsContainer = styled.div`
 width:100%;
+height:500px;
 `
 
 export default ItemDetailContainer;
