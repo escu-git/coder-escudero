@@ -1,7 +1,7 @@
 import {React, useState} from 'react'
-import '../Styles/ItemCount.css';
+import '../../Styles/ItemCount.css';
 import Button from '@material-ui/core/Button';
-import buttonStyle from './material-ui/Buttons'
+import buttonStyle from '../material-ui/Buttons'
 
 let stock = 5;
 const ChangeStock = ()=>{

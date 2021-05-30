@@ -1,15 +1,24 @@
 import "./App.css"
-import NavBar from './Componentes/NavBar';
-import ItemListContainer from "./Componentes/ItemListContainer";
-import ItemDetailContainer from "./Componentes/ItemDetailContainer";
-
+import NavBar from './Componentes/NavBar/NavBar';
+import ItemListContainer from "./Componentes/Item/ItemListContainer";
+import ItemDetailContainer from "./Componentes/ItemDetails/ItemDetailContainer";
+import {Switch, Route, Link} from 'react-router-dom';
 
 function App() {
   return (
     <div className = "App">
       <NavBar/>
-      <ItemListContainer className="itemListContainer" greetings="WELCOME TO DECO.ETC ONLINE SHOP!"/>
-      <ItemDetailContainer/>
+      <Switch>
+        <Route exact path="/">
+        <ItemListContainer className="itemListContainer" greetings="WELCOME TO DECO.ETC ONLINE SHOP!"/>
+        </Route>
+        <Route exact path="/categories/:catId">
+        <ItemListContainer className="itemListContainer" greetings="WELCOME TO DECO.ETC ONLINE SHOP!"/>
+        </Route>
+        <Route path='/detail'>
+        <ItemDetailContainer/>
+        </Route>
+      </Switch>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import styled from 'styled-components';
+import { getItems } from '../../functions';
 import ItemDetail from './ItemDetail';
-import itemsArray from './ItemsArray'
+import itemsArray from '../ItemsArray';
 
 
 const ItemDetailContainer = () => {
@@ -9,17 +10,8 @@ const ItemDetailContainer = () => {
     const[details, setDetails]=useState({})
     
     useEffect(()=>{
-        new Promise((resolve, reject)=>{
-            setTimeout(()=>{
-                resolve(itemsArray)
-            },4000);
-        }).then(res=>{
-            setDetails(res[0])
-            console.log(details)
-        }).catch(err=>{
-            console.log(err)
-        })
-    })
+        getItems(itemsArray, setDetails, details, 4000)
+    },[])
 
 
     return (
@@ -33,5 +25,4 @@ const DetailsContainer = styled.div`
 width:100%;
 height:500px;
 `
-
 export default ItemDetailContainer;

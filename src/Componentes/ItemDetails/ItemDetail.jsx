@@ -9,7 +9,7 @@ const ItemDetail = ({detail}) => {
             <img src={detail.pictureUrl} alt={detail.alt}/>
             <span className="detailTitle">{detail.title}</span>
             <span className="detailDescription">{detail.description}</span>
-            <span className="detailLinea">{detail.linea}</span>
+            <span className="detailLinea">{detail.category}</span>
             <span className="detailPrice">{detail.price}</span>
             </div>
         </Details>

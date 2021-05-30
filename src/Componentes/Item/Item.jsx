@@ -1,12 +1,11 @@
 import {React} from 'react'
-import '../Styles/itemBox.css'
+import '../../Styles/itemBox.css'
 import Button from '@material-ui/core/Button';
-import buttonStyle from './material-ui/Buttons'
+import buttonStyle from '../material-ui/Buttons'
 import ItemCount from './ItemCount';
 
-const Item = ({pictureUrl, description, alt, title, price}) => {
+const Item = ({pictureUrl, description, category, alt, title, price}) => {
     const classes = buttonStyle();
-
     return (
         <div className ="itemBox">
             <img src={pictureUrl} alt={alt}/>
