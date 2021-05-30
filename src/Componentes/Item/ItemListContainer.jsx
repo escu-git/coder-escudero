@@ -5,6 +5,7 @@ import ItemsArray from '../ItemsArray';
 import ItemList from './ItemList';
 import {useParams} from 'react-router-dom';
 import { getProducts } from '../../functions';
+import Loading from '../Loading/Loading'
 
 const ItemListContainer = (props) => {
     const {catId} = useParams();
@@ -18,6 +19,7 @@ const ItemListContainer = (props) => {
     return (
         <div className="itemListDiv">
             <h1 className="greetings">{props.greetings}</h1>
+            <Loading></Loading>
             <ItemList products={products}/>
         </div>
     );
