@@ -3,8 +3,14 @@ import '../../Styles/itemBox.css'
 import Button from '@material-ui/core/Button';
 import buttonStyle from '../material-ui/Buttons'
 import ItemCount from './ItemCount';
+import { useHistory } from 'react-router';
 
-const Item = ({pictureUrl, description, category, alt, title, price}) => {
+const Item = ({key, pictureUrl, description, category, alt, title, price}) => {
+
+    const handleClick=(id)=>{
+        // let history = useHistory();
+        // history.push(`/detail/${id}`)
+    };
     const classes = buttonStyle();
     return (
         <div className ="itemBox">
@@ -13,7 +19,7 @@ const Item = ({pictureUrl, description, category, alt, title, price}) => {
             <span className="price">{price}</span>
             <ItemCount className='itemCount'/>
             <div className={classes.root}>
-                <Button onClick={() => {console.log({pictureUrl,description, alt, title, price})}} variant="outlined">Detalles</Button>
+                <Button onClick={() => {handleClick(key)}} variant="outlined">Detalles</Button>
             </div>
         </div>
     )

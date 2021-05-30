@@ -9,18 +9,22 @@ import Loading from '../Loading/Loading'
 
 const ItemListContainer = (props) => {
     const {catId} = useParams();
-    const [loading, setLoading]=useState(true)
     const[products, setProducts]=useState(null);
+    const [loading, setLoading]=useState(true)
     useEffect(()=>{
+        const promise = new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                resolve(ItemsArray)
+            },3500);
+        })
 
-        getProducts(ItemsArray,setProducts, 2000, catId, products)
-    },[catId])
+        catId ? promise.then(res => setProducts(res.filter(i => i.catId === catId))) : promise.then(res => setProducts(res)).then(()=> setLoading((loading)=>!loading));
+    },[catId]);
 
     return (
         <div className="itemListDiv">
             <h1 className="greetings">{props.greetings}</h1>
-            <Loading></Loading>
-            <ItemList products={products}/>
+            {loading ?<Loading></Loading> : <ItemList products={products}/>}
         </div>
     );
 };

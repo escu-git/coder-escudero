@@ -15,7 +15,7 @@ function App() {
         <Route exact path="/categories/:catId">
         <ItemListContainer className="itemListContainer" greetings="WELCOME TO DECO.ETC ONLINE SHOP!"/>
         </Route>
-        <Route path='/detail'>
+        <Route path='/detail/:id'>
         <ItemDetailContainer/>
         </Route>
       </Switch>

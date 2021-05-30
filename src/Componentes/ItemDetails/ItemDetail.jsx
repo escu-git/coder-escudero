@@ -21,7 +21,7 @@ const Details = styled.div`
     border:2px solid black;
     width:60%;
     heigth:400px;
-    margin:0 auto;
+    margin:2% auto;
     display:grid;
     grid-template-columns:repeat(4, 1fr);
     grid-template-rows:repeat(4, 1fr);
