@@ -9,12 +9,14 @@ const Item = ({item}) => {
     const classes = buttonStyle();
     return (
         <div className ="itemBox">
+        <NavLink to={`/item/${item.id}`} style={{textDecoration:'none', color:'inherit'}}>
                 <img src={item.pictureUrl} alt={item.alt}/>
+        </NavLink>
             <span className="title">{item.title}</span>
             <span className="price">{item.price}</span>
             <ItemCount className='itemCount'/>
             <NavLink to={`/item/${item.id}`} style={{textDecoration:'none', color:'inherit'}}>
-                <Button variant="outlined" onClick={()=>{console.log(item.id)}}>Details</Button>
+                <Button variant="outlined">Details</Button>
             </NavLink>
         </div>
     )

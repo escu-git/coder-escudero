@@ -15,7 +15,7 @@ const ItemListContainer = (props) => {
         const promise = new Promise((resolve, reject)=>{
             setTimeout(()=>{
                 resolve(ItemsArray)
-            },3500);
+            },2000);
         })
         catId ? promise.then(res => setProducts(res.filter(i => i.catId === catId))) : promise.then(res => setProducts(res)).then(()=> setLoading((loading)=>!loading));
     },[catId]);

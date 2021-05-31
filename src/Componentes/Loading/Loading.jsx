@@ -16,7 +16,7 @@ const LoadingContainer = styled.div`
   width: 40%;
   height: 40%;
   margin-top:5%;
-  margin-left:35%;
+  margin-left:37%;
 
 .img1, .img2 {
   height: 110px;

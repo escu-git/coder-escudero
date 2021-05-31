@@ -7,14 +7,14 @@ import {useParams} from 'react-router-dom';
 
 const ItemDetailContainer = () => {
     const {id} = useParams()
-    const[details, setDetails]=useState({});
+    const[details, setDetails]=useState([]);
     const[loading, setLoading]=useState(true);
     useEffect(()=>{
         new Promise((resolve, reject)=>{
             setTimeout(()=>{
                 resolve(itemsArray)
-            },3500);
-        }).then(res=> setDetails(res.filter(i => i.id === id))
+            },2000);
+        }).then(res=> setDetails(res.filter(i => i.id === Number(id)))
         ).then(()=>setLoading((loading)=>!loading))
 
     },[id]);
