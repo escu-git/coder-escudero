@@ -7,17 +7,17 @@ const ItemList = ({products}) => {
     return (
         <ProductContainer>
             {products?.map((product)=>{
-                return(<Item key={product.id} pictureUrl={product.pictureUrl} alt={product.alt} title={product.title} price={product.price} description={product.description}></Item>)
+                return(<Item key={product.id} item={product}></Item>)
             })}
         </ProductContainer>
     )
 }
 
 const ProductContainer = styled.div`
-    display: flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   align-items: center;
 `
-export default ItemList
+export default ItemList;

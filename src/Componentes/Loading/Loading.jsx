@@ -4,8 +4,8 @@ import loadingLogo from '../../assets/images/deco.logo.jpg';
 const Loading = () => {
     return (
         <LoadingContainer>
-            <img src={loadingLogo} class="box1"></img>
-            <img src={loadingLogo} class="box2"></img>
+            <img src={loadingLogo} class="img1"></img>
+            <img src={loadingLogo} class="img2"></img>
         </LoadingContainer>
     )
 }
@@ -18,20 +18,20 @@ const LoadingContainer = styled.div`
   margin-top:5%;
   margin-left:35%;
 
-.box1, .box2 {
+.img1, .img2 {
   height: 110px;
   width: 110px;
   border-radius:30px;
 }
 
-.box1 {
+.img1 {
   position: absolute;
   top: 0;
   left: 0;
   animation: move 2s infinite ease-in-out;
 }
 
-.box2 {
+.img2 {
   position: absolute;
   top: 0;
   left: 0;

@@ -3,24 +3,19 @@ import '../../Styles/itemBox.css'
 import Button from '@material-ui/core/Button';
 import buttonStyle from '../material-ui/Buttons'
 import ItemCount from './ItemCount';
-import { useHistory } from 'react-router';
+import {NavLink} from 'react-router-dom';
 
-const Item = ({key, pictureUrl, description, category, alt, title, price}) => {
-
-    const handleClick=(id)=>{
-        // let history = useHistory();
-        // history.push(`/detail/${id}`)
-    };
+const Item = ({item}) => {
     const classes = buttonStyle();
     return (
         <div className ="itemBox">
-            <img src={pictureUrl} alt={alt}/>
-            <span className="title">{title}</span>
-            <span className="price">{price}</span>
+                <img src={item.pictureUrl} alt={item.alt}/>
+            <span className="title">{item.title}</span>
+            <span className="price">{item.price}</span>
             <ItemCount className='itemCount'/>
-            <div className={classes.root}>
-                <Button onClick={() => {handleClick(key)}} variant="outlined">Detalles</Button>
-            </div>
+            <NavLink to={`/item/${item.id}`} style={{textDecoration:'none', color:'inherit'}}>
+                <Button variant="outlined" onClick={()=>{console.log(item.id)}}>Details</Button>
+            </NavLink>
         </div>
     )
 }
