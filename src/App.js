@@ -12,7 +12,7 @@ function App() {
         <Route exact path="/">
           <ItemListContainer className="itemListContainer" greetings="WELCOME TO DECO.ETC ONLINE SHOP!"/>
         </Route>
-        <Route exact path="/categories/:catId">
+        <Route path="/categories/:catId">
           <ItemListContainer className="itemListContainer" greetings="WELCOME TO DECO.ETC ONLINE SHOP!"/>
         </Route>
         <Route path='/item/:id'>
