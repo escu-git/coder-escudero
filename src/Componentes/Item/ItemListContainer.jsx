@@ -1,10 +1,8 @@
 import React, {useEffect, useState } from 'react';
-import ReactDom from 'react-dom';
 import '../../Styles/ItemListContainer.css';
 import ItemsArray from '../ItemsArray';
 import ItemList from './ItemList';
 import {useParams} from 'react-router-dom';
-import { getProducts } from '../../functions';
 import Loading from '../Loading/Loading'
 
 const ItemListContainer = (props) => {

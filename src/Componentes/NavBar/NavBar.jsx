@@ -12,15 +12,16 @@ import buttonStyle from '../material-ui/Buttons'
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import MainLogo from './MainLogo'
 import '../../Styles/NavBar.css';
+import MenuContainer from './navBarMenu/MenuContainer';
 
 const NavBar =  ()=> {
     const classes = buttonStyle();
 return(
     <AppBar className="appBar">
-    <Toolbar className="toolBar">
-        <IconButton className="iconButton" float="right" edge="start" color="inherit" aria-label="menu">
-        <MenuIcon />
-        </IconButton>
+    <Toolbar className="toolBar" position='relative'>
+        <MenuIcon/>
+        <IconButton className="iconButton" float="right" edge="start" color="inherit" aria-label="menu"/>
+        <MenuContainer/>
         <NavLink to="/" style={{textDecoration:'none', color:'inherit'}}><Typography variant="h6" className="completeCatalogue">Complete catalog🎨</Typography></NavLink>
         <NavLink to="/" style={{textDecoration:'none', color:'inherit'}}><MainLogo/></NavLink>
         <Button variant="outlined">LOGIN</Button>
