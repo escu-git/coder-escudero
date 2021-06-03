@@ -4,8 +4,8 @@ import loadingLogo from '../../assets/images/deco.logo.jpg';
 const Loading = () => {
     return (
         <LoadingContainer>
-            <img src={loadingLogo} class="img1"></img>
-            <img src={loadingLogo} class="img2"></img>
+            <img src={loadingLogo} className="img1"></img>
+            <img src={loadingLogo} className="img2"></img>
         </LoadingContainer>
     )
 }

@@ -3,7 +3,11 @@
     display:flex;
     flex-direction: row;
     font-family: 'Shadows Into Light', cursive;
+
+    
 }
+
+
 .toolBar{
     background-color:green;
     display:flex;
@@ -13,4 +17,5 @@
 .iconButton{
     background-color:rgb(255, 251, 0);
 }
+
 

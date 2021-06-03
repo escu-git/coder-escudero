@@ -10,12 +10,12 @@ function App() {
       <NavBar/>
       <Switch>
         <Route exact path="/">
+          <ItemListContainer className="itemListContainer"/>
+        </Route>
+        <Route exact path="/categories/:catId">
           <ItemListContainer className="itemListContainer" greetings="WELCOME TO DECO.ETC ONLINE SHOP!"/>
         </Route>
-        <Route path="/categories/:catId">
-          <ItemListContainer className="itemListContainer" greetings="WELCOME TO DECO.ETC ONLINE SHOP!"/>
-        </Route>
-        <Route path='/item/:id'>
+        <Route exact path='/item/:id'>
           <ItemDetailContainer/>
         </Route>
       </Switch>

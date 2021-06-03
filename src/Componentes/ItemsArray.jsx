@@ -5,7 +5,6 @@ import cuadro4 from '../assets/images/cuadro4.jpg';
 import cuadro5 from '../assets/images/cuadro5.jpg';
 import cuadro6 from '../assets/images/cuadro6.jpg';
 import cuadro7 from '../assets/images/cuadro7.jpg';
-import cuadro8 from '../assets/images/cuadro8.jpg';
 import cuadro9 from '../assets/images/cuadro9.jpg';
 import cuadro10 from '../assets/images/cuadro10.jpg';
 import cuadro11 from '../assets/images/cuadro11.jpg';
@@ -76,15 +75,6 @@ const itemsArray= [
         description:"Malibu Calornia, babe",
         pictureUrl:cuadro7
     },
-    // {
-    //     id:8,
-    //     title:"ABSTRACT BEAUTY",
-    //     alt:"Cuadrito8",
-    //     price:"$300",
-    //     category:"FEM",
-    //     description:"ABSTRACT IS BETTER",
-    //     pictureUrl:cuadro8
-    // },
     {
         id:9,
         title:"INTENSE CAT",

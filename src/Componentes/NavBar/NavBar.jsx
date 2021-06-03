@@ -3,7 +3,6 @@ import {
     AppBar,
     Toolbar,
     IconButton,
-    Typography,
 } from '@material-ui/core';
 import {NavLink} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -19,15 +18,14 @@ const NavBar =  ()=> {
 return(
     <AppBar className="appBar">
     <Toolbar className="toolBar" position='relative'>
-        <MenuIcon/>
+        <NavLink to="/" style={{textDecoration:'none', color:'inherit'}}><MainLogo/></NavLink>
         <IconButton className="iconButton" float="right" edge="start" color="inherit" aria-label="menu"/>
         <MenuContainer/>
-        <NavLink to="/" style={{textDecoration:'none', color:'inherit'}}><Typography variant="h6" className="completeCatalogue">Complete catalog🎨</Typography></NavLink>
-        <NavLink to="/" style={{textDecoration:'none', color:'inherit'}}><MainLogo/></NavLink>
         <Button variant="outlined">LOGIN</Button>
         <IconButton color="inherit" aria-label="add to shopping cart">
             <AddShoppingCartIcon/>
       </IconButton>
+        <MenuIcon/>
     </Toolbar>
     </AppBar>
 );
