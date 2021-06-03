@@ -5,7 +5,7 @@
 
 Deco etcétera it's a web app based and powered with React JS 👨‍💻
 
-![N|Solid](https://i.ibb.co/gdCx5Xp/Hnet-image-1.gif)
+(https://i.ibb.co/gdCx5Xp/Hnet-image-1.gif)
 
 ## Tech applied:
 Deco Etcétera uses a number of open source projects to work properly:
