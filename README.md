@@ -40,7 +40,7 @@ Escudero Pablo Martín
 |  | LINK |
 | ------ | ------ |
 | Linkedin | [Pablo Martín Escudero][linkedin] |
-| GitHub | [plugins/github/README.md][github] |
+| GitHub | [@escu-git][github] |
 | E-mail: | [Send me an e-mail!][email] |
 
 
