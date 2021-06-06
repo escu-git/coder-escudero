@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import ItemCount from '../Item/ItemCount';
 
 const ItemDetail = ({detail}) => {
 
@@ -11,6 +12,7 @@ const ItemDetail = ({detail}) => {
             <span className="detailDescription">{detail[0].description}</span>
             <span className="detailLinea">{detail[0].category}</span>
             <span className="detailPrice">{detail[0].price}</span>
+            <ItemCount className='itemCount'/>
             </div>
         </Details>
     )
@@ -24,12 +26,13 @@ const Details = styled.div`
     margin:2% auto;
     display:grid;
     grid-template-columns:repeat(4, 1fr);
-    grid-template-rows:repeat(4, 1fr);
+    grid-template-rows:repeat(5, 1fr);
     grid-template-areas:
     "picture picture title title"
     "picture picture description description"
-    "picture picture description description"
-    "picture picture linea price";
+    "picture picture linea price"
+    "picture picture stock stock"
+    "picture picture cart cart";
     text-align:center;
     }
 

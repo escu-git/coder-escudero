@@ -1,7 +1,6 @@
 import {React} from 'react'
 import '../../Styles/itemBox.css'
 import Button from '@material-ui/core/Button';
-import ItemCount from './ItemCount';
 import {NavLink} from 'react-router-dom';
 
 const Item = ({item}) => {
@@ -12,9 +11,8 @@ const Item = ({item}) => {
         </NavLink>
             <span className="title">{item.title}</span>
             <span className="price">{item.price}</span>
-            <ItemCount className='itemCount'/>
             <NavLink to={`/item/${item.id}`} style={{textDecoration:'none', color:'inherit'}}>
-                <Button variant="outlined">Details</Button>
+                <Button variant="outlined" onClick>Details</Button>
             </NavLink>
         </div>
     )

@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import Categories from './Categories';
 const MenuContainer = () => {
-    const [categories, setCategories]=useState(["RETRO", "REBEL-CAT", "FEM", "BAR", "NEW-CONCEPT"])
+    const [categories]=useState(["RETRO", "REBEL-CAT", "FEM", "BAR", "NEW-CONCEPT"])
 
     return (
         <Container>

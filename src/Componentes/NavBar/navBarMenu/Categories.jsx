@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import {NavLink} from 'react-router-dom';
-import styled from 'styled-components';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -20,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Categories({data}) {
   const classes = useStyles();
-  const [category, setCategory] = React.useState('');
-  const [open, setOpen] = React.useState(false);
+  const [category, setCategory] = useState('');
+  const [open, setOpen] = useState(false);
   const handleChange = (event) => {
       setCategory(event.target.innerText);
     };
