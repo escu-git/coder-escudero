@@ -5,7 +5,7 @@
 
 Deco etcétera it's a web app based and powered with React JS 👨‍💻
 
-##DEMO:
+## DEMO
 (https://i.ibb.co/gdCx5Xp/Hnet-image-1.gif)
 
 ## Tech applied:
@@ -20,11 +20,11 @@ Deco Etcétera uses a number of open source projects to work properly:
 - Loading screen applied in each route.
 - Shop cart in progress
 
-And of course Deco ectcétera itself is open source with a [public repository][dill] on GitHub.
+And of course Deco ectcétera itself is open source with a [public repository][githubLink] on GitHub.
 
 ## Installation
 
-Dillinger requires to be forked from [GitHub][dill]
+Deco Etcétera requires to be forked from [GitHub][githubLink]
 ```sh
 cd deco-etcetera
 npm i
@@ -49,7 +49,7 @@ Escudero Pablo Martín
 
 [//]: References:
 
-   [dill]: <https://github.com/escu-git/deco-etcetera>
+   [githubLink]: <https://github.com/escu-git/deco-etcetera>
    [linkedin]: <https://www.linkedin.com/in/pablomartinescudero/>
    [email]: <mailto:escuderopablo@hotmail.com.ar>
    [github]: <https://github.com/escu-git/deco-etcetera>
