@@ -1,8 +1,19 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import styled from 'styled-components';
 import ItemCount from '../Item/ItemCount';
+import PurchaseBtn from '../Cart/CartButtons/PurchaseBtn';
+import {Link} from 'react-router-dom';
 
 const ItemDetail = ({detail}) => {
+const[isPurchase, setIsPurchase] = useState(false);
+
+const handleClick=()=>{
+    console.log('Handling cart Btn')
+    setIsPurchase(true)
+}
+const handlePurchase=()=>{
+    console.log('Handling purchase')
+}
 
     return (
         <Details>
@@ -12,7 +23,7 @@ const ItemDetail = ({detail}) => {
             <span className="detailDescription">{detail[0].description}</span>
             <span className="detailLinea">{detail[0].category}</span>
             <span className="detailPrice">{detail[0].price}</span>
-            <ItemCount className='itemCount'/>
+            {isPurchase ? <Link to='/cart' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <ItemCount className='itemCount' fn={handleClick}/>}
             </div>
         </Details>
     )

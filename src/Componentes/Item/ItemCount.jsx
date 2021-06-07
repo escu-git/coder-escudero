@@ -1,10 +1,8 @@
-import {React, useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../../Styles/ItemCount.css';
 import Button from '@material-ui/core/Button';
 import buttonStyle from '../material-ui/Buttons'
-import PurchaseBtn from '../Cart/CartButtons/PurchaseBtn';
 import CartAddBtn from '../Cart/CartButtons/CartAddBtn';
-import {Link} from 'react-router-dom';
 
 let stock = 5;
 const ChangeStock = ()=>{
@@ -27,24 +25,13 @@ const ChangeStock = ()=>{
     return {amount, itemAdd, itemDecrease, counter}
 }
 
-    
-const ItemCount = () => {
+const ItemCount = ({fn}) => {
     const {amount, itemAdd, itemDecrease, counter} = ChangeStock();
-    const[isPurchase, setIsPurchase] = useState(false);
-
-    const handleClick=()=>{
-        console.log('Handling cart Btn')
-        setIsPurchase(true)
-    }
-    const handlePurchase=()=>{
-        console.log('Handling purchase')
-
-    }
     const classes = buttonStyle();
 
-    const elements=[]; //Array containing add/remove items buttons. Applied in 'isPurchase' ternary conditional later.
-    elements.push(
-    <div className = "buttons">
+return (
+    <div className="itemCount">
+        <div className = "buttons">
         <div className={classes.root}>
             <Button variant="outlined" color="primary" onClick={()=>itemDecrease(-1)}>-</Button>
         </div>
@@ -52,15 +39,10 @@ const ItemCount = () => {
         <div className={classes.root}>
             <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>+</Button>
         </div>
+        <CartAddBtn fn={fn}/>
+    </div>
         <span className="stock">Available stock: {amount}</span>
-    </div>)
-
-    return (
-        <div className="itemCount">
-            {isPurchase ? <></> : elements}
-            {isPurchase ? <Link to='/cart'style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <CartAddBtn fn={handleClick}/>}
-        </div>
-    )
-}
+    </div>
+)};
 
 export default ItemCount;
