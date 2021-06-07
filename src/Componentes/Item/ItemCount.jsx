@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import buttonStyle from '../material-ui/Buttons'
 import PurchaseBtn from '../Cart/CartButtons/PurchaseBtn';
 import CartAddBtn from '../Cart/CartButtons/CartAddBtn';
+import {Link} from 'react-router-dom';
 
 let stock = 5;
 const ChangeStock = ()=>{
@@ -41,23 +42,23 @@ const ItemCount = () => {
     }
     const classes = buttonStyle();
 
-    const elements=[];
-    elements.push(<div className = "buttons">
+    const elements=[]; //Array containing add/remove items buttons. Applied in 'isPurchase' ternary conditional later.
+    elements.push(
+    <div className = "buttons">
+        <div className={classes.root}>
+            <Button variant="outlined" color="primary" onClick={()=>itemDecrease(-1)}>-</Button>
+        </div>
+        <span className="counter">{counter}</span>
+        <div className={classes.root}>
+            <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>+</Button>
+        </div>
+        <span className="stock">Available stock: {amount}</span>
+    </div>)
 
-    <div className={classes.root}>
-        <Button variant="outlined" color="primary" onClick={()=>itemDecrease(-1)}>-</Button>
-    </div>
-    <span className="counter">{counter}</span>
-    <div className={classes.root}>
-     <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>+</Button>
-     {/* <span className="stock">Available stock: {amount}</span> */}
-  </div>
-</div>)
     return (
         <div className="itemCount">
             {isPurchase ? <></> : elements}
-            {isPurchase ? <PurchaseBtn fn={handlePurchase}/> : <CartAddBtn fn={handleClick}/>}
-
+            {isPurchase ? <Link to='/cart'style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <CartAddBtn fn={handleClick}/>}
         </div>
     )
 }
