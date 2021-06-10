@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ItemCount from '../Item/ItemCount';
 import PurchaseBtn from '../Cart/CartButtons/PurchaseBtn';
 import {Link} from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const ItemDetail = ({detail}) => {
 const[isPurchase, setIsPurchase] = useState(false);
@@ -14,6 +15,8 @@ const handleClick=()=>{
 const handlePurchase=()=>{
     console.log('Handling purchase')
 }
+
+if(isPurchase ===null) return(<Loading></Loading>)
 
     return (
         <Details>
