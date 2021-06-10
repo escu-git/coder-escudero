@@ -6,16 +6,23 @@ export const useCart =()=> useContext(CartContext);
 const INITIAL_STATE={addedItems:[{item:'Cuadrito', price:150, quantity:0}],
         totalPrice:0
 }
+
+const newAddedItems = () =>{
+
+}
+
 export const CartProvider = ({children}) =>{
     const [cart, setCart]=useState(INITIAL_STATE)
 
     //Cart functions:   
 
-    const addItem = (detail)=>{
-           
-        setCart({...cart, addedItems:{item:detail[0].title, price:detail[0].price, quantity:2}} )
-    return console.log(cart)   
+    const addItem = (item)=>{
+        console.log(item)
+        setCart({...cart, addedItems:item})
+        console.log(cart)
+    return 
     }
+    
 
     const removeItem = ()=>{
         console.log('removeItem clicked')

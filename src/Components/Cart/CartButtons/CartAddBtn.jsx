@@ -2,10 +2,10 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 
 
-const CartAddBtn = ({fn}) => {
+const CartAddBtn = ({fn, itemData, quantity}) => {
     return (
         <div>
-            <Button variant="outlined" color="default" onClick={fn}>ADD TO CART</Button>
+            <Button variant="outlined" color="default" onClick={()=>fn(itemData, quantity)}>ADD TO CART</Button>
         </div>
     )
 }

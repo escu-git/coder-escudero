@@ -26,7 +26,7 @@ const ChangeStock = ()=>{
     return {amount, itemAdd, itemDecrease, counter}
 }
 
-const ItemCount = ({fn}) => {
+const ItemCount = ({fn, itemData}) => {
     const {amount, itemAdd, itemDecrease, counter} = ChangeStock();
     const classes = buttonStyle();
     const cart = useCart()
@@ -41,7 +41,7 @@ return (
         <div className={classes.root}>
             <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>+</Button>
         </div>
-        <CartAddBtn fn={fn} />
+        <CartAddBtn fn={fn} itemData={itemData} quantity={counter}/>
     </div>
         <span className="stock">Available stock: {amount}</span>
     </div>
