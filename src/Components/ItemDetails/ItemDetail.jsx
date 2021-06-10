@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import ItemCount from '../Item/ItemCount';
 import PurchaseBtn from '../Cart/CartButtons/PurchaseBtn';
 import {Link} from 'react-router-dom';
-import Loading from '../Loading/Loading';
 import { useCart } from '../Contexts/CartContext';
 
 const ItemDetail = ({detail}) => {
