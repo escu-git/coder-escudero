@@ -9,9 +9,9 @@ const ItemDetail = ({detail}) => {
 const[isPurchase, setIsPurchase] = useState(false);
 const cart = useCart()
 
-const addNewProduct=()=>{
-    setIsPurchase(true)
-    cart.addItem({name:detail.title, price:detail.price, quantity:1})
+const addNewProduct=(detail)=>{
+    console.log(detail)
+    cart.addItem(detail)
     
 }
 const handlePurchase=()=>{
@@ -27,7 +27,7 @@ const handlePurchase=()=>{
             <span className="detailDescription">{detail[0].description}</span>
             <span className="detailLinea">{detail[0].category}</span>
             <span className="detailPrice">{detail[0].price}</span>
-            {isPurchase ? <Link to='/cart' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <ItemCount className='itemCount' fn={addNewProduct} data={detail}/>}
+            {isPurchase ? <Link to='/cart' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <ItemCount className='itemCount' fn={addNewProduct} data={detail[0]}/>}
             </div>
         </Details>
     )

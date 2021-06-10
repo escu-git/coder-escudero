@@ -3,17 +3,18 @@ import {useState, createContext, useContext} from 'react';
 export const CartContext = createContext();
 export const useCart =()=> useContext(CartContext);
 
-const INITIAL_STATE={items:[{name:'Cuadrito', price:150, quantity:0}],
+const INITIAL_STATE={addedItems:[{item:'Cuadrito', price:150, quantity:0}],
         totalPrice:0
 }
 export const CartProvider = ({children}) =>{
-    const [shopCart, setShopCart]=useState(INITIAL_STATE)
-    //Cart functions:
+    const [cart, setCart]=useState(INITIAL_STATE)
+
+    //Cart functions:   
 
     const addItem = (detail)=>{
            
-        setShopCart({...shopCart, items:{name:'cuadro', price:200, quantity:2}} )
-    return console.log(shopCart)   
+        setCart({...cart, addedItems:{item:detail[0].title, price:detail[0].price, quantity:2}} )
+    return console.log(cart)   
     }
 
     const removeItem = ()=>{
@@ -21,13 +22,14 @@ export const CartProvider = ({children}) =>{
     };
 
     const clearCart = ()=>{
-        setShopCart(INITIAL_STATE)
+        setCart(INITIAL_STATE)
         console.log('clearCart clicked')
+        console.log(cart)
     };
 
     const isInCart=()=>{
     console.log('isInCart clicked')
     };
 
-    return <CartContext.Provider value={{shopCart, addItem, removeItem, clearCart, isInCart}}>{children}</CartContext.Provider> 
+    return <CartContext.Provider value={{cart, addItem, removeItem, clearCart, isInCart}}>{children}</CartContext.Provider> 
 }
