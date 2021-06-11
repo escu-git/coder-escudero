@@ -11,8 +11,9 @@ const cart = useCart()
 
 const addNewProduct=(itemData, amount)=>{
     // setIsPurchase(true)
-    const details = {itemName:itemData[0].title, price:itemData[0].price, quantity:amount}
+    const details = itemData[0]
     cart.addItem(details)
+    console.log(details)
 }
 const handlePurchase=()=>{
     console.log('Handling purchase')
