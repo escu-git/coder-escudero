@@ -1,22 +1,23 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
 import ItemCount from '../Item/ItemCount';
 import PurchaseBtn from '../Cart/CartButtons/PurchaseBtn';
 import {Link} from 'react-router-dom';
-import Loading from '../Loading/Loading';
+import { useCart } from '../Contexts/CartContext';
 
 const ItemDetail = ({detail}) => {
 const[isPurchase, setIsPurchase] = useState(false);
+const cart = useCart()
 
-const handleClick=()=>{
-    console.log('Handling cart Btn')
-    setIsPurchase(true)
+const addNewProduct=(itemData, amount)=>{
+    // setIsPurchase(true)
+    const details = {itemName:itemData[0].title, price:itemData[0].price, quantity:amount}
+    cart.addItem(details)
 }
 const handlePurchase=()=>{
     console.log('Handling purchase')
+    
 }
-
-if(isPurchase ===null) return(<Loading></Loading>)
 
     return (
         <Details>
@@ -26,7 +27,7 @@ if(isPurchase ===null) return(<Loading></Loading>)
             <span className="detailDescription">{detail[0].description}</span>
             <span className="detailLinea">{detail[0].category}</span>
             <span className="detailPrice">{detail[0].price}</span>
-            {isPurchase ? <Link to='/cart' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <ItemCount className='itemCount' fn={handleClick}/>}
+            {isPurchase ? <Link to='/cart' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <ItemCount className='itemCount' fn={addNewProduct} itemData={detail}/>}
             </div>
         </Details>
     )

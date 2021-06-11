@@ -7,14 +7,13 @@ import {
 import {NavLink} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
-import buttonStyle from '../material-ui/Buttons'
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import MainLogo from './MainLogo'
 import '../../Styles/NavBar.css';
 import MenuContainer from './navBarMenu/MenuContainer';
 
 const NavBar =  ()=> {
-    const classes = buttonStyle();
+
 return(
     <AppBar className="appBar">
     <Toolbar className="toolBar" position='relative'>

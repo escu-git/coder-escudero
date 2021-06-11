@@ -16,7 +16,7 @@ const itemsArray= [
         id:1,
         title:"NASA",
         alt:"Cuadrito1",
-        price:"$300",
+        price:300,
         category:"RETRO",
         description:"Cuadrito espacial",
         pictureUrl:cuadro1
@@ -25,7 +25,7 @@ const itemsArray= [
         id:2,
         title:"CACTUS",
         alt:"Cuadrito2",
-        price:"$300",
+        price:300,
         category:"RETRO",
         description:"Cuadrito desertico",
         pictureUrl:cuadro2
@@ -34,7 +34,7 @@ const itemsArray= [
         id:3,
         title:"FEM POWAH",
         alt:"Cuadrito3",
-        price:"$300",
+        price:300,
         category:"FEM",
         description:"Cuadrito fem power",
         pictureUrl:cuadro3
@@ -43,7 +43,7 @@ const itemsArray= [
         id:4,
         title:"FRESH BEER",
         alt:"Cuadrito4",
-        price:"$300",
+        price:300,
         category:"BAR",
         description:"Best in town",
         pictureUrl:cuadro4
@@ -52,7 +52,7 @@ const itemsArray= [
         id:5,
         title:"LYNN CROSBIE",
         alt:"Cuadrito5",
-        price:"$300",
+        price:300,
         category:"FEM",
         description:"Where did you sleep last night?",
         pictureUrl:cuadro5
@@ -61,7 +61,7 @@ const itemsArray= [
         id:6,
         title:"Be HAPPY",
         alt:"Cuadrito5",
-        price:"$300",
+        price:300,
         category:"RETRO",
         description:"Don't forget to be happy, you deserve it",
         pictureUrl:cuadro6
@@ -70,7 +70,7 @@ const itemsArray= [
         id:7,
         title:"MALIBU",
         alt:"Cuadrito7",
-        price:"$300",
+        price:300,
         category:"RETRO",
         description:"Malibu Calornia, babe",
         pictureUrl:cuadro7
@@ -79,7 +79,7 @@ const itemsArray= [
         id:9,
         title:"INTENSE CAT",
         alt:"Cuadrito9",
-        price:"$300",
+        price:300,
         category:"REBEL-CAT",
         description:"Some people thought that he was too intense.",
         pictureUrl:cuadro9
@@ -88,7 +88,7 @@ const itemsArray= [
         id:10,
         title:"DOWNLOADING",
         alt:"Cuadrito10",
-        price:"$300",
+        price:300,
         category:"NEW-CONCEPT",
         description:"Chill, just download it",
         pictureUrl:cuadro10
@@ -97,7 +97,7 @@ const itemsArray= [
         id:11,
         title:"WHAT A NIGHT",
         alt:"Cuadrito11",
-        price:"$300",
+        price:300,
         category:"REBEL-CAT",
         description:"It was definitely time to call it a night",
         pictureUrl:cuadro11
@@ -106,7 +106,7 @@ const itemsArray= [
         id:12,
         title:"BELIEVE",
         alt:"Cuadrito12",
-        price:"$300",
+        price:300,
         category:"REBEL-CAT",
         description:"BELIEVE IN REVOLUTION",
         pictureUrl:cuadro12
@@ -115,7 +115,7 @@ const itemsArray= [
         id:13,
         title:"CASSETTE",
         alt:"Cuadrito13",
-        price:"$300",
+        price:300,
         category:"RETRO",
         description:"You are definitely getting older",
         pictureUrl:cuadro13
