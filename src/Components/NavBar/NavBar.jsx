@@ -15,7 +15,7 @@ import { useCart } from '../Contexts/CartContext';
 
 const NavBar =  ()=> {
 const cart = useCart()
-console.log(cart.cart)
+
 return(
     <AppBar className="appBar">
     <Toolbar className="toolBar" position='relative'>

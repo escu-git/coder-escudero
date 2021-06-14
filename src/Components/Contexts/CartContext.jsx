@@ -5,11 +5,11 @@ export const useCart =()=> useContext(CartContext);
 
 const INITIAL_STATE={addedItems:[], totalPrice: 0};
 
-const totalSum = (cart, item) =>{
-    const value = cart += (item.price * item.quantity);
-    return value
-}
 
+const totalSum = (cart) =>{
+
+    return cart.addedItems.reduce(function (a,b){return a.price + b.price},0);
+}
 
 
 export const CartProvider = ({children}) =>{
@@ -19,12 +19,13 @@ export const CartProvider = ({children}) =>{
 
     const addItem = (item)=>{
         const itemInCart = cart.addedItems.find((cartProduct)=> cartProduct.id === item.id);
-
+           
         if(itemInCart){
             itemInCart.quantity += item.quantity
+            console.log(typeof itemIncart)
             setCart({...cart})
         }else{
-            setCart({...cart, addedItems:[...cart.addedItems, item], totalPrice: totalSum(cart.totalPrice, item)})
+            setCart({...cart, addedItems:[...cart.addedItems, item], totalPrice: totalSum(cart)})
         }
     }
 
@@ -33,7 +34,8 @@ export const CartProvider = ({children}) =>{
         const itemInCart = cart.addedItems.find((cartProduct)=> cartProduct.id === item.id);
         if(itemInCart){
         const itemToDelete= cart.addedItems.findIndex(itemInCart);
-        cart.addedItems.splice(itemToDelete)
+        const deleted = cart.addedItems.splice(itemToDelete)
+        console.log(deleted)
         }
     };
 
@@ -50,5 +52,5 @@ export const CartProvider = ({children}) =>{
     };
 
     console.log(cart)
-    return <CartContext.Provider value={{cart, addItem, removeItem, clearCart, isInCart}}>{children}</CartContext.Provider> 
+    return <CartContext.Provider value={{cart, addItem, removeItem, clearCart, isInCart, totalSum}}>{children}</CartContext.Provider> 
 }
