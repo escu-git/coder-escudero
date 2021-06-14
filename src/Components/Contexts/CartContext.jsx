@@ -10,7 +10,7 @@ const totalSum = (cart, item) =>{
     return cart.addedItems.reduce(function (a,b){
         console.log('ingresó totalSum')
         console.log(`Esto es a:${a} y esto es b: ${b.price} y ${b.quantity}`)
-        return a + (b.price * b.quantity)},0);   
+        return a + (b.price * b.quantity)},0) + item.price * item.quantity;   
 }
 
 
@@ -30,14 +30,15 @@ export const CartProvider = ({children}) =>{
         }
     }
 
-    const removeItem = (item)=>{
-        console.log('removeItem clicked')
-        const itemInCart = cart.addedItems.find((cartProduct)=> cartProduct.id === item.id);
-        if(itemInCart){
-        const itemToDelete= cart.addedItems.findIndex(itemInCart);
-        const deleted = cart.addedItems.splice(itemToDelete)
-        console.log(deleted)
-        }
+    const removeItem = (detail)=>{
+        console.log(detail)
+        const sum = totalSum(cart, detail)
+        const idToRemove = cart.addedItems.find((cartProduct)=> cartProduct.id === detail.id);
+        console.log(idToRemove)
+        const itemIndex = cart.addedItems.indexOf(idToRemove)
+        const newCart = cart.addedItems.splice(itemIndex);
+        console.log(newCart)
+        setCart({...cart, addedItems:[...cart.addedItems, newCart], totalPrice:sum})
     };
 
     const clearCart = ()=>{
@@ -46,7 +47,7 @@ export const CartProvider = ({children}) =>{
     };
 
     const isInCart=(item)=>{
-    const itemInCart = cart.addedItems.find((cartProduct)=> cartProduct.id === item.id);
+    const itemInCart = cart.find((cartProduct)=> cartProduct.id === item.id);
     if(itemInCart){}
     itemInCart ? console.log('This item is already in your cart') : console.log('')
     console.log('isInCart clicked')
