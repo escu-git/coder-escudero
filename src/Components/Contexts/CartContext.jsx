@@ -6,9 +6,11 @@ export const useCart =()=> useContext(CartContext);
 const INITIAL_STATE={addedItems:[], totalPrice: 0};
 
 
-const totalSum = (cart) =>{
-
-    return cart.addedItems.reduce(function (a,b){return a.price + b.price},0);
+const totalSum = (cart, item) =>{
+    return cart.addedItems.reduce(function (a,b){
+        console.log('ingresó totalSum')
+        console.log(`Esto es a:${a} y esto es b: ${b.price} y ${b.quantity}`)
+        return a + (b.price * b.quantity)},0);   
 }
 
 
@@ -19,13 +21,12 @@ export const CartProvider = ({children}) =>{
 
     const addItem = (item)=>{
         const itemInCart = cart.addedItems.find((cartProduct)=> cartProduct.id === item.id);
-           
+        const sum = totalSum(cart, item)
         if(itemInCart){
             itemInCart.quantity += item.quantity
-            console.log(typeof itemIncart)
-            setCart({...cart})
+            setCart({...cart, totalPrice:sum})
         }else{
-            setCart({...cart, addedItems:[...cart.addedItems, item], totalPrice: totalSum(cart)})
+            setCart({...cart, addedItems:[...cart.addedItems, item], totalPrice:sum})
         }
     }
 
