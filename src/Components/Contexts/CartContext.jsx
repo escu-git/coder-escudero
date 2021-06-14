@@ -3,19 +3,14 @@ import {useState, createContext, useContext} from 'react';
 export const CartContext = createContext();
 export const useCart =()=> useContext(CartContext);
 
-const INITIAL_STATE={addedItems:[], totalPrice:null, totalItems:null}
+const INITIAL_STATE={addedItems:[], totalPrice: 0};
 
-const totalSum = (array, x) =>{
-    const value = x===1?array.reduce(function (acc, obj){return acc + obj.price;},0):array.reduce(function (acc, obj){return acc + obj.quantity;},0)
-    console.log(array)
+const totalSum = (cart, item) =>{
+    const value = cart += (item.price * item.quantity);
     return value
 }
 
-const newProduct =(item, cart)=>{
-    if(cart.addedItems.some((addedItem)=>addedItem.title === item.title)){
-        
-    }
-}
+
 
 export const CartProvider = ({children}) =>{
     const [cart, setCart]=useState(INITIAL_STATE)
@@ -23,12 +18,23 @@ export const CartProvider = ({children}) =>{
     //Cart functions:   
 
     const addItem = (item)=>{
-        setCart({...cart, addedItems:[...cart.addedItems, newProduct(item,cart)], totalPrice: totalSum(cart.addedItems, 1), totalItems:totalSum(cart.addedItems, 2)})
-        return console.log(cart)
+        const itemInCart = cart.addedItems.find((cartProduct)=> cartProduct.id === item.id);
+
+        if(itemInCart){
+            itemInCart.quantity += item.quantity
+            setCart({...cart})
+        }else{
+            setCart({...cart, addedItems:[...cart.addedItems, item], totalPrice: totalSum(cart.totalPrice, item)})
+        }
     }
 
-    const removeItem = ()=>{
+    const removeItem = (item)=>{
         console.log('removeItem clicked')
+        const itemInCart = cart.addedItems.find((cartProduct)=> cartProduct.id === item.id);
+        if(itemInCart){
+        const itemToDelete= cart.addedItems.findIndex(itemInCart);
+        cart.addedItems.splice(itemToDelete)
+        }
     };
 
     const clearCart = ()=>{
@@ -36,9 +42,13 @@ export const CartProvider = ({children}) =>{
         console.log('clearCart clicked')
     };
 
-    const isInCart=()=>{
+    const isInCart=(item)=>{
+    const itemInCart = cart.addedItems.find((cartProduct)=> cartProduct.id === item.id);
+    if(itemInCart){}
+    itemInCart ? console.log('This item is already in your cart') : console.log('')
     console.log('isInCart clicked')
     };
 
+    console.log(cart)
     return <CartContext.Provider value={{cart, addItem, removeItem, clearCart, isInCart}}>{children}</CartContext.Provider> 
 }

@@ -5,7 +5,7 @@ import mainLogo from '../../assets/images/deco.logo.jpg';
 const MainLogo = () => {
     return (
         <MainLogoContainer>
-        <img className="mainLogo" src={mainLogo}/>
+        <img className="mainLogo" src={mainLogo} alt="MainLogo"/>
         <span>DECO ETCÉTERA</span>
         </MainLogoContainer>
     )
