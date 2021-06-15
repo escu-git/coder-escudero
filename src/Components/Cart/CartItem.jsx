@@ -1,21 +1,27 @@
 import React from 'react'
 import styled from 'styled-components';
 import {useCart} from '../Contexts/CartContext';
-const CartItem = (details) => {
+import ItemCount from '../Item/ItemCount';
+
+const CartItem = ({details}) => {
     const cart = useCart()
     return (
         <CartItemDetails>
-            <span>{details.title}</span>
             <img src={details.pictureUrl} alt={details.alt}/>
-            <button onClick={()=>cart.removeItem(details.id)}>BORRAR ITEM</button>
+            <div>
+            <span>{details.title}</span>
+
+            </div>
+            <button onClick={()=>cart.removeItem(details)}>BORRAR ITEM</button>
         </CartItemDetails>
     )
 }
 
 const CartItemDetails = styled.div`
-width:100%
+width:100%;
+height:100%;
 img{
-    width:300px
+    width:300px;
     height:300px;
 }
 
