@@ -8,11 +8,13 @@ const INITIAL_STATE={addedItems:[], totalPrice: 0};
 
 const totalSum = (cart, item) =>{
     return cart.addedItems.reduce(function (a,b){
-        console.log('ingresó totalSum')
-        console.log(`Esto es a:${a} y esto es b: ${b.price} y ${b.quantity}`)
         return a + (b.price * b.quantity)},0) + item.price * item.quantity;   
 }
 
+const substractTotalSum = (cart, item) =>{
+    return cart.addedItems.reduce(function (a,b){
+        return a + (b.price * b.quantity)},0) - item.price * item.quantity;   
+}
 
 export const CartProvider = ({children}) =>{
     const [cart, setCart]=useState(INITIAL_STATE)
@@ -31,28 +33,22 @@ export const CartProvider = ({children}) =>{
     }
 
     const removeItem = (detail)=>{
-        console.log(detail)
-        const sum = totalSum(cart, detail)
         const idToRemove = cart.addedItems.find((cartProduct)=> cartProduct.id === detail.id);
-        console.log(idToRemove)
-        const itemIndex = cart.addedItems.indexOf(idToRemove)
-        const newCart = cart.addedItems.splice(itemIndex);
-        console.log(newCart)
-        setCart({...cart, addedItems:[...cart.addedItems, newCart], totalPrice:sum})
+        if(idToRemove){
+            const newCart = cart.addedItems.filter(function(x){return x.id !==idToRemove.id});
+            const sum = substractTotalSum(cart, idToRemove)
+            setCart({...cart, addedItems:newCart, totalPrice:sum})
+        }else{
+            alert(`Item ${detail.title} is not in your cart`)
+        }
     };
 
     const clearCart = ()=>{
         setCart(INITIAL_STATE)
-        console.log('clearCart clicked')
+        console.log('Cart correctly cleared!')
     };
 
-    const isInCart=(item)=>{
-    const itemInCart = cart.find((cartProduct)=> cartProduct.id === item.id);
-    if(itemInCart){}
-    itemInCart ? console.log('This item is already in your cart') : console.log('')
-    console.log('isInCart clicked')
-    };
 
     console.log(cart)
-    return <CartContext.Provider value={{cart, addItem, removeItem, clearCart, isInCart, totalSum}}>{children}</CartContext.Provider> 
+    return <CartContext.Provider value={{cart, addItem, removeItem, clearCart,totalSum}}>{children}</CartContext.Provider> 
 }

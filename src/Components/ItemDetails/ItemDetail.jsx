@@ -28,8 +28,10 @@ const handlePurchase=()=>{
             <span className="detailLinea">{detail[0].category}</span>
             <span className="detailPrice">{detail[0].price}</span>
             {isPurchase ? <Link to='/cart' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <ItemCount className='itemCount' fn={addNewProduct} itemData={detail}/>}
-            <button onClick={()=>cart.removeItem(detail[0])}>BORRAR</button>
             </div>
+            Te dejo la botonera para que puedas probarlo:
+            <button onClick={()=>cart.removeItem(detail[0])}>BORRAR ITEM</button>
+            <button onClick={()=>cart.clearCart()}>LIMPIAR CARRITO</button>
         </Details>
     )
 }
