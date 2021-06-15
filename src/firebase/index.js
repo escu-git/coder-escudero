@@ -1,13 +1,14 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import API_KEY from '../../'
 
 const firebaseConfig = {
-    apiKey: API_KEY,
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "deco-etcetera.firebaseapp.com",
     projectId: "deco-etcetera",
     storageBucket: "deco-etcetera.appspot.com",
-    messagingSenderId: "139259702212",
-    appId: "1:139259702212:web:b4f2ba3ba406c2160d9291"
+    messagingSenderId: process.env.REACT-APP_MESSAGE_ID,
+    appId: process.env.REACT_APP_API_ID
   };
 
   const app = firebase.initializeApp(firebaseConfig);

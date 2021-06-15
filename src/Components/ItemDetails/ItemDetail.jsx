@@ -10,13 +10,13 @@ const[isPurchase, setIsPurchase] = useState(false);
 const cart = useCart()
 
 const addNewProduct=(itemData, amount)=>{
-    // setIsPurchase(true)
-    const details = {itemName:itemData[0].title, price:itemData[0].price, quantity:amount}
+    setIsPurchase(false)
+    const details = {...itemData[0], quantity:amount}
     cart.addItem(details)
 }
+
 const handlePurchase=()=>{
-    console.log('Handling purchase')
-    
+    console.log('Handling purchase')    
 }
 
     return (
@@ -29,6 +29,9 @@ const handlePurchase=()=>{
             <span className="detailPrice">{detail[0].price}</span>
             {isPurchase ? <Link to='/cart' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <ItemCount className='itemCount' fn={addNewProduct} itemData={detail}/>}
             </div>
+            Te dejo la botonera para que puedas probarlo:
+            <button onClick={()=>cart.removeItem(detail[0])}>BORRAR ITEM</button>
+            <button onClick={()=>cart.clearCart()}>LIMPIAR CARRITO</button>
         </Details>
     )
 }

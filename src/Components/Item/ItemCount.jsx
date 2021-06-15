@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import '../../Styles/ItemCount.css';
 import Button from '@material-ui/core/Button';
 import buttonStyle from '../material-ui/Buttons'
 import CartAddBtn from '../Cart/CartButtons/CartAddBtn';
-import { useCart } from '../Contexts/CartContext';
 
 let stock = 5;
 const ChangeStock = ()=>{
@@ -29,7 +28,6 @@ const ChangeStock = ()=>{
 const ItemCount = ({fn, itemData}) => {
     const {amount, itemAdd, itemDecrease, counter} = ChangeStock();
     const classes = buttonStyle();
-    const cart = useCart()
 
 return (
     <div className="itemCount">
@@ -41,7 +39,7 @@ return (
         <div className={classes.root}>
             <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>+</Button>
         </div>
-        <CartAddBtn fn={fn} itemData={itemData} quantity={counter}/>
+        <CartAddBtn fn={fn} itemData={itemData} amount={counter}/>
     </div>
         <span className="stock">Available stock: {amount}</span>
     </div>
