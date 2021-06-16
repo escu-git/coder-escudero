@@ -7,7 +7,7 @@ import {
 import {NavLink} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import Logo from '../Cart/CartWidget'
 import MainLogo from './MainLogo'
 import '../../Styles/NavBar.css';
 import MenuContainer from './navBarMenu/MenuContainer';
@@ -24,7 +24,7 @@ return(
         <MenuContainer/>
         <Button variant="outlined">LOGIN</Button>
          <IconButton color="inherit" aria-label="add to shopping cart">
-        <NavLink to='/cart' style={{display: cart.cart.addedItems.length ===0 ? 'none' : 'block', textDecoration: 'none', color:'inherit'}} ><AddShoppingCartIcon/></NavLink>
+        <NavLink to='/cart' style={{display: cart.cart.addedItems.length ===0 ? 'none' : 'block', textDecoration: 'none', color:'inherit'}} ><Logo/></NavLink>
       </IconButton>
         <MenuIcon/>
     </Toolbar>
