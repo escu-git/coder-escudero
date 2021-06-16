@@ -7,15 +7,11 @@
     
 }
 
-
 .toolBar{
     background-color:green;
     display:flex;
     justify-content: space-between;
 
-}
-.iconButton{
-    background-color:rgb(255, 251, 0);
 }
 
 
