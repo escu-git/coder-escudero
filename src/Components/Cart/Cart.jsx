@@ -1,9 +1,7 @@
-import React,{useState, useEffect} from 'react';
+import React from 'react';
 import {useCart} from '../Contexts/CartContext';
 import CartItem from './CartItem';
 import styled from 'styled-components';
-import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
-import EmptyCart from './EmptyCart';
 
 const Cart = () => {
     const cart = useCart()
@@ -14,7 +12,6 @@ const Cart = () => {
         <CartSection>
             <h1>CART</h1>
             {cartArray.map((x)=>{
-                {console.log(x)}
                 return <CartItem key={x.id} details={x}></CartItem>
             })}
             <div className="cartDetails">

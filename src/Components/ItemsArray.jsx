@@ -72,7 +72,7 @@ const itemsArray= [
         alt:"Cuadrito7",
         price:300,
         category:"RETRO",
-        description:"Malibu Calornia, babe",
+        description:"Malibu California, babe",
         pictureUrl:cuadro7
     },
     {
