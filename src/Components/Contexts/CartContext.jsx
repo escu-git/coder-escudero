@@ -3,8 +3,7 @@ import {useState, createContext, useContext} from 'react';
 export const CartContext = createContext();
 export const useCart =()=> useContext(CartContext);
 
-const INITIAL_STATE={addedItems:[], totalPrice: 0};
-
+const INITIAL_STATE={addedItems:[], totalPrice: 0, totalQuantity:0};
 
 const totalSum = (cart, item) =>{
     return cart.addedItems.reduce(function (a,b){
@@ -16,6 +15,16 @@ const substractTotalSum = (cart, item) =>{
         return a + (b.price * b.quantity)},0) - item.price * item.quantity;   
 }
 
+const sumQuantity= (cart, item) =>{
+    return cart.addedItems.reduce(function (a,b){
+        return a + b.quantity},0) + item.quantity;   
+}
+
+const substractQuantity= (cart, item) =>{
+    return cart.addedItems.reduce(function (a,b){
+        return a + b.quantity},0) - item.quantity;   
+}
+
 export const CartProvider = ({children}) =>{
     const [cart, setCart]=useState(INITIAL_STATE)
 
@@ -24,11 +33,12 @@ export const CartProvider = ({children}) =>{
     const addItem = (item)=>{
         const itemInCart = cart.addedItems.find((cartProduct)=> cartProduct.id === item.id);
         const sum = totalSum(cart, item)
+        const q = sumQuantity(cart, item)
         if(itemInCart){
             itemInCart.quantity += item.quantity
             setCart({...cart, totalPrice:sum})
         }else{
-            setCart({...cart, addedItems:[...cart.addedItems, item], totalPrice:sum})
+            setCart({...cart, addedItems:[...cart.addedItems, item], totalPrice:sum, totalQuantity:q})
         }
     }
 
@@ -37,7 +47,8 @@ export const CartProvider = ({children}) =>{
         if(idToRemove){
             const newCart = cart.addedItems.filter(function(x){return x.id !==idToRemove.id});
             const sum = substractTotalSum(cart, idToRemove)
-            setCart({...cart, addedItems:newCart, totalPrice:sum})
+            const q = substractQuantity(cart, idToRemove)
+            setCart({...cart, addedItems:newCart, totalPrice:sum, totalQuantity:q})
         }else{
             alert(`Item ${detail.title} is not in your cart`)
         }
@@ -47,8 +58,7 @@ export const CartProvider = ({children}) =>{
         setCart(INITIAL_STATE)
         console.log('Cart correctly cleared!')
     };
-
-
+    console.log(cart.totalQuantity)
     console.log(cart)
-    return <CartContext.Provider value={{cart, addItem, removeItem, clearCart,totalSum}}>{children}</CartContext.Provider> 
+    return <CartContext.Provider value={{cart, addItem, removeItem, clearCart,totalSum, sumQuantity, substractQuantity}}>{children}</CartContext.Provider> 
 }
