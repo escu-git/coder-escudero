@@ -6,7 +6,7 @@ const firebaseConfig = {
     authDomain: "deco-etcetera.firebaseapp.com",
     projectId: "deco-etcetera",
     storageBucket: "deco-etcetera.appspot.com",
-    messagingSenderId: process.env.REACT-APP_MESSAGE_ID,
+    messagingSenderId: process.env.REACT_APP_MESSAGE_ID,
     appId: process.env.REACT_APP_API_ID
   };
 

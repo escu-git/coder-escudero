@@ -22,11 +22,11 @@ const handlePurchase=()=>{
     return (
         <Details>
         <div className={detail!==0 ? "detailDiv" : null}>
-            <img src={detail[0].pictureUrl} alt={detail[0].alt}/>
-            <span className="detailTitle">{detail[0].title}</span>
-            <span className="detailDescription">{detail[0].description}</span>
-            <span className="detailLinea">{detail[0].category}</span>
-            <span className="detailPrice">{detail[0].price}</span>
+            <img src={detail.image} alt={detail.alt}/>
+            <span className="detailTitle">{detail.title}</span>
+            <span className="detailDescription">{detail.description}</span>
+            <span className="detailLinea">{detail.category}</span>
+            <span className="detailPrice">{detail.price}</span>
             {isPurchase ? <Link to='/cart' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <ItemCount className='itemCount' fn={addNewProduct} itemData={detail}/>}
             </div>
         </Details>

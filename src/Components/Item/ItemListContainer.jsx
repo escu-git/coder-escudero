@@ -1,23 +1,23 @@
 import React, {useEffect, useState } from 'react';
 import '../../Styles/ItemListContainer.css';
-import ItemsArray from '../ItemsArray';
 import ItemList from './ItemList';
 import {useParams} from 'react-router-dom';
-import Loading from '../Loading/Loading'
+import Loading from '../Loading/Loading';
+import {getFirestore} from '../../firebase';
 
 const ItemListContainer = (props) => {
     const {catId} = useParams();
+    const [loading, setLoading]=useState(true);
     const[products, setProducts]=useState(null);
-    const [loading, setLoading]=useState(null);
     useEffect(()=>{
-    setLoading(true)
-        const promise = new Promise((resolve, reject)=>{
-            setTimeout(()=>{
-                resolve(ItemsArray);
-            },2000);
-        });
-        catId ? promise.then(res => setProducts(res.filter(i => i.category=== catId))) : promise.then(res => setProducts(res))
-        promise.then(()=>setLoading(false));
+        const db = getFirestore();
+        const itemsCollection = db.collection('items');
+        itemsCollection.get().then((item)=>{
+            setProducts(item.docs.map(doc=>doc.data()));
+            console.log(item.docs.map(doc=>doc.data()))
+        }).finally(()=>{
+            setLoading(false);
+        })
     },[catId]);
 
     return (
