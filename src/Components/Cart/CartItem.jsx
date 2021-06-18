@@ -21,7 +21,7 @@ const CartItem = ({details}) => {
 
     return (
         <CartItemDetails>
-            <img src={details.pictureUrl} alt={details.alt}/>
+            <img src={details.image} alt={details.alt}/>
             <div className='itemDetails'>
             <span>{details.title}</span>
             <span>{details.description}</span>

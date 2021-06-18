@@ -33,11 +33,11 @@ export default function Categories({data}) {
     };
     
     const list = [];
-    data.forEach((x)=>{
-        list.push(<NavLink to={`/categories/${x}`} style={{textDecoration:'none', color:'inherit'}} >
-        <MenuItem key={x} value={x} onClick={handleChange}>{x}</MenuItem>
-    </NavLink>)
-    });
+    // data.forEach((x)=>{
+    //     list.push(<NavLink to={`/categories/${x}`} style={{textDecoration:'none', color:'inherit'}} >
+    //     <MenuItem key={x} value={x} onClick={handleChange}>{x}</MenuItem>
+    // </NavLink>)
+    // });
     
 
   return (
@@ -57,7 +57,7 @@ export default function Categories({data}) {
             <em>None</em>
           </MenuItem>
           <NavLink to={`/`} style={{textDecoration:'none', color:'inherit'}}><MenuItem value=""><em>ALL</em></MenuItem></NavLink>
-          {list}
+          {/* {list} */}
         </Select>
       </FormControl>
     </div>

@@ -1,22 +1,21 @@
 import React, { useState, useEffect} from 'react';
 import styled from 'styled-components';
 import ItemDetail from './ItemDetail';
-import itemsArray from '../ItemsArray';
 import Loading from '../Loading/Loading'
 import {useParams} from 'react-router-dom';
+import {getFirestore} from '../../firebase';
 
 const ItemDetailContainer = () => {
     const {id} = useParams()
     const[details, setDetails]=useState([]);
     const[loading, setLoading]=useState(true);
     useEffect(()=>{
-        new Promise((resolve, reject)=>{
-            setTimeout(()=>{
-                resolve(itemsArray)
-            },2000);
-        }).then(res=> setDetails(res.filter(i => i.id === Number(id)))
+        const db = getFirestore();
+        const itemsCollection = db.collection('items')
+        itemsCollection.get().then(res=>{
+            const array = res.docs.map(x=>x.data())
+            setDetails(array.filter(i => i.id === Number(id)))}
         ).then(()=>setLoading((loading)=>!loading))
-
     },[id]);
 
     return (
