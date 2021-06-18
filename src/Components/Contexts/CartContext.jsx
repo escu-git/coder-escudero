@@ -36,7 +36,7 @@ export const CartProvider = ({children}) =>{
         const q = sumQuantity(cart, item)
         if(itemInCart){
             itemInCart.quantity += item.quantity
-            setCart({...cart, totalPrice:sum})
+            setCart({...cart, totalPrice:sum, totalQuantity:q})
         }else{
             setCart({...cart, addedItems:[...cart.addedItems, item], totalPrice:sum, totalQuantity:q})
         }

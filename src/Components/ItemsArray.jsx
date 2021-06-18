@@ -1,5 +1,5 @@
 
-const itemsArray= [
+const itemsArray= 
     // {
     //     id:1,
     //     title:"NASA",
@@ -108,7 +108,6 @@ const itemsArray= [
     //     description:"You are definitely getting older",
     //     image:cuadro13
     // },
-    
 ];
 
 export default itemsArray;
