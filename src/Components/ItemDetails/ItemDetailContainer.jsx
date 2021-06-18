@@ -16,7 +16,6 @@ const ItemDetailContainer = () => {
             const array = res.docs.map(x=>x.data())
             setDetails(array.filter(i => i.id === Number(id)))}
         ).then(()=>setLoading((loading)=>!loading))
-
     },[id]);
 
     return (

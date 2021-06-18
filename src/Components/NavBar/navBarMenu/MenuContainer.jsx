@@ -1,9 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import Categories from './Categories';
-const MenuContainer = () => {
-    const [categories]=useState(["RETRO", "REBEL-CAT", "FEM", "BAR", "NEW-CONCEPT"])
+import {getFirestore} from '../../../firebase';
 
+const MenuContainer = () => {
+    const [categories, setCategories]=useState("")
+
+    const db = getFirestore();
+    const categoriesCollection = db.collection('categories');
+    categoriesCollection.get().then(res=>{
+        const array = res.docs.map(x=>{
+            console.log(x.data())
+            x.data()})
+        setCategories(array.data())
+
+})
     return (
         <Container>
             <Categories data={categories}></Categories>
