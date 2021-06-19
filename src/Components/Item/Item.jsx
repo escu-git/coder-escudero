@@ -6,6 +6,7 @@ import {useCart} from '../Contexts/CartContext'
 
 const Item = ({item}) => {
 const cart = useCart()
+console.log(item)
     return (
         <div className ="itemBox">
         <NavLink to={`/item/${item.id}`} style={{textDecoration:'none', color:'inherit'}}>
@@ -13,9 +14,9 @@ const cart = useCart()
         </NavLink>
             <span className="title">{item.title}</span>
             <span className="price">{item.price}</span>
-            <NavLink to={`/item/${item}`} style={{textDecoration:'none', color:'inherit'}}>
+            <NavLink to={`/item/${item.id}`} style={{textDecoration:'none', color:'inherit'}}>
                 <Button variant="outlined">Details</Button>
-            </NavLink> 
+            </NavLink>
         </div>
     )
 }

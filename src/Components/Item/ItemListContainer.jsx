@@ -13,8 +13,8 @@ const ItemListContainer = (props) => {
         const db = getFirestore();
         const itemsCollection = db.collection('items');
         itemsCollection.get().then((item)=>{
-            setProducts(item.docs.map(doc=>doc.data()));
-            console.log(item.docs.map(doc=>doc.data()))
+            setProducts(item.docs.map(doc=>({id:doc.id, ...doc.data()})));
+            console.log(products);
         }).finally(()=>{
             setLoading(false);
         })

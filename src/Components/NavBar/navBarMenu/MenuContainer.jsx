@@ -6,18 +6,18 @@ import {getFirestore} from '../../../firebase';
 const MenuContainer = () => {
     const [categories, setCategories]=useState("")
 
-    const db = getFirestore();
-    const categoriesCollection = db.collection('categories');
-    categoriesCollection.get().then(res=>{
-        const array = res.docs.map(x=>{
-            console.log(x.data())
-            x.data()})
-        setCategories(array.data())
-
-})
+    useEffect(()=>{
+        const db = getFirestore();
+        const categoriesCollection = db.collection('categories');
+        categoriesCollection.get().then(res=>{
+            const array = res.docs.map(x=> x.data())
+            // console.log(array)
+            setCategories(array)})
+            // console.log(categories)
+    },[])
     return (
         <Container>
-            <Categories data={categories}></Categories>
+            {/* <Categories data={categories}></Categories> */}
         </Container>
     )
 }

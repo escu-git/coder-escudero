@@ -11,7 +11,7 @@ const cart = useCart()
 
 const addNewProduct=(itemData, amount)=>{
     setIsPurchase(true)
-    const details = {...itemData[0], quantity:amount}
+    const details = {...itemData, quantity:amount}
     cart.addItem(details)
 }
 
