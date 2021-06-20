@@ -5,7 +5,7 @@ import {useParams} from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import {getFirestore} from '../../firebase';
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
     const {catId} = useParams();
     const [loading, setLoading]=useState(true);
     const[products, setProducts]=useState(null);
