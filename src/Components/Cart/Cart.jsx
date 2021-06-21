@@ -12,10 +12,11 @@ const Cart = () => {
         <CartSection>
             <h1>CART</h1>
             {cartArray.map((x)=>{
+                console.log(x)
                 return <CartItem key={x.id} details={x}></CartItem>
             })}
             <div className="cartDetails">
-            <button onClick={cart.clearCart} >CLEAR CART</button>
+            <button onClick={cart.clearCart}>CLEAR CART</button>
             <span className='totalPrice'>
                 {`$${cart.cart.totalPrice}`}
             </span>

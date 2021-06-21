@@ -1,12 +1,18 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import styled from 'styled-components';
 
-const PurchaseBtn = ({fn}) => {
+const PurchaseBtn = ({text}) => {
     return (
-        <div>
-             <Button variant="outlined" color="default" onClick={fn}>PURCHASE CART</Button>
-        </div>
+        <ButtonContainer>
+             <Button variant="outlined" color="default" onClick={fn}>{text}</Button>
+        </ButtonContainer>
     )
 }
+
+const ButtonContainer = styled.div`
+
+
+`
 
 export default PurchaseBtn

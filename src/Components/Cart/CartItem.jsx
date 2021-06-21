@@ -11,7 +11,6 @@ const CartItem = ({details}) => {
     const handleQuantity = (value, details) =>{
         const newValue = details.quantity + value;
         setQuantity(newValue)
-        console.log(newValue)
         const newDetails = {...details, quantity:value}
         cart.addItem(newDetails)
     }

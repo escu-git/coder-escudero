@@ -1,5 +1,5 @@
 
-const itemsArray= 
+const itemsArray=[
     // {
     //     id:1,
     //     title:"NASA",

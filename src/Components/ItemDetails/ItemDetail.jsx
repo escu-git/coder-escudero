@@ -15,19 +15,16 @@ const addNewProduct=(itemData, amount)=>{
     cart.addItem(details)
 }
 
-const handlePurchase=()=>{
-    console.log('Handling purchase')    
-}
-
     return (
         <Details>
         <div className={detail!==0 ? "detailDiv" : null}>
             <img src={detail.image} alt={detail.alt}/>
-            <span className="detailTitle">{detail.title}</span>
-            <span className="detailDescription">{detail.description}</span>
+            <span className="detailTitle">{(detail.title.toUpperCase())}</span>
+            <span className="detailDescription">{(detail.description).toUpperCase()}</span>
             <span className="detailLinea">{detail.category}</span>
-            <span className="detailPrice">{detail.price}</span>
-            {isPurchase ? <Link to='/cart' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn fn={handlePurchase}/></Link> : <ItemCount className='itemCount' fn={addNewProduct} itemData={detail}/>}
+            <span className="detailPrice">${detail.price}.-</span>
+            {isPurchase ? <Link to='/cart' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn text={"PURCHASE CART"}/></Link> : <ItemCount className='itemCount' fn={addNewProduct} itemData={detail}/>}
+            {isPurchase ? <Link to='/' style={{textDecoration:'none', color:'inherit'}}><PurchaseBtn text={"GET MORE PRODUCTS!"}/></Link> : null}
             </div>
         </Details>
     )
