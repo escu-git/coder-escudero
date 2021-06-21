@@ -6,6 +6,8 @@ import CartContainer from './Components/Cart/CartContainer'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {Switch, Route} from 'react-router-dom';
 import {CartProvider} from './Components/Contexts/CartContext';
+import Purchased from "./Components/PurchasedProducts/Purchased";
+import PaymentContainer from "./Components/Payment/PaymentContainer";
 
 function App() {
   return (
@@ -25,6 +27,12 @@ function App() {
             </Route>
             <Route exact path='/cart'>
               <CartContainer/>
+            </Route>
+            <Route exact path='/payment'>
+              <PaymentContainer/>
+            </Route>
+            <Route exact path='/confirm-purchase'>
+              <Purchased/>
             </Route>
           </Switch>
         </Router>

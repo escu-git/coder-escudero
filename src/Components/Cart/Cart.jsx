@@ -2,6 +2,7 @@ import React from 'react';
 import {useCart} from '../Contexts/CartContext';
 import CartItem from './CartItem';
 import styled from 'styled-components';
+import {NavLink} from 'react-router-dom';
 
 const Cart = () => {
     const cart = useCart()
@@ -16,11 +17,11 @@ const Cart = () => {
                 return <CartItem key={x.id} details={x}></CartItem>
             })}
             <div className="cartDetails">
-            <button onClick={cart.clearCart}>CLEAR CART</button>
+            <button className='btn' onClick={cart.clearCart}>CLEAR CART</button>
             <span className='totalPrice'>
                 {`$${cart.cart.totalPrice}`}
             </span>
-            <button onClick={()=>console.log('SHOULD GO TO PAYMENT SECTION')} >PURCHASE CART</button>
+            <NavLink to='/payment'><button className="btn">CONTINUE TO PAYMENT</button></NavLink>
             </div>
         </CartSection>
     )
@@ -36,15 +37,19 @@ box-shadow:5px 5px 5px 5px lightgrey;
 .cartDetails{
     display:flex;
     flex-direction:row;
+    align-items:center;
+    justify-content:space-around;
+    width:40%;
+    margin:auto;
     .totalPrice{
         text-align:right;
         font-size:3rem;
         margin:30px auto;
     }
 }
-button{
+.btn{
     width:200px;
-    margin:30px auto;
+    height:40px;
 }
 `
 
