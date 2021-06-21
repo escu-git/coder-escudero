@@ -11,8 +11,7 @@ const PurchaseBtn = ({text}) => {
 }
 
 const ButtonContainer = styled.div`
-
-
+    width:150px;
 `
 
 export default PurchaseBtn
