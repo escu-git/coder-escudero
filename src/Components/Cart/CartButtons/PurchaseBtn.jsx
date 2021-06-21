@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const PurchaseBtn = ({text}) => {
     return (
         <ButtonContainer>
-             <Button variant="outlined" color="default" onClick={fn}>{text}</Button>
+             <Button variant="outlined" color="default" >{text}</Button>
         </ButtonContainer>
     )
 }
