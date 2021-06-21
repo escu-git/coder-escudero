@@ -13,8 +13,10 @@ const ItemDetailContainer = () => {
         const db = getFirestore();
         const itemsCollection = db.collection('items')
         itemsCollection.get().then(res=>{
-            const array = res.docs.map(x=>x.data())
-            setDetails(array.filter(i => i.id === Number(id)))}
+            const array = res.docs.map(doc=>({id:doc.id, ...doc.data()}))
+            const filter = array.filter(doc => doc.id === id)
+            console.log(`Este es el item ${filter[0].id}, y este el params: ${id}`)
+            setDetails(filter[0])}
         ).then(()=>setLoading((loading)=>!loading))
     },[id]);
 

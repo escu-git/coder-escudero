@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Categories({data}) {
+
   const classes = useStyles();
   const [category, setCategory] = useState('');
   const [open, setOpen] = useState(false);
@@ -31,14 +32,13 @@ export default function Categories({data}) {
     const handleOpen = () => {
         setOpen(true);
     };
-    
+
     const list = [];
-    // data.forEach((x)=>{
-    //     list.push(<NavLink to={`/categories/${x}`} style={{textDecoration:'none', color:'inherit'}} >
-    //     <MenuItem key={x} value={x} onClick={handleChange}>{x}</MenuItem>
-    // </NavLink>)
-    // });
-    
+
+    for (const x of data) {
+      list.push(<NavLink to={`/categories/${x}`} style={{textDecoration:'none', color:'inherit'}} >
+      <MenuItem key={x} value={x} onClick={console.log(handleChange)}>{x}</MenuItem> 
+      </NavLink>)}
 
   return (
     <div>
@@ -51,13 +51,12 @@ export default function Categories({data}) {
           onClose={handleClose}
           onOpen={handleOpen}
           value={category}
-          onChange={handleChange}
-        >
+          onChange={handleChange}>
           <MenuItem value="">
             <em>None</em>
-          </MenuItem>
+          </MenuItem>s
           <NavLink to={`/`} style={{textDecoration:'none', color:'inherit'}}><MenuItem value=""><em>ALL</em></MenuItem></NavLink>
-          {/* {list} */}
+          {list}
         </Select>
       </FormControl>
     </div>
