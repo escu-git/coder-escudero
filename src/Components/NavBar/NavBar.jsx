@@ -22,7 +22,11 @@ return(
         <NavLink to="/" style={{textDecoration:'none', color:'inherit'}}><MainLogo/></NavLink>
         <IconButton className="iconButton" float="right" edge="start" color="inherit" aria-label="menu"/>
         <MenuContainer/>
-        <Button variant="outlined">LOGIN</Button>
+        <div style={{display:'flex', gap:'5px'}}>
+            <NavLink to="/register" style={{textDecoration: 'none', color:'inherit'}}>
+            <Button variant="outlined">REGISTER</Button></NavLink>
+            <NavLink to='/signin' style={{color:'inherit', textDecoration:'none'}}><Button variant="outlined">LOGIN</Button></NavLink>
+        </div>
          <IconButton color="inherit" aria-label="add to shopping cart">
         <NavLink to='/cart' style={{display: cart.cart.addedItems.length ===0 ? 'none' : 'block', textDecoration: 'none', color:'inherit'}} ><Logo/></NavLink>
       </IconButton>
