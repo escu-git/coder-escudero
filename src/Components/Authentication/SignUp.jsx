@@ -1,7 +1,7 @@
-import React, {useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import { withRouter } from 'react-router';
-import { Redirect } from 'react-router';
 import { getFirebase } from '../../firebase';
+import {getFirestore} from '../../firebase';
 import {NavLink} from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -41,15 +41,30 @@ const useStyles = makeStyles((theme) => ({
   const SignUp = ({history}) => {
     const classes = useStyles();
     const firebase = getFirebase();
+    const db = getFirestore();
+    const usersCollection = db.collection('users');
+    const[user, setUser]=useState(null)
+
     const handleSignUp = useCallback(async event =>{
       event.preventDefault();
-      const {email, password} = event.target.elements;
-      console.log(email.value, password.value)
+      const {firstName, lastName, email, phone,  password} = event.target.elements;
+      const newUser = {
+        name: firstName.value,
+        surname:lastName.value,
+        email: email.value,
+        phone:phone.value,
+      }
+      
       try{
-        await firebase
+        
+        const database = await firebase
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value);
-          history.push('/')
+        if(database){ usersCollection.add(newUser).then(({id})=>{
+            setUser(id)
+            console.log(newUser)
+        })
+          history.push('/')}
       } catch(err){
         console.log(err)
       }
@@ -99,6 +114,17 @@ const useStyles = makeStyles((theme) => ({
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+              <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="phone"
+                  label="Phone"
+                  name="phone"
+                  autoComplete="phone"
                 />
               </Grid>
               <Grid item xs={12}>

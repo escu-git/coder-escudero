@@ -13,6 +13,9 @@ useEffect(()=>{
     firebase.auth().onAuthStateChanged(setCurrentUser)
 },[])
 
+currentUser && console.log(currentUser.email);
+
+
 return<AuthContext.Provider value={{currentUser}}>
 {children}
 </AuthContext.Provider>

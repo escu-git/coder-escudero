@@ -21,7 +21,7 @@ const Cart = () => {
             <span className='totalPrice'>
                 {`$${cart.cart.totalPrice}`}
             </span>
-            <NavLink to='/payment'><button className="btn">CONTINUE TO PAYMENT</button></NavLink>
+            <NavLink to='/payment'><button className="btn">CONTINUE TO PURCHASE</button></NavLink>
             </div>
         </CartSection>
     )

@@ -38,7 +38,7 @@ function App() {
                 <CartContainer/>
               </Route>
               <Route exact path='/payment'>
-                <SignUp/>
+                <Purchased/>
               </Route>
               <Route exact path='/confirm-purchase'>
                 <Purchased/>
