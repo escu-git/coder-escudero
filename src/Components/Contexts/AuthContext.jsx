@@ -13,7 +13,6 @@ useEffect(()=>{
     firebase.auth().onAuthStateChanged(setCurrentUser)
 },[])
 
-console.log(currentUser)
 return<AuthContext.Provider value={{currentUser}}>
 {children}
 </AuthContext.Provider>
