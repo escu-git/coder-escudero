@@ -37,10 +37,7 @@ function App() {
               <Route exact path='/cart'>
                 <CartContainer/>
               </Route>
-              <Route exact path='/payment'>
-                <Purchased/>
-              </Route>
-              <Route exact path='/confirm-purchase'>
+              <Route exact path='/purchase'>
                 <Purchased/>
               </Route>
             </Switch>

@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
   
 
-const Login = ({history}) => {
+const Login = ({history, fromCart}) => {
     const classes = useStyles();
     const firebase = getFirebase();
 
@@ -66,7 +66,8 @@ const Login = ({history}) => {
 
     const {currentUser} = useContext(AuthContext);
     if(currentUser){
-      <Redirect to='/'/>
+      if(fromCart) <Redirect to='/purchase'/>
+      else {<Redirect to='/'/>}
     }
 
     return (
@@ -124,7 +125,7 @@ const Login = ({history}) => {
                     </Link>
                   </Grid>
                   <Grid item>
-                    <Link href="#" variant="body2">
+                    <Link to='/signup' variant="body2">
                       {"Don't have an account? Sign Up"}
                     </Link>
                   </Grid>
