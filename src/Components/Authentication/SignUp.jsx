@@ -15,6 +15,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { useAuth } from '../Contexts/AuthContext';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -42,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     const classes = useStyles();
     const firebase = getFirebase();
     const db = getFirestore();
+    const auth = useAuth();
     const usersCollection = db.collection('users');
     const[user, setUser]=useState(null)
 
@@ -61,8 +63,9 @@ const useStyles = makeStyles((theme) => ({
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value);
         if(database){ usersCollection.add(newUser).then(({id})=>{
-            setUser(id)
-            console.log(newUser)
+          setUser(id)
+          console.log(newUser)
+          auth.updateUserData(newUser);
         })
           history.push('/')}
       } catch(err){
