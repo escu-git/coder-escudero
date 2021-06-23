@@ -44,6 +44,7 @@ const Purchased = () => {
 
     return (
         <PurchaseContainer>
+<<<<<<< HEAD
         {auth.currentUser ? <>
             <div className='userData'>
                 <PurchaseInfo name={auth.currentUser.displayName} email={auth.currentUser.email} price={cart.cart.totalPrice}/> 
@@ -55,6 +56,17 @@ const Purchased = () => {
                 {purchased && <h2>Tu orden es: ${orderId}</h2>}
             </div>
         </>: <Login/>}
+=======
+        <div className='userData'>
+            {auth.currentUser ? <PurchaseInfo name={auth.currentUser.displayName} email={auth.currentUser.email} price={cart.cart.totalPrice}/> : <Login/>}
+        </div>
+        <div className='productData'>
+            <h1>PRODUCTS</h1>
+            {cart.cart.addedItems?.map(x=><ItemDetailPurchase className="itemDetailPurchase" image={x.image} title={x.title} alt={x.alt} price={x.price} quantity={x.quantity} />)}
+            {purchased ? <NavLink to='/'><button >GET BACK TO HOME!</button></NavLink> : <button onClick={()=>handlePurchase()}>CONFIRM</button>}
+            {purchased && <h2>Tu orden es: ${orderId}</h2>}
+        </div>
+>>>>>>> 77d598e6334bc35d407752a9940dcd83112e1b8e
         </PurchaseContainer>
     )
 }
