@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-const PurchaseInfo = ({name, surname, email, phone, price, cart}) => {
+const PurchaseInfo = ({name, email, phone, price, cart}) => {
 
     return (
         <Info>
@@ -12,7 +12,7 @@ const PurchaseInfo = ({name, surname, email, phone, price, cart}) => {
              </div>
              <div className="productInfo">
             <span>{cart}</span>
-             <span>Price: {price}</span>
+             <span>Price: ${price}.-</span>
              </div>
         </Info>
     )
@@ -36,7 +36,11 @@ h2{
     font-size:20px;
 }
 .productInfo{
-
+    display:flex;
+}
+span{
+    font-size:20px;
+    font-weight:bold;
 }
 `
 

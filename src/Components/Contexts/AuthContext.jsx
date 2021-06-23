@@ -1,6 +1,7 @@
 import React, {useState, useEffect, createContext, useContext} from 'react';
 import firebase from 'firebase'
 import { getFirebase } from '../../firebase';
+import { getFirestore } from '../../firebase';
 export const AuthContext = createContext();
 export const useAuth = ()=> useContext(AuthContext);
 
@@ -8,6 +9,8 @@ export const useAuth = ()=> useContext(AuthContext);
 export const AuthProvider = ({children}) =>{
     const firebase = getFirebase();
     const[currentUser, setCurrentUser] = useState("")
+    const db = getFirestore();
+    const usersCollection = db.collection('users')
 
 useEffect(()=>{
     firebase.auth().onAuthStateChanged(setCurrentUser)
@@ -15,20 +18,32 @@ useEffect(()=>{
 
 const updateUserData = (info) =>{
     const user = firebase.auth().currentUser;
+    const phone = usersCollection.where("email", "==", user.emai)
+    console.log(phone)
     user.updateProfile({
         displayName:`${info.surname}, ${info.name}`,
         surname:info.surname,
         phoneNumber: info.phone,
 
     }).then((res)=>{
-        console.log(user.displayName);
+        console.log(currentUser);
     }).catch((err)=>console.log(err))
 }
 
-currentUser && console.log(currentUser.phoneNumber);
+const resetPassword = (email) =>{
+    const auth = firebase.auth();
+    let emailAddress = email;
+    auth.sendPasswordResetEmail(emailAddress).then(function() {
+        alert('An Email has been sent to reset your password. Check your inbox!')
+    }).catch(function(error) {
+        console.log(error)
+    });
+}
+
+currentUser && console.log(currentUser);
 
 
-return<AuthContext.Provider value={{currentUser, setCurrentUser, updateUserData}}>
+return<AuthContext.Provider value={{currentUser, setCurrentUser, updateUserData, resetPassword}}>
 {children}
 </AuthContext.Provider>
 }

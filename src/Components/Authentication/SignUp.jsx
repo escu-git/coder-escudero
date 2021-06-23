@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
         name: firstName.value,
         surname:lastName.value,
         email: email.value,
-        phone:phone.value,
+        phone:Number(phone.value),
       }
       
       try{
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
           .createUserWithEmailAndPassword(email.value, password.value);
         if(database){ usersCollection.add(newUser).then(({id})=>{
           setUser(id)
-          console.log(newUser)
+          console.log(typeof newUser.phone)
           auth.updateUserData(newUser);
         })
           history.push('/')}
