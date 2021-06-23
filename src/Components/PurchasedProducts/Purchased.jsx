@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react'
+import React, {useState} from 'react'
 import { useCart } from '../Contexts/CartContext';
 import {NavLink} from 'react-router-dom';
 import firebase from 'firebase/app';
