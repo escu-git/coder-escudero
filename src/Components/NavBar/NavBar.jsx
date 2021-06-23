@@ -12,9 +12,21 @@ import MainLogo from './MainLogo'
 import '../../Styles/NavBar.css';
 import MenuContainer from './navBarMenu/MenuContainer';
 import { useCart } from '../Contexts/CartContext';
+import {useAuth} from '../Contexts/AuthContext'
+import {getFirebase} from '../../firebase';
 
 const NavBar =  ()=> {
 const cart = useCart()
+const auth = useAuth();
+const firebase = getFirebase();
+
+const handleLogOut = () =>{
+    firebase.auth().signOut().then(() => {
+        console.log('Log out succesfull')
+      }).catch((err) => {
+        console.log(err)
+      });
+}
 
 return(
     <AppBar className="appBar">
@@ -22,7 +34,12 @@ return(
         <NavLink to="/" style={{textDecoration:'none', color:'inherit'}}><MainLogo/></NavLink>
         <IconButton className="iconButton" float="right" edge="start" color="inherit" aria-label="menu"/>
         <MenuContainer/>
-        <Button variant="outlined">LOGIN</Button>
+        {auth.currentUser && <h2>{auth.currentUser.email}</h2>}
+        <div style={{display:'flex', gap:'5px'}}>
+            <NavLink to="/register" style={{textDecoration: 'none', color:'inherit'}}>
+            <Button variant="outlined">REGISTER</Button></NavLink>
+            {auth.currentUser ?<Button variant="outlined" onClick={()=>handleLogOut()}>LOGOUT</Button> : <NavLink to='/signin' style={{color:'inherit', textDecoration:'none'}}><Button variant="outlined">LOGIN</Button></NavLink>  }
+        </div>
          <IconButton color="inherit" aria-label="add to shopping cart">
         <NavLink to='/cart' style={{display: cart.cart.addedItems.length ===0 ? 'none' : 'block', textDecoration: 'none', color:'inherit'}} ><Logo/></NavLink>
       </IconButton>

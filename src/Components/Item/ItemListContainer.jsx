@@ -4,6 +4,7 @@ import ItemList from './ItemList';
 import {useParams} from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import {getFirestore} from '../../firebase';
+import { useAuth } from '../Contexts/AuthContext';
 
 const ItemListContainer = () => {
     const {catId} = useParams();

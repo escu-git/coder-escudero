@@ -5,7 +5,6 @@ import {NavLink} from 'react-router-dom';
 import {useCart} from '../Contexts/CartContext'
 
 const Item = ({item}) => {
-    console.log(item)
 const cart = useCart()
     return (
         <div className ="itemBox">

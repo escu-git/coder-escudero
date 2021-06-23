@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 
 const ItemList = ({products}) => {
-    console.log(products)
     return (
         <ProductContainer>
             {products?.map((product)=>{

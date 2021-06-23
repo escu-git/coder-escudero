@@ -14,7 +14,7 @@ const CartItem = ({details}) => {
         const newDetails = {...details, quantity:value}
         cart.addItem(newDetails)
     }
-    useEffect(()=>{
+    useEffect((cart)=>{
         quantity===0 && cart.removeItem(details)
     }, [handleQuantity])
 

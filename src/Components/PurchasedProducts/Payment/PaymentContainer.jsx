@@ -4,7 +4,7 @@ const PaymentContainer = () => {
     return (
         <div>
             THIS IS THE PAYMENT SECTION
-            <NavLink to='/confirm-purchase'><div>CONFIRM PURCHASE</div></NavLink>
+            <NavLink to='/purchase'><div>CONFIRM PURCHASE</div></NavLink>
         </div>
     )
 }
