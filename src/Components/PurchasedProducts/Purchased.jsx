@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
-import { useCart } from '../Contexts/CartContext';
+import { useCart } from '../../Contexts/CartContext';
 import {NavLink} from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import {getFirestore} from '../../firebase';
 import styled from 'styled-components';
-import { useAuth } from '../Contexts/AuthContext';
+import { useAuth } from '../../Contexts/AuthContext';
 import PurchaseInfo from './PurchaseInfo';
 import Login from '../Authentication/Login';
 import ItemDetailPurchase from './ItemDetailPurchase';

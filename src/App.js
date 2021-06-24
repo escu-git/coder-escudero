@@ -5,8 +5,8 @@ import ItemDetailContainer from "./Components/ItemDetails/ItemDetailContainer";
 import CartContainer from './Components/Cart/CartContainer'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {Switch, Route} from 'react-router-dom';
-import {CartProvider} from './Components/Contexts/CartContext';
-import {AuthProvider} from './Components/Contexts/AuthContext'
+import {CartProvider} from './Contexts/CartContext';
+import {AuthProvider} from './Contexts/AuthContext'
 import Purchased from "./Components/PurchasedProducts/Purchased";
 import SignUp from "./Components/Authentication/SignUp";
 import Login from "./Components/Authentication/Login";

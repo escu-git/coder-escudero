@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Categories from './Categories';
 import {getFirestore} from '../../../firebase';
 import MenuItem from '@material-ui/core/MenuItem';
-import {NavLink} from 'react-router-dom';
 
 const MenuContainer = () => {
     const [categories, setCategories]=useState("")

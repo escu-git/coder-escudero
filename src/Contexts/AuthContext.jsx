@@ -1,10 +1,9 @@
 import React, {useState, useEffect, createContext, useContext} from 'react';
 import firebase from 'firebase'
-import { getFirebase } from '../../firebase';
-import { getFirestore } from '../../firebase';
+import { getFirebase } from '../firebase';
+import { getFirestore } from '../firebase';
 export const AuthContext = createContext();
 export const useAuth = ()=> useContext(AuthContext);
-
 
 export const AuthProvider = ({children}) =>{
     const firebase = getFirebase();
