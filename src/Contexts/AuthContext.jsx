@@ -17,15 +17,12 @@ useEffect(()=>{
 
 const updateUserData = (info) =>{
     const user = firebase.auth().currentUser;
-    const phone = usersCollection.where("email", "==", user.emai)
-    console.log(phone)
     user.updateProfile({
         displayName:`${info.surname}, ${info.name}`,
         surname:info.surname,
         phoneNumber: info.phone,
 
     }).then((res)=>{
-        console.log(currentUser);
     }).catch((err)=>console.log(err))
 }
 

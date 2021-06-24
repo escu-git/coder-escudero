@@ -9,11 +9,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 import Logo from '../Cart/CartWidget'
 import MainLogo from './MainLogo'
-import '../../Styles/NavBar.css';
 import MenuContainer from './navBarMenu/MenuContainer';
 import { useCart } from '../../Contexts/CartContext';
 import {useAuth} from '../../Contexts/AuthContext'
 import {getFirebase} from '../../firebase';
+
 
 const NavBar =  ()=> {
 const cart = useCart()

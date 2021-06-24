@@ -36,8 +36,8 @@ export default function Categories({data}) {
     const list = [];
 
     for (const x of data) {
-      list.push(<NavLink to={`/categories/${x}`} style={{textDecoration:'none', color:'inherit'}} >
-      <MenuItem key={x} value={x}>{x}</MenuItem> 
+      list.push(<NavLink key={x} to={`/categories/${x}`} style={{textDecoration:'none', color:'inherit'}} >
+      <MenuItem  value={x}>{x}</MenuItem> 
       </NavLink>)}
 
   return (

@@ -1,0 +1,21 @@
+.appBar{
+    position:static !important;
+    display:flex;
+    flex-direction: row;
+
+    
+    .mainDecoEtcetera{
+            font-family: $logoFont;
+            font-size:40px;
+            font-weight: bold;
+            letter-spacing: 4px;
+    }
+}
+
+.toolBar{
+    background-color:$mainColor;
+    display:flex;
+    justify-content: space-between;
+}
+
+

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../Styles/CartWidget.css';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';

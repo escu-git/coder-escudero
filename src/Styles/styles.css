@@ -1,0 +1,70 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.appBar {
+  position: static !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.appBar .mainDecoEtcetera {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.toolBar {
+  background-color: #087008;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.itemBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.itemBox img {
+  width: 300px;
+  height: 50%;
+  border: 2px solid black;
+  border-radius: 7px 7px 0 0;
+}
+
+.itemBox span {
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 480px) {
+  .mainDecoEtcetera {
+    font-size: 10px;
+  }
+  body {
+    background-color: blue;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

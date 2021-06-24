@@ -18,7 +18,7 @@ const MenuContainer = () => {
     
     return (
         <Container>
-            <Categories data={categories}></Categories>
+            <Categories key='categories' data={categories}></Categories>
         </Container>
     )
 }
