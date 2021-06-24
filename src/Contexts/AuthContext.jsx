@@ -36,7 +36,7 @@ const resetPassword = (email) =>{
     });
 }
 
-currentUser && console.log(currentUser);
+currentUser && console.log(currentUser.displayName);
 
 
 return<AuthContext.Provider value={{currentUser, setCurrentUser, updateUserData, resetPassword}}>
