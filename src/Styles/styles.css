@@ -3,32 +3,41 @@
           box-sizing: border-box;
 }
 
-.appBar {
-  position: static !important;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+@media screen and (max-width: 480px) {
+  body {
+    background-color: blue;
+  }
+  .mainDecoEtcetera {
+    font-size: 10px;
+  }
 }
 
-.appBar .mainDecoEtcetera {
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: 40px;
-  font-weight: bold;
-  letter-spacing: 4px;
-}
-
-.toolBar {
-  background-color: #087008;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+@media screen and (min-width: 769px) {
+  .appBar {
+    position: static !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .appBar .mainDecoEtcetera {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 4px;
+  }
+  .toolBar {
+    background-color: #087008;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 .itemBox {
@@ -59,12 +68,61 @@
   font-size: 1.5em;
 }
 
+.itemCount {
+  width: 100%;
+  height: 100px;
+  margin: auto;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 10px;
+      flex-basis: 10px;
+  padding: 10px;
+  margin-bottom: 2px;
+      grid-template-areas: 'stock';
+}
+
+.buttons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.counter {
+  font-size: 2em;
+}
+
+.stock {
+  display: block;
+}
+
 @media screen and (max-width: 480px) {
+  body {
+    background-color: blue;
+  }
   .mainDecoEtcetera {
     font-size: 10px;
   }
+}
+
+@media screen and (max-width: 480px) {
   body {
     background-color: blue;
+  }
+  .mainDecoEtcetera {
+    font-size: 10px;
   }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import '../../Styles/ItemCount.css';
 import Button from '@material-ui/core/Button';
 import buttonStyle from '../material-ui/Buttons'
 import CartAddBtn from '../Cart/CartButtons/CartAddBtn';
