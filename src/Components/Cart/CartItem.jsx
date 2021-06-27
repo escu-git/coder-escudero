@@ -7,8 +7,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 const CartItem = ({details}) => {
     const[quantity, setQuantity] = useState(details.quantity)
     const cart = useCart()
-    console.log(quantity)
+
     const handleQuantity = (value, details) =>{
+        if( value === +1 &&  quantity === details.stock) {return alert('You cannot add more items')}
         const newValue = details.quantity + value;
         setQuantity(newValue)
         const newDetails = {...details, quantity:value}

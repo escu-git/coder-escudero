@@ -7,13 +7,11 @@ import {NavLink} from 'react-router-dom';
 const Cart = () => {
     const cart = useCart()
     const cartArray = cart.cart.addedItems;
-    console.log(cartArray)
-    
+
     return (
         <CartSection>
             <h1>CART</h1>
             {cartArray.map((x)=>{
-                console.log(x)
                 return <CartItem key={x.id} details={x}></CartItem>
             })}
             <div className="cartDetails">
