@@ -13,6 +13,7 @@ import MenuContainer from './navBarMenu/MenuContainer';
 import { useCart } from '../../Contexts/CartContext';
 import {useAuth} from '../../Contexts/AuthContext'
 import {getFirebase} from '../../firebase';
+import '../../Styles/styles.css'
 
 
 const NavBar =  ()=> {
@@ -34,7 +35,7 @@ return(
         <NavLink to="/" style={{textDecoration:'none', color:'inherit'}}><MainLogo/></NavLink>
         <IconButton className="iconButton" float="right" edge="start" color="inherit" aria-label="menu"/>
         <MenuContainer/>
-        {auth.currentUser && <h2>{auth.currentUser.email}</h2>}
+        {auth.currentUser && <h2 className="userName">{auth.currentUser.displayName}</h2>}
         <div style={{display:'flex', gap:'5px'}}>
             <NavLink to="/register" style={{textDecoration: 'none', color:'inherit'}}>
             <Button variant="outlined">REGISTER</Button></NavLink>

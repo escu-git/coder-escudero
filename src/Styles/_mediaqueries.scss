@@ -1,13 +1,6 @@
 
     @media screen and (max-width: $max-phoneQuery){ //MOBILE
-        body{
-            background-color: blue;
-        }
-        .mainDecoEtcetera{
-            font-size:10px;
-        }
 
-        
     }
     
     @media only screen and (min-width: $min-notebookQuery) and (max-width: $max-notebookQuery){ //TABLET - NOTEBOOKS

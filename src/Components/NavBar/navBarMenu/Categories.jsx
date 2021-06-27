@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../../../Styles/styles.css';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -36,8 +37,8 @@ export default function Categories({data}) {
     const list = [];
 
     for (const x of data) {
-      list.push(<NavLink key={x} to={`/categories/${x}`} style={{textDecoration:'none', color:'inherit'}} >
-      <MenuItem  value={x}>{x}</MenuItem> 
+      list.push(<NavLink key={x.id} to={`/categories/${x.name}`} style={{textDecoration:'none', color:'inherit'}} >
+      <MenuItem  value={x.name}>{x.name}</MenuItem> 
       </NavLink>)}
 
   return (

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, createContext, useContext} from 'react';
-import firebase from 'firebase'
+// import firebase from 'firebase' //! If error, this is the cause.
 import { getFirebase } from '../firebase';
 import { getFirestore } from '../firebase';
 export const AuthContext = createContext();
@@ -9,10 +9,9 @@ export const AuthProvider = ({children}) =>{
     const firebase = getFirebase();
     const[currentUser, setCurrentUser] = useState("")
     const db = getFirestore();
-    const usersCollection = db.collection('users')
-
+    // const usersCollection = db.collection('users') //! If error, this is the cause.
 useEffect(()=>{
-    firebase.auth().onAuthStateChanged(setCurrentUser)
+    firebase.auth().onAuthStateChanged(setCurrentUser) 
 },[])
 
 const updateUserData = (info) =>{
@@ -35,9 +34,6 @@ const resetPassword = (email) =>{
         console.log(error)
     });
 }
-
-currentUser && console.log(currentUser.displayName);
-
 
 return<AuthContext.Provider value={{currentUser, setCurrentUser, updateUserData, resetPassword}}>
 {children}

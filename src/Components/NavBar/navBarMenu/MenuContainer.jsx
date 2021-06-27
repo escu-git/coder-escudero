@@ -11,14 +11,13 @@ const MenuContainer = () => {
         const db = getFirestore();
         const categoriesCollection = db.collection('categories');
         categoriesCollection.get().then(res=>{
-            const array = res.docs.map(x=> x.data())
-            console.log(array.map(x=>x.name))
-            setCategories(array.map(x=>x.name))})
+            const array = res.docs.map(x=> ({id:x.id,...x.data()}))
+            setCategories(array.map(x=>x))})
     },[])
     
     return (
         <Container>
-            <Categories key='categories' data={categories}></Categories>
+            <Categories key={categories.id} data={categories}></Categories>
         </Container>
     )
 }

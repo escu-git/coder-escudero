@@ -4,6 +4,7 @@ import ItemDetail from './ItemDetail';
 import Loading from '../Loading/Loading'
 import {useParams} from 'react-router-dom';
 import {getFirestore} from '../../firebase';
+import NonExistantItem from './NonExistantItem';
 
 const ItemDetailContainer = () => {
     const {id} = useParams()
@@ -15,14 +16,13 @@ const ItemDetailContainer = () => {
         itemsCollection.get().then(res=>{
             const array = res.docs.map(doc=>({id:doc.id, ...doc.data()}))
             const filter = array.filter(doc => doc.id === id)
-            console.log(`Este es el item ${filter[0].id}, y este el params: ${id}`)
             setDetails(filter[0])}
         ).then(()=>setLoading((loading)=>!loading))
     },[id]);
 
     return (
         <DetailsContainer className="detailsContainer">
-        {loading ? <Loading/> : <ItemDetail detail={details}></ItemDetail>}    
+        {loading ? <Loading/> : !details ? <NonExistantItem></NonExistantItem>: <ItemDetail detail={details}/>}    
         </DetailsContainer>
     )
 }
