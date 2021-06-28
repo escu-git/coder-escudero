@@ -64,6 +64,5 @@ export const CartProvider = ({children}) =>{
         setCart(INITIAL_STATE)
         console.log('Cart correctly cleared!')
     };
-    console.log(cart)
     return <CartContext.Provider value={{cart, addItem, removeItem, clearCart,totalSum, sumQuantity, substractQuantity}}>{children}</CartContext.Provider> 
 }

@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = ({history, fromCart}) => {
     const classes = useStyles();
     const firebase = getFirebase();
-
+    const {currentUser} = useContext(AuthContext);
     const handleLogin = useCallback(async event=>{
       event.preventDefault();
       const {email, password} = event.target.elements;
@@ -64,7 +64,6 @@ const Login = ({history, fromCart}) => {
       }catch(err){console.log(err)}
     }, [history])
 
-    const {currentUser} = useContext(AuthContext);
     if(currentUser){
       if(fromCart) <Redirect to='/purchase'/>
       else {<Redirect to='/'/>}

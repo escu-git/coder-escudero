@@ -32,7 +32,7 @@ const ItemListContainer = () => {
     },[catId]);
     return (
         <div className="itemListDiv">
-            <h1 className="greetings"> {catId ? ` 🔍 ${catId}` : auth.currentUser.displayName !== null ? `WELCOME TO DECO.ETC ${auth.currentUser.displayName}!` : "WELCOME TO DECO.ETC E-COMMERCE!"   }</h1>
+            <h1 className="greetings"> {catId ? ` 🔍 ${catId}` : auth.currentUser!== null ? `WELCOME TO DECO.ETC ${auth.currentUser.displayName}!` : "WELCOME TO DECO.ETC E-COMMERCE!"   }</h1>
             {loading ?<Loading></Loading> : <ItemList products={products}/>}
         </div>
     );

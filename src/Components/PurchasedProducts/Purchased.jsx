@@ -24,7 +24,7 @@ const Purchased = () => {
         setPurchased(true)
         const user = firebase.auth().currentUser;
         let {displayName, uid, email, phoneNumber} = user;
-        const products = cart.cart.addedItems.map(item=>({id:item.id, title:item.title, price:item.price, quantity:item.quantity}))
+        const products = cart.cart.addedItems.map(item=>({id:item.id, description:item.description, image:item.image, title:item.title, price:item.price, quantity:item.quantity}))
         const newOrder = {
             buyer: {
                 name:displayName,

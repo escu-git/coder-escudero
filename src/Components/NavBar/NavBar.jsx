@@ -45,6 +45,8 @@ return(
         <NavLink to='/cart' style={{display: cart.cart.addedItems.length === 0 ? 'none' : 'block', textDecoration: 'none', color:'inherit'}} ><Logo/></NavLink>
       </IconButton>
         <MenuIcon/>
+        <NavLink to="/purchase-history" style={{textDecoration: 'none', color:'inherit'}}>
+            <Button variant="outlined">Your buys</Button></NavLink>
     </Toolbar>
     </AppBar>
 );

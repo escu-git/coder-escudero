@@ -10,6 +10,7 @@ import {AuthProvider} from './Contexts/AuthContext'
 import Purchased from "./Components/PurchasedProducts/Purchased";
 import SignUp from "./Components/Authentication/SignUp";
 import Login from "./Components/Authentication/Login";
+import CheckPurchase from "./Components/PurchasedProducts/PurchaseHistory/CheckPurchase";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
               </Route>
               <Route exact path='/purchase'>
                 <Purchased/>
+              </Route>
+              <Route exact path='/purchase-history'>
+                <CheckPurchase/>
               </Route>
             </Switch>
           </Router>

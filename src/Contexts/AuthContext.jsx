@@ -20,7 +20,6 @@ const updateUserData = (info) =>{
         displayName:`${info.surname}, ${info.name}`,
         surname:info.surname,
         phoneNumber: info.phone,
-
     }).then((res)=>{
     }).catch((err)=>console.log(err))
 }
@@ -34,7 +33,6 @@ const resetPassword = (email) =>{
         console.log(error)
     });
 }
-
 return<AuthContext.Provider value={{currentUser, setCurrentUser, updateUserData, resetPassword}}>
 {children}
 </AuthContext.Provider>
