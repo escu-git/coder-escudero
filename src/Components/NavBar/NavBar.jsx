@@ -42,7 +42,7 @@ return(
             {auth.currentUser ?<Button variant="outlined" onClick={()=>handleLogOut()}>LOGOUT</Button> : <NavLink to='/signin' style={{color:'inherit', textDecoration:'none'}}><Button variant="outlined">LOGIN</Button></NavLink>  }
         </div>
          <IconButton color="inherit" aria-label="add to shopping cart">
-        <NavLink to='/cart' style={{display: cart.cart.addedItems.length ===0 ? 'none' : 'block', textDecoration: 'none', color:'inherit'}} ><Logo/></NavLink>
+        <NavLink to='/cart' style={{display: cart.cart.addedItems.length === 0 ? 'none' : 'block', textDecoration: 'none', color:'inherit'}} ><Logo/></NavLink>
       </IconButton>
         <MenuIcon/>
     </Toolbar>

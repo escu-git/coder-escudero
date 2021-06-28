@@ -1,9 +1,8 @@
-import {useState, createContext, useContext} from 'react';
-
+import {useState, createContext, useContext, useEffect} from 'react';
 export const CartContext = createContext();
 export const useCart =()=> useContext(CartContext);
-
 const INITIAL_STATE={addedItems:[], totalPrice: 0, totalQuantity:0};
+const localStorageCart = JSON.parse(localStorage.getItem('userCart')) || INITIAL_STATE;
 
 const totalSum = (cart, item) =>{
     return cart.addedItems.reduce(function (a,b){
@@ -26,7 +25,11 @@ const substractQuantity= (cart, item) =>{
 }
 
 export const CartProvider = ({children}) =>{
-    const [cart, setCart]=useState(INITIAL_STATE)
+    const [cart, setCart]=useState(localStorageCart)
+
+    useEffect(()=>{
+        localStorage.setItem('userCart', JSON.stringify(cart));
+    },[cart])
 
     //Cart functions:   
 
@@ -44,11 +47,14 @@ export const CartProvider = ({children}) =>{
 
     const removeItem = (detail)=>{
         const idToRemove = cart.addedItems.find((cartProduct)=> cartProduct.id === detail.id);
+        console.log(`idToRemove: ${idToRemove}`)
         if(idToRemove){
             const newCart = cart.addedItems.filter(function(x){return x.id !==idToRemove.id});
             const sum = substractTotalSum(cart, idToRemove)
             const q = substractQuantity(cart, idToRemove)
-            setCart({...cart, addedItems:newCart, totalPrice:sum, totalQuantity:q})
+            console.log({...cart, addedItems:newCart, totalPrice:sum, totalQuantity:q})
+            setCart({...cart, addedItems:newCart, totalPrice:sum, totalQuantity:q});
+
         }else{
             alert(`Item ${detail.title} is not in your cart`)
         }
@@ -58,5 +64,6 @@ export const CartProvider = ({children}) =>{
         setCart(INITIAL_STATE)
         console.log('Cart correctly cleared!')
     };
+    console.log(cart)
     return <CartContext.Provider value={{cart, addItem, removeItem, clearCart,totalSum, sumQuantity, substractQuantity}}>{children}</CartContext.Provider> 
 }

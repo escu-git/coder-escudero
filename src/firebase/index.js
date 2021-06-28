@@ -1,11 +1,5 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
-const nodemailer = require('nodemailer');
-
-const firebaseAdmin = admin.initializeApp();
-
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
