@@ -37,6 +37,7 @@ const Purchased = () => {
         }
         ordersCollection.add(newOrder).then(({id})=>{
             setOrderId(id);
+            cart.clearCart()
             setLoading(false)
         }).catch((err)=>{
             console.log(err)

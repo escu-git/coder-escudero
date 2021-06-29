@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import { useAuth } from '../../../Contexts/AuthContext';
 import { getFirebase, getFirestore } from '../../../firebase';
-import Order from './Order'
+import Loading from '../../Loading/Loading';
+import Order from './Order';
 const CheckPurchase = () => {
     const auth = useAuth();
     const db= getFirestore();
-
     const firebase = getFirebase()
     const [orders, setOrders]=useState(null);
+    const[loading, setLoading]=useState(true)
 
     useEffect(()=>{
     if(auth.currentUser){
@@ -18,12 +19,13 @@ const CheckPurchase = () => {
             const orders = (res);
             setOrders(orders);
             console.log(orders.map(x=>x.id))
+            setLoading(false)
         }).catch(err=>console.log(err))
     }else{setOrders(null)}
     },[])
     return (
         <>
-        {orders?.map(order=>{return(<Order data={order}/>)})}
+        {loading? <Loading/> : <>{orders?.map(order=>{return(<Order data={order}/>)})}</>}
         </>
     )
 }

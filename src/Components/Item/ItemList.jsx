@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from './Item';
 import styled from 'styled-components';
-
+import Custom  from './CustomItem/Custom';
 
 const ItemList = ({products}) => {
     return (
@@ -9,6 +9,7 @@ const ItemList = ({products}) => {
             {products?.map((product)=>{
                 return(<Item key={product.id} item={product}></Item>)
             })}
+            {products && <Custom/>}
         </ProductContainer>
     )
 }

@@ -11,6 +11,7 @@ import Purchased from "./Components/PurchasedProducts/Purchased";
 import SignUp from "./Components/Authentication/SignUp";
 import Login from "./Components/Authentication/Login";
 import CheckPurchase from "./Components/PurchasedProducts/PurchaseHistory/CheckPurchase";
+import CustomItem from "./Components/Item/CustomItem/CustomItem";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
               </Route>
               <Route exact path='/item/:id'>
                 <ItemDetailContainer/>
+              </Route>
+              <Route exact path='/custom-design'>
+                <CustomItem/>
               </Route>
               <Route exact path='/cart'>
                 <CartContainer/>
