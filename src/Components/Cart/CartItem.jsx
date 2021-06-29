@@ -1,20 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import {useCart} from '../../Contexts/CartContext';
 import Button from '@material-ui/core/Button';
+import {useCart} from '../../Contexts/CartContext';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const CartItem = ({details}) => {
-    const cart = useCart()
     const[quantity, setQuantity] = useState(details.quantity)
-    
+    const cart = useCart()
+
     const handleQuantity = (value, details) =>{
+        if( value === +1 &&  quantity === details.stock) {return alert('You cannot add more items')}
         const newValue = details.quantity + value;
         setQuantity(newValue)
         const newDetails = {...details, quantity:value}
         cart.addItem(newDetails)
     }
-    useEffect((cart)=>{
+    useEffect(()=>{
         quantity===0 && cart.removeItem(details)
     }, [handleQuantity])
 

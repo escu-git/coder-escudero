@@ -1,4 +1,4 @@
-import "./App.css"
+import "./Styles/styles.css"
 import NavBar from './Components/NavBar/NavBar';
 import ItemListContainer from "./Components/Item/ItemListContainer";
 import ItemDetailContainer from "./Components/ItemDetails/ItemDetailContainer";
@@ -10,6 +10,8 @@ import {AuthProvider} from './Contexts/AuthContext'
 import Purchased from "./Components/PurchasedProducts/Purchased";
 import SignUp from "./Components/Authentication/SignUp";
 import Login from "./Components/Authentication/Login";
+import CheckPurchase from "./Components/PurchasedProducts/PurchaseHistory/CheckPurchase";
+import CustomItem from "./Components/Item/CustomItem/CustomItem";
 
 function App() {
   return (
@@ -34,11 +36,17 @@ function App() {
               <Route exact path='/item/:id'>
                 <ItemDetailContainer/>
               </Route>
+              <Route exact path='/custom-design'>
+                <CustomItem/>
+              </Route>
               <Route exact path='/cart'>
                 <CartContainer/>
               </Route>
               <Route exact path='/purchase'>
                 <Purchased/>
+              </Route>
+              <Route exact path='/purchase-history'>
+                <CheckPurchase/>
               </Route>
             </Switch>
           </Router>

@@ -1,23 +1,22 @@
 import React, {useState} from 'react'
-import '../../Styles/ItemCount.css';
 import Button from '@material-ui/core/Button';
 import buttonStyle from '../material-ui/Buttons'
 import CartAddBtn from '../Cart/CartButtons/CartAddBtn';
 
-let stock = 5;
-const ChangeStock = ()=>{
-    const [amount, setAmount] = useState(stock);
+
+const ChangeStock = (itemData)=>{
+    const [amount, setAmount] = useState(itemData.stock);
     const [counter, setCounter] =useState(0);
 
     const itemAdd = (x)=>{
-        if(counter === stock) return console.log('You cannot add more items')
+        if(counter === itemData.stock) return console.log('You cannot add more items')
         setAmount(amount-1);
         setCounter(counter+x);
     };
 
 
     const itemDecrease = (stock)=>{
-        if(counter === 0 || amount === stock) return console.log('You cannot return more items')
+        if(counter === 0 || amount === itemData.stock) return console.log('You cannot return more items')
         setAmount(amount+1)
         setCounter(counter-1)
     }
@@ -26,7 +25,7 @@ const ChangeStock = ()=>{
 }
 
 const ItemCount = ({fn, itemData}) => {
-    const {amount, itemAdd, itemDecrease, counter} = ChangeStock();
+    const {amount, itemAdd, itemDecrease, counter} = ChangeStock(itemData);
     const classes = buttonStyle();
 
 return (

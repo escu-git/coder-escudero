@@ -25,3 +25,19 @@
 .stock{
     display:block;
 }
+
+@media screen and (max-width:480px){ //MOBILE
+    .mainDecoEtcetera{
+        font-size:10px;
+    }
+
+    
+}
+
+@media only screen and (min-width:481px) and (max-width:768px){ //TABLET - NOTEBOOKS
+
+}
+
+@media screen and (min-width:769px){ //DESKTOP
+
+}

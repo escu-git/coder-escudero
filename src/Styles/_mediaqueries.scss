@@ -1,0 +1,12 @@
+
+    @media screen and (max-width: $max-phoneQuery){ //MOBILE
+
+    }
+    
+    @media only screen and (min-width: $min-notebookQuery) and (max-width: $max-notebookQuery){ //TABLET - NOTEBOOKS
+
+    }
+    
+    @media screen and (min-width:$min-desktopQuery){ //DESKTOP
+
+    }

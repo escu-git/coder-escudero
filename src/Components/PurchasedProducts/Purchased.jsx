@@ -9,9 +9,10 @@ import { useAuth } from '../../Contexts/AuthContext';
 import PurchaseInfo from './PurchaseInfo';
 import Login from '../Authentication/Login';
 import ItemDetailPurchase from './ItemDetailPurchase';
-
+import Loading from '../Loading/Loading';
 const Purchased = () => {
     const[orderId, setOrderId]=useState(null)
+    const[loading, setLoading]=useState(true)
     const db = getFirestore();
     const cart = useCart();
     const auth = useAuth()
@@ -23,8 +24,7 @@ const Purchased = () => {
         setPurchased(true)
         const user = firebase.auth().currentUser;
         let {displayName, uid, email, phoneNumber} = user;
-        const products = cart.cart.addedItems.map(item=>({id:item.id, title:item.title, price:item.price, quantity:item.quantity}))
-        console.log(products)
+        const products = cart.cart.addedItems.map(item=>({id:item.id, description:item.description, image:item.image, title:item.title, price:item.price, quantity:item.quantity}))
         const newOrder = {
             buyer: {
                 name:displayName,
@@ -37,10 +37,13 @@ const Purchased = () => {
         }
         ordersCollection.add(newOrder).then(({id})=>{
             setOrderId(id);
+            cart.clearCart()
+            setLoading(false)
         }).catch((err)=>{
             console.log(err)
         })
     }  
+    
 
     return (
         <PurchaseContainer>
@@ -52,7 +55,7 @@ const Purchased = () => {
                 <h1>PRODUCTS</h1>
                 {cart.cart.addedItems?.map(x=><ItemDetailPurchase className="itemDetailPurchase" image={x.image} title={x.title} alt={x.alt} price={x.price} quantity={x.quantity} />)}
                 {purchased ? <NavLink to='/'><button >GET BACK TO HOME!</button></NavLink> : <button onClick={()=>handlePurchase()}>CONFIRM</button>}
-                {purchased && <h2>Tu orden es: ${orderId}</h2>}
+                {purchased && loading ? <Loading/> : <h2>Tu orden es: {orderId}</h2>}
             </div>
         </>: <Login/>}
         </PurchaseContainer>

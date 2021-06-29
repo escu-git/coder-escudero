@@ -1,0 +1,43 @@
+.appBar{
+    background-color: $mainColor !important;
+}
+
+@media screen and (max-width: $max-phoneQuery){ //MOBILE
+
+    .mainDecoEtcetera{
+        font-size:10px;
+    }
+    .formControl{
+        width:300px;
+    }
+}
+
+@media only screen and (min-width: $min-notebookQuery) and (max-width: $max-notebookQuery){ //TABLET - NOTEBOOKS
+
+}
+
+@media screen and (min-width:$min-desktopQuery){ //DESKTOP
+    .appBar{
+        position:static !important;
+        display:flex;
+        flex-direction: row;
+    
+        
+        .mainDecoEtcetera{
+                font-family: $logoFont;
+                font-size:40px;
+                font-weight: bold;
+                letter-spacing: 4px;
+        }
+    }
+    .toolBar{
+        background-color:$mainColor;
+        display:flex;
+        justify-content: space-between;
+    }
+    
+    
+    
+    
+}
+

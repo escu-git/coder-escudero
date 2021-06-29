@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useCallback} from 'react';
 import { withRouter } from 'react-router';
 import { getFirebase } from '../../firebase';
 import {getFirestore} from '../../firebase';
@@ -45,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
     const db = getFirestore();
     const auth = useAuth();
     const usersCollection = db.collection('users');
-    const[user, setUser]=useState(null)
 
     const handleSignUp = useCallback(async event =>{
       event.preventDefault();
@@ -54,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
         name: firstName.value,
         surname:lastName.value,
         email: email.value,
-        phone:Number(phone.value),
+        phone:phone.value,
       }
       
       try{
@@ -63,8 +62,6 @@ const useStyles = makeStyles((theme) => ({
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value);
         if(database){ usersCollection.add(newUser).then(({id})=>{
-          setUser(id)
-          console.log(typeof newUser.phone)
           auth.updateUserData(newUser);
         })
           history.push('/')}
