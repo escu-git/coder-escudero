@@ -1,11 +1,34 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import styled from 'styled-components';
+import { Button } from '@material-ui/core';
+import {app} from '../../../firebase'
+
 
 const CustomItem = () => {
     const preview = 'https://firebasestorage.googleapis.com/v0/b/deco-etcetera.appspot.com/o/designPreview.jpg?alt=media&token=bbe80d41-85c7-4ca3-a086-f9e1ac11ebb1';
     const[design, setDesign]=useState(null)
+    const[img, setImg]=useState(null)
     const[title, setTitle]=useState('Set your artwork name!')
+
+    const changeHandler= (e) =>{
+        const file = e.target.files[0];
+        setImg(file)
+        setDesign(URL.createObjectURL(file));
+    }
+
+    const uploadFile =(e)=>{
+        let file = img;
+        console.log(file)
+        const storageRef = app.storage().ref()
+        const fileRef = storageRef.child(file.name);
+        fileRef.put(file).then((res)=>{
+
+    console.log(`${res} was uploaded succesfully...`)
+})
+    }
+
+
     return (
         <FormContainer>
             <span>{title}</span>
@@ -14,11 +37,17 @@ const CustomItem = () => {
             <img src={design? design : null} alt={design? 'Your custom design': null} className={design? 'isDesign' : 'notDesign'}/>
         </div>
 
-        <form type='submit'>
+        <form>
             <input type='text' placeholder='Artwork name'
                 onChange={(e)=>{setTitle(e.target.value)}}
             />
+            <input type='file'
+                accept='.jpg, .jpeg, .png'
+                onChange={changeHandler}
+            />
         </form>
+
+        <Button onClick={uploadFile} variant="outlined"  className='buyBtn'>BUY</Button>
         </FormContainer>
     )
 }
@@ -26,7 +55,7 @@ const CustomItem = () => {
 
 const FormContainer = styled.div`
 width:100%;
-height:100vh;
+height:100%;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -43,11 +72,14 @@ span{
     position:relative;
     width:400px;
     height:500px;
+    border:2px solid black;
+    border-radius:10px;
 }
 
 .preview{
     width:100%;
     height:100%;
+    border-radius:8px;
 }
 
 .isDesign{
@@ -63,6 +95,10 @@ span{
 .notDesign{
     display:none;
 }
-
+.buyBtn{
+    margin:30px;
+    color:green;
+    border:1px solid green;
+}
 `
 export default CustomItem
