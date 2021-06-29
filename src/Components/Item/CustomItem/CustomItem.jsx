@@ -18,9 +18,6 @@ const CustomItem = () => {
             <input type='text' placeholder='Artwork name'
                 onChange={(e)=>{setTitle(e.target.value)}}
             />
-            <input type='file'
-                value={design}
-                onChange={(e)=>setDesign(e.target.files[0])}/>
         </form>
         </FormContainer>
     )
