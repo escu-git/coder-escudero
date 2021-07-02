@@ -1,31 +1,72 @@
-import React from 'react'
-import { useState,useEffect } from 'react'
+import React,{ useState,useEffect } from 'react'
+import { useAuth } from '../../../Contexts/AuthContext';
+import firebase from 'firebase/app';
 import styled from 'styled-components';
 import { Button } from '@material-ui/core';
-import {app} from '../../../firebase'
-
+import { getFirestore } from '../../../firebase';
+import { app } from '../../../firebase';
 
 const CustomItem = () => {
+    const INITIAL_TITLE = 'Set your artwork name!';
     const preview = 'https://firebasestorage.googleapis.com/v0/b/deco-etcetera.appspot.com/o/designPreview.jpg?alt=media&token=bbe80d41-85c7-4ca3-a086-f9e1ac11ebb1';
-    const[design, setDesign]=useState(null)
-    const[img, setImg]=useState(null)
-    const[title, setTitle]=useState('Set your artwork name!')
-
-    const changeHandler= (e) =>{
-        const file = e.target.files[0];
-        setImg(file)
-        setDesign(URL.createObjectURL(file));
+    const[design, setDesign]=useState(null);
+    const[img, setImg]=useState(null);
+    const[title, setTitle]=useState(INITIAL_TITLE);
+    const[loading, setLoading]=useState(true);
+    const[uploaded, setUploaded]=useState(false);
+    const auth = useAuth();
+    const db = getFirestore();
+    const itemsCollection = db.collection('items');
+    
+    const titleHandler = (e)=>{
+        title ===""? setTitle(INITIAL_TITLE) : setTitle(e.target.value); 
     }
+    const changeHandler= async(e) =>{
+        e.preventDefault();
+        const file = e.target.files[0];
+        setDesign(URL.createObjectURL(file));
+        const storageRef = app.storage().ref();
+        const fileRef = storageRef.child(file.name)
+        const filePut = await fileRef.put(file);
+        let uploadProgress = (filePut.bytesTransferred / filePut.totalBytes) *100;
+        console.log(`Upload progress is ${uploadProgress}% done`)
+        const imageSrc = await filePut.ref.getDownloadURL().then((res)=>{
+            setImg(res)
+        })
+    }
+    console.log(img)
 
     const uploadFile =(e)=>{
-        let file = img;
-        console.log(file)
-        const storageRef = app.storage().ref()
-        const fileRef = storageRef.child(file.name);
-        fileRef.put(file).then((res)=>{
-
-    console.log(`${res} was uploaded succesfully...`)
-})
+        e.preventDefault();
+        if(title === INITIAL_TITLE || img === null){
+            alert('Please, choose a image and set a title to continue 😅');
+            return;
+        } 
+        const user = firebase.auth().currentUser;
+        if(!user) return;
+        let {displayName, uid, email, phoneNumber} = user;
+        
+        const newCustom ={
+            alt:'Custom artwork',
+            category:'Custom',
+            description:`Custom by ${user.displayName}`,
+            image:img,
+            title:title,
+            stock:10,
+            price:450,
+            custom:true,
+            buyer:{
+                name:displayName,
+                email:email,
+                userId:uid,
+                phoneNumber:phoneNumber},
+            date:firebase.firestore.Timestamp.fromDate(new Date())
+        }
+        itemsCollection.add(newCustom).then(({id})=>{
+            setLoading(false)
+        }).then((res)=>{
+            setUploaded(true)
+        }).catch(err=>console.log(err))
     }
 
 
@@ -38,8 +79,8 @@ const CustomItem = () => {
         </div>
 
         <form>
-            <input type='text' placeholder='Artwork name'
-                onChange={(e)=>{setTitle(e.target.value)}}
+            <input type='text' placeholder={'Set your artwork name!'}
+                onChange={(e)=>titleHandler(e)}
             />
             <input type='file'
                 accept='.jpg, .jpeg, .png'
@@ -47,7 +88,7 @@ const CustomItem = () => {
             />
         </form>
 
-        <Button onClick={uploadFile} variant="outlined"  className='buyBtn'>BUY</Button>
+        <Button onClick={uploadFile} variant="outlined" className='buyBtn'>BUY</Button>
         </FormContainer>
     )
 }
@@ -74,6 +115,7 @@ span{
     height:500px;
     border:2px solid black;
     border-radius:10px;
+    margin:20px;
 }
 
 .preview{

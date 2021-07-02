@@ -2,13 +2,20 @@ import React from 'react';
 import Item from './Item';
 import styled from 'styled-components';
 import Custom  from './CustomItem/Custom';
+import CustomizedItem from './CustomItem/CustomizedItem';
 
-const ItemList = ({products}) => {
+const ItemList = ({products, custom}) => {
+    const customized = custom;
+
     return (
         <ProductContainer>
             {products?.map((product)=>{
-                return(<Item key={product.id} item={product}></Item>)
+                return(custom?
+                <CustomizedItem key={product.id} item={product}/> :
+                <Item key={product.id} item={product}></Item>)
             })}
+
+            
             {products && <Custom/>}
         </ProductContainer>
     )

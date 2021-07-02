@@ -22,7 +22,10 @@ function App() {
             <NavBar/>
             <Switch>
               <Route exact path="/">
-                <ItemListContainer className="itemListContainer"/>
+                <ItemListContainer className="itemListContainer" custom={false}/>
+              </Route>
+              <Route exact path="/custom-items">
+                <ItemListContainer className="itemListContainer" custom={true}/>
               </Route>
               <Route exact path='/register'>
                 <SignUp/>

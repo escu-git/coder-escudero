@@ -64,11 +64,6 @@ const Login = ({history, fromCart}) => {
       }catch(err){console.log(err)}
     }, [history])
 
-    if(currentUser){
-      if(fromCart) <Redirect to='/purchase'/>
-      else {<Redirect to='/'/>}
-    }
-
     return (
         <Grid container component="main" className={classes.root}>
           <CssBaseline />
