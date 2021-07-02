@@ -24,7 +24,7 @@ function App() {
               <Route exact path="/">
                 <ItemListContainer className="itemListContainer" custom={false}/>
               </Route>
-              <Route exact path="/custom-items">
+              <Route exact path="/item/custom-items">
                 <ItemListContainer className="itemListContainer" custom={true}/>
               </Route>
               <Route exact path='/register'>

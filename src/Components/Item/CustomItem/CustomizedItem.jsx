@@ -1,19 +1,24 @@
 import React from 'react'
 import styled from 'styled-components';
+import Login from '../../Authentication/Login';
 import { Button } from '@material-ui/core';
 import {NavLink} from 'react-router-dom';
+import { useAuth } from '../../../Contexts/AuthContext';
 
 const CustomizedItem = (product) => {
     const preview='https://firebasestorage.googleapis.com/v0/b/deco-etcetera.appspot.com/o/designPreview.jpg?alt=media&token=bbe80d41-85c7-4ca3-a086-f9e1ac11ebb1';
+    const auth = useAuth();
     console.log(product)
     return (
+       
         <CustomizedContainer>
-        <span>{product.title}</span>
-        <div className='previewContainer'>
-            <img className='preview' src={preview} alt='Preview picture'/>
-            <img src={product.item.image} alt={product.item.alt} className='isDesign'/>
-        </div>
-        <NavLink to={`/item/${product.item.id}`} style={{textDecoration:'none', color:'inherit'}}>
+            <div className='previewContainer'>
+                <img className='preview' src={preview} alt='Preview picture'/>
+                <img src={product.item.image} alt={product.item.alt} className='isDesign'/>
+            </div>
+            <span className="title">{(product.item.title).toUpperCase()}</span>
+            <span className="price">{product.item.price}</span>
+            <NavLink to={`/item/${product.item.id}`} style={{textDecoration:'none', color:'inherit'}}>
                 <Button variant="outlined">Details</Button>
             </NavLink> 
         </CustomizedContainer>
@@ -22,26 +27,25 @@ const CustomizedItem = (product) => {
 
 const CustomizedContainer = styled.div`
   display: flex;
+  flex-direction:column;
+  justify-content: space-around;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
   align-items: center;
+  margin:20px;
+  border:3px solid black;
+  border-radius:10px ;
+
 span{
-    display:block;
-    text-align:center;
-    font-size:30px;
-    font-weight:bold;
-    margin:10px;
+    font-size:1.5em;
 }
 
 .previewContainer{
     position:relative;
-    width:400px;
-    height:500px;
+    width:300px;
+    height:50%;
     border:2px solid black;
     border-radius:10px;
     margin:20px;
-    z-index:0;
 }
 
 .preview{
@@ -56,16 +60,10 @@ span{
     height:59%;
     left:50%;
     top:50%;
-    margin-left:-110px;
-    margin-top:-145px;
-    z-index:2;
+    margin-left:-81.5px;
+    margin-top:-119px;
 }
 
-.buyBtn{
-    margin:30px;
-    color:green;
-    border:1px solid green;
-}
 `
 
 export default CustomizedItem

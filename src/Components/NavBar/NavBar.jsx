@@ -46,7 +46,11 @@ return(
       </IconButton>
         <MenuIcon/>
         <NavLink to="/purchase-history" style={{textDecoration: 'none', color:'inherit'}}>
-            <Button variant="outlined">Your buys</Button></NavLink>
+            <Button variant="outlined">Your buys</Button>
+        </NavLink>
+        {auth.currentUser?<NavLink to="/item/custom-items" style={{textDecoration: 'none', color:'inherit'}}>
+            <Button variant="outlined">Customized!</Button>
+        </NavLink>:null}
     </Toolbar>
     </AppBar>
 );
