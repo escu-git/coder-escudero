@@ -2,16 +2,17 @@ import React from 'react';
 import Item from './Item';
 import styled from 'styled-components';
 import Custom  from './CustomItem/Custom';
+import firebase from 'firebase';
 import CustomizedItem from './CustomItem/CustomizedItem';
 import { useAuth } from '../../Contexts/AuthContext';
 import Login from '../Authentication/Login';
 const ItemList = ({products, custom}) => {
-    const auth = useAuth();
+    const user = firebase.auth().currentUser;
     return (
         <ProductContainer>
             {custom?
                 <>
-                    {auth.currentUser ?<>
+                    {user?<>
                     {products?.map((product)=>{
                         return(<CustomizedItem key={product.id} item={product}/>)
                     })}

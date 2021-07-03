@@ -23,14 +23,15 @@ const CustomItem = () => {
     }
     const changeHandler= async(e) =>{
         e.preventDefault();
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
         const file = e.target.files[0];
         setDesign(URL.createObjectURL(file));
         const storageRef = app.storage().ref();
-        const fileRef = storageRef.child(file.name)
+        const fileRef = storageRef.child(file.name+randomNumber) // If user uploads a generic named file, it won't cause errors on further uses of that file.
         const filePut = await fileRef.put(file);
         let uploadProgress = (filePut.bytesTransferred / filePut.totalBytes) *100;
         console.log(`Upload progress is ${uploadProgress}% done`)
-        const imageSrc = await filePut.ref.getDownloadURL().then((res)=>{
+        await filePut.ref.getDownloadURL().then((res)=>{
             setImg(res)
         })
     }

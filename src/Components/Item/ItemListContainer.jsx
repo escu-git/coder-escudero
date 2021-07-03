@@ -1,5 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import '../../Styles/ItemListContainer.css';
+import firebase from 'firebase';
 import ItemList from './ItemList';
 import {useParams} from 'react-router-dom';
 import Loading from '../Loading/Loading';
@@ -11,30 +12,31 @@ const ItemListContainer = ({custom}) => {
     const [loading, setLoading]=useState(true);
     const[products, setProducts]=useState(null);
     const auth = useAuth();
+    const user = firebase.auth().currentUser;
+    if(user){console.log(user.email)}else{console.log('Not logged in')}
     useEffect(()=>{
         setLoading(true)
         const db = getFirestore();
         const itemsCollection = db.collection('items');
         itemsCollection.get().then((item)=>{
             if(catId){
-                if(custom===true){
-                    const userId = auth.currentUser.uid || null;
-                    console.log(userId)
-                    itemsCollection.where('custom',"==",custom).where('buyer.userId', '==', userId).get().then((res)=>{
-                        const standardItems = res.docs.map(doc=>({id:doc.id, ...doc.data()}));
-                        setProducts(standardItems)
-                    })
-                }else{
-                    const filtered = itemsCollection.where("category", "==", catId)
-                    filtered.get().then((res)=>{
-                    const array = res.docs.map(doc=>({id:doc.id, ...doc.data()}))
-                    setProducts(array)}).catch((err)=>{console.log(err)})
-                }
-            }else{
+                const filtered = itemsCollection.where("category", "==", catId)
+                filtered.get().then((res)=>{
+                const array = res.docs.map(doc=>({id:doc.id, ...doc.data()}))
+                setProducts(array)}).catch((err)=>{console.log(err)})
+            }else if(custom===false){
+                console.log('Entró por else')
                 itemsCollection.where('custom',"==",custom).get().then((res)=>{
                     const customItems = res.docs.map(doc=>({id:doc.id, ...doc.data()}));
                     setProducts(customItems)
                 })
+            }else if(custom ===true){
+                
+                    console.log('Entró por custom true // user')
+                    itemsCollection.where('custom',"==",custom).where('buyer.email', '==', user.email).get().then((res)=>{
+                        const standardItems = res.docs.map(doc=>({id:doc.id, ...doc.data()}));
+                        setProducts(standardItems)
+                    })
             }
         }).catch((err)=>console.log(err)
         ).finally(()=>{
