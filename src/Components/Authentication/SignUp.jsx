@@ -37,8 +37,6 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-  
-  
   const SignUp = ({history}) => {
     const classes = useStyles();
     const firebase = getFirebase();
@@ -165,7 +163,6 @@ const useStyles = makeStyles((theme) => ({
           </form>
         </div>
         <Box mt={5}>
-          
         </Box>
       </Container>
     );

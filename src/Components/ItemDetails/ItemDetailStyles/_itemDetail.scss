@@ -1,0 +1,60 @@
+.detailsDiv{
+    .detailDiv{
+        border:2px solid black;
+        width:60%;
+        margin:20px auto;
+        display:grid;
+        grid-template-columns:repeat(4, 1fr);
+        grid-template-rows:repeat(5, 1fr);
+        grid-template-areas:
+        "picture picture title title"
+        "picture picture description description"
+        "picture picture linea linea"
+        "picture picture price price"
+        "picture picture stock stock";
+        text-align:center;
+        
+    
+        img{
+        width:100%;
+        height:100%;
+        border-right:2 px solid black;
+        grid-area:picture;
+        }
+       .detailTitle{
+           grid-area: title;
+           align-self: center;
+           font-size:4.5em;
+        }
+        .detailDescription{
+            grid-area: description;
+            font-size:3em;
+            align-self:center;
+        }
+        .detailLinea{
+            grid-area:linea;
+            font-size:4em;
+            align-self:center;
+        }
+        .detailPrice{
+            grid-area:price;
+            font-size:4em;
+            align-self:center;
+        }
+        .itemCount{
+            grid-area: stock;
+            align-self:center;;
+        }
+        .purchaseBtn{
+            grid-area:cart;
+            align-self:center;
+        }
+    }
+    .purchaseBtnContainer{
+        display:flex;
+        grid-area:stock;
+        justify-content:space-around;
+        width:100%;
+        align-self:center;
+    }
+}

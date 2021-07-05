@@ -12,7 +12,6 @@ import SignUp from "./Components/Authentication/SignUp";
 import Login from "./Components/Authentication/Login";
 import CheckPurchase from "./Components/PurchasedProducts/PurchaseHistory/CheckPurchase";
 import CustomItem from "./Components/Item/CustomItem/CustomItem";
-
 function App() {
   return (
     <div className = "App">

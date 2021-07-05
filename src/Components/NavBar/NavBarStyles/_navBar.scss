@@ -35,9 +35,30 @@
         display:flex;
         justify-content: space-between;
     }
-    
-    
-    
-    
+}
+
+.drawerList{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    .drawerLogo{
+        border-radius: 200px;
+        width: 60px;
+        height: 60px;
+        margin:20px auto;
+        & :hover{
+            transition:1s;
+            transform:scale(1.1)
+        }
+    }
+}
+.drawerBtn{
+    text-decoration:none;
+}
+
+.btn{
+    width:100%;
+    height:150px;
+    margin:4px;
 }
 

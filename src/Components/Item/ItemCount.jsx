@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Button from '@material-ui/core/Button';
 import buttonStyle from '../material-ui/Buttons'
 import CartAddBtn from '../Cart/CartButtons/CartAddBtn';
+import '../../Styles/styles.css'
 
 
 const ChangeStock = (itemData)=>{
@@ -31,16 +32,18 @@ const ItemCount = ({fn, itemData}) => {
 return (
     <div className="itemCount">
         <div className = "buttons">
-        <div className={classes.root}>
-            <Button variant="outlined" color="primary" onClick={()=>itemDecrease(-1)}>-</Button>
+            <div className={classes.root}>
+                <Button variant="outlined" color="primary" onClick={()=>itemDecrease(-1)}>-</Button>
+            </div>
+            <span className="counter">{counter}</span>
+            <div className={classes.root}>
+                <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>+</Button>
+            </div>
+            <div className='stock'>
+                <span>Available stock: {amount}</span>
+                <CartAddBtn  className='toCart' fn={fn} itemData={itemData} amount={counter}/>
+            </div>
         </div>
-        <span className="counter">{counter}</span>
-        <div className={classes.root}>
-            <Button variant="outlined" color="secondary" onClick={()=>itemAdd(+1)}>+</Button>
-        </div>
-        <CartAddBtn fn={fn} itemData={itemData} amount={counter}/>
-    </div>
-        <span className="stock">Available stock: {amount}</span>
     </div>
 )};
 
