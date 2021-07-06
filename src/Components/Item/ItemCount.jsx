@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import buttonStyle from '../material-ui/Buttons'
 import CartAddBtn from '../Cart/CartButtons/CartAddBtn';
 import '../../Styles/styles.css'
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 
 const ChangeStock = (itemData)=>{
@@ -41,7 +42,7 @@ return (
             </div>
             <div className='stock'>
                 <span>Available stock: {amount}</span>
-                <CartAddBtn  className='toCart' fn={fn} itemData={itemData} amount={counter}/>
+                <CartAddBtn  className='toCart' fn={fn} itemData={itemData} amount={counter} fill={<AddShoppingCartIcon/>}/>
             </div>
         </div>
     </div>

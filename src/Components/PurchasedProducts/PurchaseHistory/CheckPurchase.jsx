@@ -18,6 +18,9 @@ const CheckPurchase = () => {
         purchasesArray.get().then((res)=>res.docs.map(x=>({id:x.id, ...x.data()}))).then((res)=>{
             const orders = (res);
             setOrders(orders);
+            if(orders.length ===0){
+                setOrders(null)
+            }
             setLoading(false)
         }).catch(err=>console.log(err))
     }else{setOrders(null)}
@@ -29,7 +32,6 @@ const CheckPurchase = () => {
         <h1>YOUR PURCHASES HISTORY</h1>
         {orders ? <>{orders?.map(order=>{return(<Order data={order}/>)})}</> : loading? <Loading/> : <EmptyCart/> }
         </>
-        
     )
 }
 

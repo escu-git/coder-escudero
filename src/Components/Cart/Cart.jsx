@@ -3,13 +3,13 @@ import {useCart} from '../../Contexts/CartContext';
 import CartItem from './CartItem';
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
-
+import '../../Styles/styles.css';
 const Cart = () => {
     const cart = useCart()
     const cartArray = cart.cart.addedItems;
 
     return (
-        <CartSection>
+        <CartSection className='cartSection'>
             <h1>CART</h1>
             {cartArray.map((x)=>{
                 return <CartItem key={x.id} details={x}></CartItem>
@@ -26,29 +26,7 @@ const Cart = () => {
 }
 
 const CartSection = styled.div`
-display:flex;
-justify-content:flex;
-flex-direction:column;
-width:90%;
-margin:auto;
-box-shadow:5px 5px 5px 5px lightgrey;
-.cartDetails{
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:space-around;
-    width:40%;
-    margin:auto;
-    .totalPrice{
-        text-align:right;
-        font-size:3rem;
-        margin:30px auto;
-    }
-}
-.btn{
-    width:200px;
-    height:40px;
-}
+
 `
 
 export default Cart

@@ -14,6 +14,7 @@ import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import StarsIcon from '@material-ui/icons/Stars';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import '../../../Styles/styles.css'
 
 const useStyles = makeStyles({
   list: {
