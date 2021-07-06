@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../Contexts/AuthContext';
 import firebase from 'firebase';
 import logo from '../../../assets/images/deco.logo.jpg';
-
+import MenuContainer from './MenuContainer';
 
 const useStyles = makeStyles({
   list: {
@@ -56,7 +56,10 @@ const auth = useAuth();
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List className='drawerList'>
+      <NavLink className='drawerLogo' to="/">
         <img src={logo} alt='Deco.etc logo' className='drawerLogo'/>
+      </NavLink>
+      <MenuContainer classNamed='menuContainerDrawer'/>
         {auth.currentUser?null : 
             <NavLink className='drawerBtn' to="/register">
                 <Button className='btn' variant="outlined">REGISTER</Button>

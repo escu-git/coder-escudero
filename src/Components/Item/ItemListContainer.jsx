@@ -43,7 +43,7 @@ const ItemListContainer = ({custom}) => {
             setLoading(false);
         })
     },[custom || catId]);
-    console.log(products)
+
     return (
         <div className="itemListDiv">
             <h1 className="greetings"> {catId ? ` 🔍 ${catId}` : auth.currentUser!== null ? `WELCOME TO DECO.ETC ${auth.currentUser.displayName}!` : "WELCOME TO DECO.ETC E-COMMERCE!"   }</h1>

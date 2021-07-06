@@ -3,6 +3,7 @@ import { useAuth } from '../../../Contexts/AuthContext';
 import { getFirebase, getFirestore } from '../../../firebase';
 import Loading from '../../Loading/Loading';
 import Order from './Order';
+import EmptyCart from '../../Cart/EmptyCart';
 const CheckPurchase = () => {
     const auth = useAuth();
     const db= getFirestore();
@@ -23,9 +24,11 @@ const CheckPurchase = () => {
         }).catch(err=>console.log(err))
     }else{setOrders(null)}
     },[])
+    console.log(orders)
     return (
         <>
-        {loading? <Loading/> : <>{orders?.map(order=>{return(<Order data={order}/>)})}</>}
+        <h1>YOUR PURCHASES HISTORY</h1>
+        {orders ? loading? <Loading/> : <>{orders?.map(order=>{return(<Order data={order}/>)})}</> : <EmptyCart/> }
         </>
     )
 }

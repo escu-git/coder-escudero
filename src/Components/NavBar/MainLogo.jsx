@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 import mainLogo from '../../assets/images/deco.logo.jpg';
+import '../../Styles/styles.css'
 
 const MainLogo = () => {
     return (
-        <MainLogoContainer>
+        <MainLogoContainer className='mainLogoContainer'>
         <img className="mainLogo" src={mainLogo} alt="MainLogo"/>
         <span className="mainDecoEtcetera">DECO ETCÉTERA</span>
         </MainLogoContainer>
@@ -12,27 +13,7 @@ const MainLogo = () => {
 }
 
 const MainLogoContainer = styled.div`
-width:300px;
-height:50%;
 display:flex;
-flex-direction:row;
-flex-wrap:no-wrap;
-justify-content:space-around;
-align-items:center;
-padding:10px;
-
-img{
-    border-radius:200px;
-    width:60px;
-    height:60px;
-}
-
-span{
-    margin-left:10px;
-    width:300px;
-    height:100%;
-    font-size:2em;
-}
 `
 
 export default MainLogo;

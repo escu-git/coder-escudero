@@ -1,42 +1,155 @@
 .appBar{
     background-color: $mainColor !important;
 }
+.responsiveNavBar{
+    display:flex;
+    flex-direction:row;
+    width:80%;
+    justify-content: space-around;
+}
 
-@media screen and (max-width: $max-phoneQuery){ //MOBILE
 
-    .mainDecoEtcetera{
-        font-size:10px;
+@media screen and (max-width: $max-phoneQuery){ //!MOBILE
+
+    .appBar{
+        margin-bottom:200px;
+        .responsiveNavBar{
+            display:flex;
+            flex-direction:column;
+            width:150px;
+            .userName{
+                font-size:1.5em;
+                text-align:center;
+            }
+            .menuContainer{
+                display:none;
+            }
+        }
+        .cartIcon{
+            margin:10px;
+        }
     }
+
     .formControl{
         width:300px;
     }
+    .mainLogoContainer{
+        width:150px;
+        height:100%;
+        flex-direction:column;
+        padding:10px;
+        img{
+            border-radius:200px;
+            width:40px;
+            height:40px;
+            align-self:center;
+        }
+        .mainDecoEtcetera{
+            text-align: center;
+            width:50%;
+            height:100%;
+            font-size:1em;
+            align-self:center;
+        }
+    }
 }
 
-@media only screen and (min-width: $min-notebookQuery) and (max-width: $max-notebookQuery){ //TABLET - NOTEBOOKS
-
-}
-
-@media screen and (min-width:$min-desktopQuery){ //DESKTOP
+@media only screen and (min-width: $min-notebookQuery) and (max-width: $max-notebookQuery){ //!TABLET - NOTEBOOKS
     .appBar{
         position:static !important;
         display:flex;
         flex-direction: row;
-    
-        
-        .mainDecoEtcetera{
+        .userName{
+            font-size:1.5em;
+            text-align:center;
+        }
+        .toolBar{
+            background-color:$mainColor;
+            display:flex;
+            justify-content: space-between;
+        }
+        .mainLogoContainer{
+            width:100px;
+            height:50%;
+            flex-direction:column;
+            flex-wrap:no-wrap;
+            justify-content:space-around;
+            align-items:center;
+            padding:10px;
+            img{
+                border-radius:200px;
+                width:60px;
+                height:60px;
+            }
+            
+            .mainDecoEtcetera{
+                text-align:center;
+                margin-left:3px;
+                width:100px;
+                height:100%;
+                font-size:1em;
                 font-family: $logoFont;
-                font-size:40px;
                 font-weight: bold;
                 letter-spacing: 4px;
+            }
+        }
+        .cartIcon{
+            margin:20px;
         }
     }
-    .toolBar{
-        background-color:$mainColor;
-        display:flex;
-        justify-content: space-between;
+    .menuContainerDrawer{
+        display:none;
     }
 }
 
+@media screen and (min-width:$min-desktopQuery){ //!DESKTOP
+    .appBar{
+        position:static !important;
+        display:flex;
+        flex-direction: row;
+        .userName{
+            font-size:2em;
+            text-align:center;
+        }
+        .toolBar{
+            background-color:$mainColor;
+            display:flex;
+            justify-content: space-between;
+        }
+        .mainLogoContainer{
+            width:300px;
+            height:50%;
+            flex-direction:row;
+            flex-wrap:no-wrap;
+            justify-content:space-around;
+            align-items:center;
+            padding:10px;
+
+            img{
+                border-radius:200px;
+                width:60px;
+                height:60px;
+            }
+            
+            .mainDecoEtcetera{
+                margin-left:10px;
+                width:300px;
+                height:100%;
+                font-size:3em;
+                font-family: $logoFont;
+                font-weight: bold;
+                letter-spacing: 4px;
+            }
+        }
+        
+        .cartIcon{
+            margin:30px;
+        }
+    }
+    .menuContainerDrawer{
+        display:none;
+    }
+}
 .drawerList{
     display:flex;
     flex-direction:column;
@@ -51,6 +164,7 @@
             transform:scale(1.1)
         }
     }
+
 }
 .drawerBtn{
     text-decoration:none;

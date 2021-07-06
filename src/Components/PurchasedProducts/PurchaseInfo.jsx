@@ -42,7 +42,7 @@ h2{
     display:flex;
 }
 span{
-    font-size:20px;
+    font-size:1.5em;
     font-weight:bold;
 }
 `
