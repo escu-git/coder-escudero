@@ -78,12 +78,12 @@ const CustomItem = () => {
         <FormContainer>
             <span>{title}</span>
         <div className='previewContainer'>
-            <img className='preview' src={preview} alt='Preview picture'/>
+            <img className='preview' src={preview} alt='Preview'/>
             <img src={design? design : null} alt={design? 'Your custom design': null} className={design? 'isDesign' : 'notDesign'}/>
         </div>
         {uploaded? 
         <div className='uploaded'>
-            <h1>UPLOADED!</h1>
+            <span>UPLOADED!</span>
             <NavLink to='/item/custom-items' style={{color:'inherit', textDecoration:'none'}}>
                 <span>CHECK YOUR CUSTOMIZED ARTWORKS 🎴</span>
             </NavLink>

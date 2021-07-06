@@ -20,6 +20,24 @@
       justify-content: space-around;
 }
 
+.userLoggedIn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+.userLoggedIn #userIcon {
+  display: block;
+}
+
 @media screen and (max-width: 480px) {
   .appBar {
     margin-bottom: 200px;
@@ -44,6 +62,17 @@
   .appBar .cartIcon {
     margin: 10px;
   }
+  .appBar .userLoggedIn {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 2px;
+    margin-left: -30px;
+  }
   .formControl {
     width: 300px;
   }
@@ -55,6 +84,7 @@
         -ms-flex-direction: column;
             flex-direction: column;
     padding: 10px;
+    margin-left: -40px;
   }
   .mainLogoContainer img {
     border-radius: 200px;
@@ -226,7 +256,63 @@
 }
 
 .drawerBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 100%;
+  height: 100px;
+}
+
+.drawerBtn :active {
+  color: black;
+  -webkit-box-shadow: 0 3px #666;
+          box-shadow: 0 3px #666;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+.drawerBtn div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100px;
+  height: 90px;
+  border-radius: 10px;
+  border: 1.5px solid black;
+  -webkit-box-shadow: 3px 8px #087008;
+          box-shadow: 3px 8px #087008;
+}
+
+.drawerBtn div span {
+  color: #087008;
+  font-weight: 600;
+}
+
+.drawerBtn div #registerIcon, .drawerBtn div #loginIcon, .drawerBtn div #shoppingCartIcon, .drawerBtn div #starIcon, .drawerBtn div #exitIcon {
+  color: #087008;
 }
 
 .btn {
@@ -614,7 +700,48 @@
   }
 }
 
+.divider {
+  width: 100%;
+  height: 1px;
+  border: 0.5px solid black;
+}
+
 @media screen and (max-width: 480px) {
+  .orderContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow-x: scroll;
+    border-bottom: 1px solid black;
+  }
+  .orderContainer .itemDetailPurchase {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .orderContainer span {
+    font-size: 2em;
+  }
   .purchaseContainer {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -633,9 +760,6 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .purchaseContainer .infoContainer {
-    width: 80%;
-  }
   .userData {
     width: 100%;
   }
@@ -645,6 +769,41 @@
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
+  .orderContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow-x: scroll;
+    border-bottom: 1px solid black;
+  }
+  .orderContainer .itemDetailPurchase {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .orderContainer span {
+    font-size: 2em;
+  }
   .userDiv {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -742,7 +901,6 @@
         -ms-flex-align: center;
             align-items: center;
     overflow-x: scroll;
-    border-bottom: 1px solid black;
   }
   .orderContainer .itemDetailPurchase {
     display: -webkit-box;
@@ -762,5 +920,53 @@
   .orderContainer span {
     font-size: 2em;
   }
+}
+
+.customizedContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.customizedContainer span {
+  font-size: 1.5em;
+}
+
+.customizedContainer .previewContainer {
+  position: relative;
+  width: 300px;
+  height: 50%;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.customizedContainer .preview {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.customizedContainer .isDesign {
+  position: absolute;
+  width: 55%;
+  height: 59%;
+  left: 50%;
+  top: 50%;
+  margin-left: -81.5px;
+  margin-top: -119px;
 }
 /*# sourceMappingURL=styles.css.map */

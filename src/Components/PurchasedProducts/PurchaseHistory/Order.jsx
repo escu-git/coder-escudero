@@ -12,6 +12,7 @@ const Order = ({data}) => {
                 <ItemDetailPurchase className="itemDetailPurchase" image={x.image} title={x.title} alt={x.alt} price={x.price} quantity={x.quantity} />)}
             )}
             </div>
+            <span className='divider'/>
         </OrderContainer>
     )
 }

@@ -1,4 +1,28 @@
+.divider{
+    width:100%;
+    height:1px;
+    border:0.5px solid black;
+}
 @media screen and (max-width: $max-phoneQuery){
+    .orderContainer{
+        display:flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        overflow-x:scroll;
+        border-bottom:1px solid black;
+        .itemDetailPurchase{
+            display:flex;
+            flex-direction:row;
+            flex-wrap:wrap;
+            width:100%;
+            justify-content: center;
+            
+        }
+        span{
+            font-size:2em;
+        }
+    }
     .purchaseContainer{
         display:flex;
 
@@ -7,7 +31,6 @@
             display:flex;
             flex-direction:column;
         }
-        .infoContainer{
     }
     .userData{
         width:100%;
@@ -18,6 +41,25 @@
 }
 
 @media screen and (min-width: $min-notebookQuery) and (max-width: $max-notebookQuery){
+    .orderContainer{
+        display:flex;
+        flex-direction: row;
+        justify-content:flex-start;
+        align-items: center;
+        overflow-x:scroll;
+        border-bottom:1px solid black;
+        .itemDetailPurchase{
+            display:flex;
+            flex-direction:row;
+            flex-wrap:wrap;
+            width:100%;
+            justify-content: center;
+            
+        }
+        span{
+            font-size:2em;
+        }
+    }
     .userDiv{
         display:flex;
     }
@@ -72,7 +114,6 @@
         justify-content:flex-start;
         align-items: center;
         overflow-x:scroll;
-        border-bottom:1px solid black;
         .itemDetailPurchase{
             display:flex;
             flex-direction:row;
