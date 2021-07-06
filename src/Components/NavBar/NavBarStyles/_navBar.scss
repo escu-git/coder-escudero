@@ -1,61 +1,238 @@
 .appBar{
     background-color: $mainColor !important;
 }
-
-@media screen and (max-width: $max-phoneQuery){ //MOBILE
-
-    .mainDecoEtcetera{
-        font-size:10px;
+.responsiveNavBar{
+    display:flex;
+    flex-direction:row;
+    width:80%;
+    justify-content: space-around;
+}
+.userLoggedIn{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    gap:5px;
+    #userIcon{
+        display:block;
     }
+}
+
+
+@media screen and (max-width: $max-phoneQuery){ //!MOBILE
+
+    .appBar{
+        margin-bottom:200px;
+        .responsiveNavBar{
+            display:flex;
+            flex-direction:column;
+            width:150px;
+            .userName{
+                font-size:1.5em;
+                text-align:center;
+            }
+            .menuContainer{
+                display:none;
+            }
+        }
+        .cartIcon{
+            margin:10px;
+        }
+        .userLoggedIn{
+            flex-direction:column;
+            justify-content:center;
+            gap:2px;
+            margin-left:-30px;
+        }
+    }
+
     .formControl{
         width:300px;
     }
+    .mainLogoContainer{
+        width:150px;
+        height:100%;
+        flex-direction:column;
+        padding:10px;
+        margin-left:-40px;
+        img{
+            border-radius:200px;
+            width:40px;
+            height:40px;
+            align-self:center;
+        }
+        .mainDecoEtcetera{
+            text-align: center;
+            width:50%;
+            height:100%;
+            font-size:1em;
+            align-self:center;
+        }
+    }
 }
 
-@media only screen and (min-width: $min-notebookQuery) and (max-width: $max-notebookQuery){ //TABLET - NOTEBOOKS
-
-}
-
-@media screen and (min-width:$min-desktopQuery){ //DESKTOP
+@media only screen and (min-width: $min-notebookQuery) and (max-width: $max-notebookQuery){ //!TABLET - NOTEBOOKS
     .appBar{
         position:static !important;
         display:flex;
         flex-direction: row;
-    
-        
-        .mainDecoEtcetera{
+        .userName{
+            font-size:1em;
+            text-align:center;
+        }
+        .toolBar{
+            background-color:$mainColor;
+            display:flex;
+            justify-content: space-between;
+        }
+        .mainLogoContainer{
+            width:100px;
+            height:50%;
+            flex-direction:column;
+            flex-wrap:no-wrap;
+            justify-content:space-around;
+            align-items:center;
+            padding:10px;
+            img{
+                border-radius:200px;
+                width:60px;
+                height:60px;
+            }
+            
+            .mainDecoEtcetera{
+                text-align:center;
+                margin-left:3px;
+                width:100px;
+                height:100%;
+                font-size:1em;
                 font-family: $logoFont;
-                font-size:40px;
                 font-weight: bold;
                 letter-spacing: 4px;
+            }
+        }
+        .cartIcon{
+            margin:20px;
         }
     }
-    .toolBar{
-        background-color:$mainColor;
-        display:flex;
-        justify-content: space-between;
+    .menuContainerDrawer{
+        display:block;
+    }
+    .menuContainer{
+        display:none;
     }
 }
 
+@media screen and (min-width:$min-desktopQuery){ //!DESKTOP
+    .appBar{
+        position:static !important;
+        display:flex;
+        flex-direction: row;
+        .responsiveNavBar{
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            .userName{
+                font-size:1.5em;
+                text-align:center;
+                height:100%;
+                justify-self:center;
+            }
+        }
+        .toolBar{
+            background-color:$mainColor;
+            display:flex;
+            justify-content: space-between;
+        }
+        .mainLogoContainer{
+            width:300px;
+            height:50%;
+            flex-direction:row;
+            flex-wrap:no-wrap;
+            justify-content:space-around;
+            align-items:center;
+            padding:10px;
+
+            img{
+                border-radius:200px;
+                width:60px;
+                height:60px;
+            }
+            
+            .mainDecoEtcetera{
+                margin-left:10px;
+                width:300px;
+                height:100%;
+                font-size:3em;
+                font-family: $logoFont;
+                font-weight: bold;
+                letter-spacing: 4px;
+            }
+        }
+        .cartIcon{
+            margin:30px;
+            height:100%;
+        }
+    }
+}
 .drawerList{
     display:flex;
     flex-direction:column;
     gap:30px;
     .drawerLogo{
         border-radius: 200px;
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
         margin:20px auto;
         & :hover{
             transition:1s;
             transform:scale(1.1)
         }
     }
+
 }
 .drawerBtn{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-decoration:none;
+    align-self:center;
+    width:100%;
+    height:100px;
+    &:hover{
+        transition:1s;
+        transform:scale(1.05);
+    }
+    & :active{
+        color:black;
+        box-shadow: 0 3px #666;
+        transform: translateY(4px);
+    }
+    div{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        width:100px;
+        height:90px;
+        border-radius:10px;
+        border:1.5px solid black;
+        box-shadow: 3px 8px $mainColor;
+        background-color:rgb(239, 245, 239);
+        span{
+            color: $mainColor;
+            font-weight: 600;
+        }
+        #registerIcon, #loginIcon, #shoppingCartIcon, #starIcon, #exitIcon{
+            color:$mainColor;
+        }
+    }
 }
-
+.menuContainerDrawer{
+    display:none;
+}
+.menuContainer{
+    display:block;
+}
 .btn{
     width:100%;
     height:150px;

@@ -1,0 +1,267 @@
+
+@media screen and (max-width:480px){
+    .cartSection{
+        display:flex;
+        justify-content:flex;
+        flex-direction:column;
+        width:90%;
+        margin:auto;
+        box-shadow:5px 5px 5px 5px lightgrey;
+
+        .cartDetails{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:space-around;
+            width:40%;
+            margin:auto;
+            .totalPrice{
+                text-align:right;
+                font-size:3rem;
+                margin:30px auto;
+            }
+        }
+        .btn{
+            width:200px;
+            height:40px;
+        }
+    }
+    
+    .cartItemDetails{
+            border-top: 1px solid grey;
+    padding:1em;
+    width:80%;
+    height:100%;
+    margin:2em auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:center;
+
+    img{
+        width:200px;
+        height:200px;
+        border:1px solid black;
+        border-radius:10px;
+        box-shadow:10px 5px 5px lightgrey;
+    }
+    .itemDetails{
+        display:flex;
+        flex-direction:column;
+        gap:5px;
+        width:100%;
+        height:100%;
+        span{
+            font-weight:bold;
+            width:100%;
+            font-size:1rem;
+            text-transform:uppercase;
+            text-align:center;
+        }
+    }
+
+    .cartButtons{
+        width:25%;
+        height:70%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content: center;
+        gap:30px;
+        #deleteIcon{
+            font-size:2em;
+        }
+        div{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            button{
+                width:10%;
+                height:10%;
+            }
+            span{
+                font-size:1.5rem;
+            }
+        }
+        }
+    }
+
+}
+
+@media only screen and (min-width:481px) and (max-width:768px){
+    .cartSection{
+        display:flex;
+        justify-content:flex;
+        flex-direction:column;
+        width:90%;
+        margin:auto;
+        box-shadow:5px 5px 5px 5px lightgrey;
+
+        .cartDetails{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:space-around;
+            width:40%;
+            margin:auto;
+            .totalPrice{
+                text-align:right;
+                font-size:3rem;
+                margin:30px auto;
+            }
+        }
+        .btn{
+            width:200px;
+            height:40px;
+        }
+    }
+    
+    .cartItemDetails{
+            border-top: 1px solid grey;
+    padding:1em;
+    width:80%;
+    height:100%;
+    margin:2em auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:center;
+
+    img{
+        width:200px;
+        height:200px;
+        border:1px solid black;
+        border-radius:10px;
+        box-shadow:10px 5px 5px lightgrey;
+    }
+    .itemDetails{
+        display:flex;
+        flex-direction:column;
+        gap:5px;
+        width:100%;
+        height:100%;
+        span{
+            font-weight:bold;
+            width:100%;
+            font-size:2rem;
+            text-transform:uppercase;
+            text-align:center;
+        }
+    }
+
+    .cartButtons{
+        width:25%;
+        height:70%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content: center;
+        gap:30px;
+        #deleteIcon{
+            font-size:2em;
+        }
+        div{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            button{
+                width:10%;
+                height:10%;
+            }
+            span{
+                font-size:1.5rem;
+            }
+        }
+        }
+    }
+
+}
+
+@media screen and (min-width:769px){
+    .cartSection{
+        display:flex;
+        justify-content:flex;
+        flex-direction:column;
+        width:90%;
+        margin:auto;
+        box-shadow:5px 5px 5px 5px lightgrey;
+
+        .cartDetails{
+            display:flex;
+            flex-direction:row;
+            align-items:center;
+            justify-content:space-around;
+            width:40%;
+            margin:auto;
+            .totalPrice{
+                text-align:right;
+                font-size:3rem;
+                margin:30px auto;
+            }
+        }
+        .btn{
+            width:200px;
+            height:40px;
+        }
+    }
+    .cartItemDetails{
+        border-top: 1px solid grey;
+padding:1em;
+width:80%;
+height:100%;
+margin:2em auto;
+display:flex;
+flex-direction:row;
+justify-content:space-evenly;
+align-items:center;
+
+img{
+    width:200px;
+    height:200px;
+    border:1px solid black;
+    border-radius:10px;
+    box-shadow:10px 5px 5px lightgrey;
+}
+.itemDetails{
+    display:flex;
+    flex-direction:column;
+    width:30%;
+    height:100%;
+    span{
+        font-weight:bold;
+        font-size:2rem;
+        text-transform:uppercase;
+        text-align:center;
+    }
+}
+
+.cartButtons{
+    width:25%;
+    height:70%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+    gap:30px;
+    #deleteIcon{
+        font-size:2em;
+    }
+    div{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        button{
+            width:10%;
+            height:10%;
+        }
+        span{
+            font-size:1.5rem;
+        }
+    }
+    }
+    }
+
+}

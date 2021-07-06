@@ -17,7 +17,7 @@ const StyledBadge = withStyles((theme) => ({
 const Logo = ()=> {
     const cart = useCart();
     return(
-        <IconButton aria-label="cart">
+        <IconButton aria-label="cart" className='cartIcon'>
       <StyledBadge badgeContent={cart.cart.totalQuantity} color="secondary">
         <ShoppingCartIcon />
       </StyledBadge>

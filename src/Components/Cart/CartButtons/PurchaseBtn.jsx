@@ -1,11 +1,13 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+import '../../../Styles/styles.css'
 
 const PurchaseBtn = ({text}) => {
     return (
-        <ButtonContainer>
-             <Button variant="outlined" color="default" >{text}</Button>
+        <ButtonContainer className='drawerBtn'>
+            <div className='btn'>
+                <span>{text}</span>
+            </div>
         </ButtonContainer>
     )
 }

@@ -25,7 +25,10 @@ const EmptyCartMessage = styled.div`
         transition:400ms;
         color:green;
     }
-
+    span{
+        font-weight:bolder;
+        text-transform:uppercase;
+    }
 `
 
 export default EmptyCart

@@ -1,7 +1,6 @@
-import React, {useCallback, useContext} from 'react';
-import { withRouter, Redirect } from 'react-router';
+import React, {useCallback} from 'react';
+import { withRouter} from 'react-router';
 import {getFirebase} from '../../firebase';
-import { AuthContext } from '../../Contexts/AuthContext';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -49,10 +48,9 @@ const useStyles = makeStyles((theme) => ({
 
   
 
-const Login = ({history, fromCart}) => {
+const Login = ({history}) => {
     const classes = useStyles();
     const firebase = getFirebase();
-    const {currentUser} = useContext(AuthContext);
     const handleLogin = useCallback(async event=>{
       event.preventDefault();
       const {email, password} = event.target.elements;

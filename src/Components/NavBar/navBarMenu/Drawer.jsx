@@ -2,14 +2,19 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import MenuIcon from '@material-ui/icons/Menu';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../Contexts/AuthContext';
 import firebase from 'firebase';
 import logo from '../../../assets/images/deco.logo.jpg';
-
+import MenuContainer from './MenuContainer';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import StarsIcon from '@material-ui/icons/Stars';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import '../../../Styles/styles.css'
 
 const useStyles = makeStyles({
   list: {
@@ -56,24 +61,45 @@ const auth = useAuth();
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List className='drawerList'>
+      <NavLink className='drawerLogo' to="/">
         <img src={logo} alt='Deco.etc logo' className='drawerLogo'/>
+      </NavLink>
+      <MenuContainer classNamed='menuContainerDrawer'/>
         {auth.currentUser?null : 
             <NavLink className='drawerBtn' to="/register">
-                <Button className='btn' variant="outlined">REGISTER</Button>
+                <div className='btn' variant="outlined">
+                  <PersonAddIcon id='registerIcon'/>
+                  <span>REGISTER</span>
+                </div>
             </NavLink>}
             {auth.currentUser ?
-            <Button className='btn' variant="outlined" onClick={()=>handleLogOut()}>LOGOUT</Button> : 
+            <div className='drawerBtn'>
+              <div className='btn' variant="outlined" onClick={()=>handleLogOut()}>
+                <ExitToAppIcon id='exitIcon'/>
+                <span>LOGOUT</span>
+              </div>
+            </div>
+             : 
             <NavLink className='drawerBtn' to='/signin'>
-                <Button className='btn' variant="outlined">LOGIN</Button>
+                <div className='btn' variant="outlined">
+                <VpnKeyIcon id='loginIcon'/>
+                <span>LOGIN</span>  
+                </div>
             </NavLink>  }
       </List>
       {auth.currentUser?
       <List className='drawerList'>
         <NavLink className='drawerBtn' to="/purchase-history" style={{textDecoration: 'none', color:'inherit'}}>
-            <Button className='btn' variant="outlined">Your buys</Button>
+            <div className='btn' variant="outlined">
+              <ShoppingCartIcon id='shoppingCartIcon'/>
+              <span>PURCHASES</span>
+              </div>
         </NavLink>
         <NavLink className='drawerBtn' to="/item/custom-items" style={{textDecoration: 'none', color:'inherit'}}>
-            <Button className='btn' variant="outlined">CUSTOMIZED</Button>
+            <div className='btn' variant="outlined">
+              <StarsIcon id='starIcon'/>
+              <span>CUSTOMIZED</span>
+              </div>
         </NavLink>
       </List>:null}
     </div>

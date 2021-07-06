@@ -1,20 +1,20 @@
-import React,{ useState,useEffect } from 'react'
+import React,{ useState} from 'react'
 import { useAuth } from '../../../Contexts/AuthContext';
 import firebase from 'firebase/app';
 import styled from 'styled-components';
 import { Button } from '@material-ui/core';
 import { getFirestore } from '../../../firebase';
 import { app } from '../../../firebase';
+import {NavLink} from 'react-router-dom';
 
 const CustomItem = () => {
-    const INITIAL_TITLE = 'Set your artwork name!';
+    const INITIAL_TITLE = 'SET YOUR ARTWORK NAME!';
     const preview = 'https://firebasestorage.googleapis.com/v0/b/deco-etcetera.appspot.com/o/designPreview.jpg?alt=media&token=bbe80d41-85c7-4ca3-a086-f9e1ac11ebb1';
     const[design, setDesign]=useState(null);
     const[img, setImg]=useState(null);
     const[title, setTitle]=useState(INITIAL_TITLE);
-    const[loading, setLoading]=useState(true);
     const[uploaded, setUploaded]=useState(false);
-    const auth = useAuth();
+    const[ready, setReady]=useState(false);
     const db = getFirestore();
     const itemsCollection = db.collection('items');
     
@@ -23,7 +23,7 @@ const CustomItem = () => {
     }
     const changeHandler= async(e) =>{
         e.preventDefault();
-        const randomNumber = Math.floor(Math.random() * 100) + 1;
+        const randomNumber = Math.floor(Math.random() * 1000) + 1;
         const file = e.target.files[0];
         setDesign(URL.createObjectURL(file));
         const storageRef = app.storage().ref();
@@ -33,6 +33,7 @@ const CustomItem = () => {
         console.log(`Upload progress is ${uploadProgress}% done`)
         await filePut.ref.getDownloadURL().then((res)=>{
             setImg(res)
+            setReady(true)
         })
     }
     console.log(img)
@@ -63,9 +64,7 @@ const CustomItem = () => {
                 phoneNumber:phoneNumber},
             date:firebase.firestore.Timestamp.fromDate(new Date())
         }
-        itemsCollection.add(newCustom).then(({id})=>{
-            setLoading(false)
-        }).then((res)=>{
+        itemsCollection.add(newCustom).then((res)=>{
             setUploaded(true)
         }).catch(err=>console.log(err))
     }
@@ -75,21 +74,28 @@ const CustomItem = () => {
         <FormContainer>
             <span>{title}</span>
         <div className='previewContainer'>
-            <img className='preview' src={preview} alt='Preview picture'/>
+            <img className='preview' src={preview} alt='Preview'/>
             <img src={design? design : null} alt={design? 'Your custom design': null} className={design? 'isDesign' : 'notDesign'}/>
         </div>
-
-        <form>
-            <input type='text' placeholder={'Set your artwork name!'}
-                onChange={(e)=>titleHandler(e)}
-            />
-            <input type='file'
-                accept='.jpg, .jpeg, .png'
-                onChange={changeHandler}
-            />
-        </form>
-
-        <Button onClick={uploadFile} variant="outlined" className='buyBtn'>BUY</Button>
+        {uploaded? 
+        <div className='uploaded'>
+            <span>UPLOADED!</span>
+            <NavLink to='/item/custom-items' style={{color:'inherit', textDecoration:'none'}}>
+                <span>CHECK YOUR CUSTOMIZED ARTWORKS 🎴</span>
+            </NavLink>
+        </div>:
+        <div className='formDiv'>
+            <form>
+                <input type='text' placeholder={'Set your artwork name!'}
+                    onChange={(e)=>titleHandler(e)}
+                />
+                <input type='file'
+                    accept='.jpg, .jpeg, .png'
+                    onChange={changeHandler}
+                />
+            </form>
+            {ready && <Button onClick={uploadFile} variant="outlined" className='buyBtn'>CREATE CUSTOM</Button>}
+        </div>}
         </FormContainer>
     )
 }
@@ -105,9 +111,9 @@ align-items:center;
 span{
     display:block;
     text-align:center;
-    font-size:30px;
+    font-size:2em;
     font-weight:bold;
-    margin:10px;
+    margin:20px;
 }
 
 .previewContainer{
@@ -142,6 +148,29 @@ span{
     margin:30px;
     color:green;
     border:1px solid green;
+}
+.formDiv{
+    display:flex;
+    flex-direction:column;
+    form{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        
+    }
+    button{
+        width:100%;
+        font-size:1em;
+        align-self:center;
+    }
+    .uploaded{
+        display:flex;
+        flex-direction:column;
+
+        span{
+            font-size:0.5em;
+        }
+    }
 }
 `
 export default CustomItem

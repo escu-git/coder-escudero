@@ -7,12 +7,167 @@
   background-color: #087008 !important;
 }
 
+.responsiveNavBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 80%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.userLoggedIn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+.userLoggedIn #userIcon {
+  display: block;
+}
+
 @media screen and (max-width: 480px) {
-  .mainDecoEtcetera {
-    font-size: 10px;
+  .appBar {
+    margin-bottom: 200px;
+  }
+  .appBar .responsiveNavBar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 150px;
+  }
+  .appBar .responsiveNavBar .userName {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .appBar .responsiveNavBar .menuContainer {
+    display: none;
+  }
+  .appBar .cartIcon {
+    margin: 10px;
+  }
+  .appBar .userLoggedIn {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 2px;
+    margin-left: -30px;
   }
   .formControl {
     width: 300px;
+  }
+  .mainLogoContainer {
+    width: 150px;
+    height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 10px;
+    margin-left: -40px;
+  }
+  .mainLogoContainer img {
+    border-radius: 200px;
+    width: 40px;
+    height: 40px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .mainLogoContainer .mainDecoEtcetera {
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    font-size: 1em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .appBar {
+    position: static !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .appBar .userName {
+    font-size: 1em;
+    text-align: center;
+  }
+  .appBar .toolBar {
+    background-color: #087008;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .appBar .mainLogoContainer {
+    width: 100px;
+    height: 50%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: no-wrap;
+        flex-wrap: no-wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 10px;
+  }
+  .appBar .mainLogoContainer img {
+    border-radius: 200px;
+    width: 60px;
+    height: 60px;
+  }
+  .appBar .mainLogoContainer .mainDecoEtcetera {
+    text-align: center;
+    margin-left: 3px;
+    width: 100px;
+    height: 100%;
+    font-size: 1em;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
+    letter-spacing: 4px;
+  }
+  .appBar .cartIcon {
+    margin: 20px;
+  }
+  .menuContainerDrawer {
+    display: block;
+  }
+  .menuContainer {
+    display: none;
   }
 }
 
@@ -27,13 +182,26 @@
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .appBar .mainDecoEtcetera {
-    font-family: "Roboto Condensed", sans-serif;
-    font-size: 40px;
-    font-weight: bold;
-    letter-spacing: 4px;
+  .appBar .responsiveNavBar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  .toolBar {
+  .appBar .responsiveNavBar .userName {
+    font-size: 1.5em;
+    text-align: center;
+    height: 100%;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .appBar .toolBar {
     background-color: #087008;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -41,6 +209,40 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+  .appBar .mainLogoContainer {
+    width: 300px;
+    height: 50%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: no-wrap;
+        flex-wrap: no-wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 10px;
+  }
+  .appBar .mainLogoContainer img {
+    border-radius: 200px;
+    width: 60px;
+    height: 60px;
+  }
+  .appBar .mainLogoContainer .mainDecoEtcetera {
+    margin-left: 10px;
+    width: 300px;
+    height: 100%;
+    font-size: 3em;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
+    letter-spacing: 4px;
+  }
+  .appBar .cartIcon {
+    margin: 30px;
+    height: 100%;
   }
 }
 
@@ -57,8 +259,8 @@
 
 .drawerList .drawerLogo {
   border-radius: 200px;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   margin: 20px auto;
 }
 
@@ -70,7 +272,79 @@
 }
 
 .drawerBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-decoration: none;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 100%;
+  height: 100px;
+}
+
+.drawerBtn:hover {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.drawerBtn :active {
+  color: black;
+  -webkit-box-shadow: 0 3px #666;
+          box-shadow: 0 3px #666;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+.drawerBtn div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100px;
+  height: 90px;
+  border-radius: 10px;
+  border: 1.5px solid black;
+  -webkit-box-shadow: 3px 8px #087008;
+          box-shadow: 3px 8px #087008;
+  background-color: #eff5ef;
+}
+
+.drawerBtn div span {
+  color: #087008;
+  font-weight: 600;
+}
+
+.drawerBtn div #registerIcon, .drawerBtn div #loginIcon, .drawerBtn div #shoppingCartIcon, .drawerBtn div #starIcon, .drawerBtn div #exitIcon {
+  color: #087008;
+}
+
+.menuContainerDrawer {
+  display: none;
+}
+
+.menuContainer {
+  display: block;
 }
 
 .btn {
@@ -107,11 +381,118 @@
   font-size: 1.5em;
 }
 
-.itemCount {
-  width: 100%;
-  height: 100px;
-  margin: auto;
-  text-align: center;
+.itemListDiv h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 3em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 480px) {
+  .itemListDiv {
+    margin-top: 150px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .itemListDiv h1 {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .itemBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+  }
+  .itemBox img {
+    width: 300px;
+    height: 50%;
+    border: 2px solid black;
+    border-radius: 7px 7px 0 0;
+  }
+  .itemBox span {
+    font-size: 1.5em;
+  }
+  .itemListDiv h1 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .itemCount {
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-preferred-size: 10px;
+        flex-basis: 10px;
+    padding: 10px;
+    margin-bottom: 2px;
+        grid-template-areas: 'stock';
+  }
+  .buttons {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+  .buttons button {
+    margin: 5px;
+    font-size: 1em;
+  }
+  .counter {
+    font-size: 2em;
+  }
+  .stock {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .stock span {
+    margin: 10px;
+  }
+}
+
+.drawerList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,159 +500,847 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-preferred-size: 10px;
-      flex-basis: 10px;
-  padding: 10px;
-  margin-bottom: 2px;
-      grid-template-areas: 'stock';
+  gap: 30px;
 }
 
-.buttons {
-  width: 100%;
-  height: 100%;
+.drawerList .drawerLogo {
+  border-radius: 200px;
+  width: 70px;
+  height: 70px;
+  margin: 20px auto;
+}
+
+.drawerList .drawerLogo :hover {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.drawerBtn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid black;
-  border-radius: 10px;
-  width: 100%;
+  text-decoration: none;
   -ms-flex-item-align: center;
       align-self: center;
+  width: 100%;
+  height: 100px;
 }
 
-.counter {
-  font-size: 2em;
+.drawerBtn:hover {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
 }
 
-.stock {
+.drawerBtn :active {
+  color: black;
+  -webkit-box-shadow: 0 3px #666;
+          box-shadow: 0 3px #666;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+.drawerBtn div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 90%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1.5px solid black;
+  -webkit-box-shadow: 3px 8px #087008;
+          box-shadow: 3px 8px #087008;
+  background-color: #eff5ef;
 }
 
-.stock span {
-  margin: 10px;
+.drawerBtn div span {
+  color: #087008;
+  font-weight: 600;
+}
+
+.drawerBtn div #registerIcon, .drawerBtn div #loginIcon, .drawerBtn div #shoppingCartIcon, .drawerBtn div #starIcon, .drawerBtn div #exitIcon {
+  color: #087008;
 }
 
 @media screen and (max-width: 480px) {
-  .mainDecoEtcetera {
-    font-size: 10px;
+  .detailsDiv {
+    margin-top: 150px;
+  }
+  .detailsDiv .detailDiv {
+    border: 2px solid black;
+    width: 80%;
+    margin-top: 100px;
+    margin: 20px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  .detailsDiv .detailDiv img {
+    width: 100%;
+    height: 100%;
+    border-right: 2 px solid black;
+  }
+  .detailsDiv .detailDiv .detailTitle {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    font-size: 2em;
+  }
+  .detailsDiv .detailDiv .detailDescription {
+    font-size: 1em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .detailLinea {
+    font-size: 2em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .detailPrice {
+    font-size: 2em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .itemCount {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .purchaseBtn {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .purchaseBtnContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100%;
+    -ms-flex-item-align: center;
+        align-self: center;
   }
 }
 
-.detailsDiv .detailDiv {
-  border: 2px solid black;
-  width: 60%;
-  margin: 20px auto;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-  -ms-grid-rows: (1fr)[5];
-      grid-template-rows: repeat(5, 1fr);
-      grid-template-areas: "picture picture title title" "picture picture description description" "picture picture linea linea" "picture picture price price" "picture picture stock stock";
-  text-align: center;
+@media only screen and (min-width: 481px) and (max-width: 999px) {
+  .detailsDiv {
+    margin-top: 50px;
+  }
+  .detailsDiv .detailDiv {
+    border: 2px solid black;
+    width: 80%;
+    margin-top: 100px;
+    margin: 20px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  .detailsDiv .detailDiv img {
+    width: 100%;
+    height: 100%;
+    border-right: 2 px solid black;
+  }
+  .detailsDiv .detailDiv .detailTitle {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    font-size: 2em;
+  }
+  .detailsDiv .detailDiv .detailDescription {
+    font-size: 1em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .detailLinea {
+    font-size: 2em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .detailPrice {
+    font-size: 2em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .itemCount {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .purchaseBtn {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .purchaseBtnContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100%;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
 }
 
-.detailsDiv .detailDiv img {
-  width: 100%;
-  height: 100%;
-  border-right: 2 px solid black;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 5;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: picture;
-}
-
-.detailsDiv .detailDiv .detailTitle {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 2;
-  grid-area: title;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  font-size: 4.5em;
-}
-
-.detailsDiv .detailDiv .detailDescription {
-  -ms-grid-row: 2;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 2;
-  grid-area: description;
-  font-size: 3em;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.detailsDiv .detailDiv .detailLinea {
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 2;
-  grid-area: linea;
-  font-size: 4em;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.detailsDiv .detailDiv .detailPrice {
-  -ms-grid-row: 4;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 2;
-  grid-area: price;
-  font-size: 4em;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.detailsDiv .detailDiv .itemCount {
-  -ms-grid-row: 5;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 2;
-  grid-area: stock;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.detailsDiv .detailDiv .purchaseBtn {
-  grid-area: cart;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.detailsDiv .purchaseBtnContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-grid-row: 5;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 2;
-  grid-area: stock;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  width: 100%;
-  -ms-flex-item-align: center;
-      align-self: center;
+@media screen and (min-width: 1000px) {
+  .detailsDiv {
+    height: 100%;
+  }
+  .detailsDiv .detailDiv {
+    border: 2px solid black;
+    width: 60%;
+    margin: 20px auto;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (20%)[5];
+        grid-template-columns: repeat(5, 20%);
+    -ms-grid-rows: (20%)[5];
+        grid-template-rows: repeat(5, 20%);
+        grid-template-areas: "picture picture title title title" "picture picture description description description" "picture picture linea price price" "picture picture stock stock stock" "picture picture stock stock stock";
+    text-align: center;
+  }
+  .detailsDiv .detailDiv img {
+    width: 100%;
+    height: 100%;
+    border-right: 2 px solid black;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 5;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: picture;
+  }
+  .detailsDiv .detailDiv .detailTitle {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 3;
+    grid-area: title;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    font-size: 3em;
+  }
+  .detailsDiv .detailDiv .detailDescription {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 3;
+    grid-area: description;
+    font-size: 2em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .detailLinea {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+    grid-area: linea;
+    font-size: 3em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .detailPrice {
+    -ms-grid-row: 3;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 2;
+    grid-area: price;
+    font-size: 3em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .itemCount {
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 3;
+    grid-area: stock;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .detailDiv .purchaseBtn {
+    grid-area: cart;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .detailsDiv .purchaseBtnContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 3;
+    grid-area: stock;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100%;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .cartSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: flex;
+        -ms-flex-pack: flex;
+            justify-content: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 90%;
+    margin: auto;
+    -webkit-box-shadow: 5px 5px 5px 5px lightgrey;
+            box-shadow: 5px 5px 5px 5px lightgrey;
+  }
+  .cartSection .cartDetails {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 40%;
+    margin: auto;
+  }
+  .cartSection .cartDetails .totalPrice {
+    text-align: right;
+    font-size: 3rem;
+    margin: 30px auto;
+  }
+  .cartSection .btn {
+    width: 200px;
+    height: 40px;
+  }
+  .cartItemDetails {
+    border-top: 1px solid grey;
+    padding: 1em;
+    width: 80%;
+    height: 100%;
+    margin: 2em auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cartItemDetails img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 5px 5px lightgrey;
+            box-shadow: 10px 5px 5px lightgrey;
+  }
+  .cartItemDetails .itemDetails {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+  }
+  .cartItemDetails .itemDetails span {
+    font-weight: bold;
+    width: 100%;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .cartItemDetails .cartButtons {
+    width: 25%;
+    height: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 30px;
+  }
+  .cartItemDetails .cartButtons #deleteIcon {
+    font-size: 2em;
+  }
+  .cartItemDetails .cartButtons div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cartItemDetails .cartButtons div button {
+    width: 10%;
+    height: 10%;
+  }
+  .cartItemDetails .cartButtons div span {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .cartSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: flex;
+        -ms-flex-pack: flex;
+            justify-content: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 90%;
+    margin: auto;
+    -webkit-box-shadow: 5px 5px 5px 5px lightgrey;
+            box-shadow: 5px 5px 5px 5px lightgrey;
+  }
+  .cartSection .cartDetails {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 40%;
+    margin: auto;
+  }
+  .cartSection .cartDetails .totalPrice {
+    text-align: right;
+    font-size: 3rem;
+    margin: 30px auto;
+  }
+  .cartSection .btn {
+    width: 200px;
+    height: 40px;
+  }
+  .cartItemDetails {
+    border-top: 1px solid grey;
+    padding: 1em;
+    width: 80%;
+    height: 100%;
+    margin: 2em auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cartItemDetails img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 5px 5px lightgrey;
+            box-shadow: 10px 5px 5px lightgrey;
+  }
+  .cartItemDetails .itemDetails {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+  }
+  .cartItemDetails .itemDetails span {
+    font-weight: bold;
+    width: 100%;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .cartItemDetails .cartButtons {
+    width: 25%;
+    height: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 30px;
+  }
+  .cartItemDetails .cartButtons #deleteIcon {
+    font-size: 2em;
+  }
+  .cartItemDetails .cartButtons div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cartItemDetails .cartButtons div button {
+    width: 10%;
+    height: 10%;
+  }
+  .cartItemDetails .cartButtons div span {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .cartSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: flex;
+        -ms-flex-pack: flex;
+            justify-content: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 90%;
+    margin: auto;
+    -webkit-box-shadow: 5px 5px 5px 5px lightgrey;
+            box-shadow: 5px 5px 5px 5px lightgrey;
+  }
+  .cartSection .cartDetails {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 40%;
+    margin: auto;
+  }
+  .cartSection .cartDetails .totalPrice {
+    text-align: right;
+    font-size: 3rem;
+    margin: 30px auto;
+  }
+  .cartSection .btn {
+    width: 200px;
+    height: 40px;
+  }
+  .cartItemDetails {
+    border-top: 1px solid grey;
+    padding: 1em;
+    width: 80%;
+    height: 100%;
+    margin: 2em auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cartItemDetails img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 5px 5px lightgrey;
+            box-shadow: 10px 5px 5px lightgrey;
+  }
+  .cartItemDetails .itemDetails {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 30%;
+    height: 100%;
+  }
+  .cartItemDetails .itemDetails span {
+    font-weight: bold;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .cartItemDetails .cartButtons {
+    width: 25%;
+    height: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 30px;
+  }
+  .cartItemDetails .cartButtons #deleteIcon {
+    font-size: 2em;
+  }
+  .cartItemDetails .cartButtons div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cartItemDetails .cartButtons div button {
+    width: 10%;
+    height: 10%;
+  }
+  .cartItemDetails .cartButtons div span {
+    font-size: 1.5rem;
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  border: 0.5px solid black;
+}
+
+.infoContainer {
+  border-radius: 10px;
+  border: 2px solid black;
+  margin: 10px;
+}
+
+#confirmBtn {
+  border: 1.5px solid black;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 3px 3px 3px #087008;
+          box-shadow: 3px 3px 3px #087008;
+}
+
+#confirmBtn :active {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+#confirmBtn #checkIcon {
+  color: #087008;
+  font-size: 2em;
+}
+
+#confirmBtn span {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #087008;
+}
+
+.orderInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 30px;
+  gap: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.orderInfo #receiptIcon {
+  font-size: 4em;
+  color: #087008;
+}
+
+.orderInfo span {
+  font-size: 2em;
+}
+
+@media screen and (max-width: 480px) {
+  .orderContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow-x: scroll;
+    border-bottom: 1px solid black;
+  }
+  .orderContainer .itemDetailPurchase {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .orderContainer span {
+    font-size: 2em;
+  }
   .purchaseContainer {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -280,6 +1349,122 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    margin-top: 200px;
+  }
+  .purchaseContainer .userDiv {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .purchaseContainer .userDiv .userData {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  .purchaseContainer .productData {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .purchaseContainer .productData .only-products {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 50%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .purchaseContainer .productData h1 {
+    text-align: center;
+  }
+  .infoContainer {
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: 10px;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .orderContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow-x: scroll;
+    border-bottom: 1px solid black;
+  }
+  .orderContainer .itemDetailPurchase {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .orderContainer span {
+    font-size: 2em;
+  }
+  .purchaseContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 200px;
   }
   .purchaseContainer .userDiv {
     display: -webkit-box;
@@ -290,18 +1475,99 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .purchaseContainer .infoContainer {
-    width: 80%;
-  }
-  .userData {
+  .purchaseContainer .userDiv .userData {
     width: 100%;
   }
-  .productData {
+  .purchaseContainer .userDiv .userData .productData {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 100%;
   }
-}
-
-@media screen and (min-width: 481px) and (max-width: 768px) {
+  .purchaseContainer .userDiv .userData .productData .only-products {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 50%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .infoContainer {
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: 10px;
+    width: 100%;
+    max-height: 700px;
+  }
+  .infoContainer #userIcon {
+    font-size: 10em;
+  }
+  .infoContainer .userInfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .infoContainer .userInfo span {
+    font-size: 1em;
+    text-align: center;
+  }
+  .orderContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow-x: scroll;
+    border-bottom: 1px solid black;
+  }
+  .orderContainer .itemDetailPurchase {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .orderContainer span {
+    font-size: 2em;
+  }
   .userDiv {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -310,7 +1576,23 @@
 }
 
 @media screen and (min-width: 769px) {
-  .userDiv {
+  .purchaseContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+  }
+  .purchaseContainer .userDiv {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -320,7 +1602,7 @@
             flex-direction: row;
     width: 100%;
   }
-  .userData {
+  .purchaseContainer .userDiv .userData {
     margin: 40px;
     width: 50%;
     display: -webkit-box;
@@ -334,7 +1616,7 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .productData {
+  .purchaseContainer .userDiv .productData {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -350,11 +1632,11 @@
     width: 60%;
     height: 100%;
   }
-  .productData h1 {
+  .purchaseContainer .userDiv .productData h1 {
     text-align: center;
     font-size: 2em;
   }
-  .productData .only-products {
+  .purchaseContainer .userDiv .productData .only-products {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -366,10 +1648,7 @@
         flex-wrap: wrap;
     height: 50%;
   }
-  button {
-    margin: auto;
-  }
-  .itemDetailPurchase {
+  .purchaseContainer .userDiv .productData .only-products .itemDetailPurchase {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -380,5 +1659,144 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
+  .orderContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow-x: scroll;
+  }
+  .orderContainer .itemDetailPurchase {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .orderContainer span {
+    font-size: 2em;
+  }
+  .infoContainer {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  .infoContainer h2 {
+    font-size: 30px;
+  }
+  .infoContainer #userIcon {
+    font-size: 10em;
+  }
+  .infoContainer .userInfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .infoContainer .userInfo span {
+    font-size: 1em;
+    text-align: center;
+  }
+  .infoContainer .productInfo {
+    margin: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .infoContainer .productInfo span {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+
+.customizedContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.customizedContainer span {
+  font-size: 1.5em;
+}
+
+.customizedContainer .previewContainer {
+  position: relative;
+  width: 300px;
+  height: 50%;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.customizedContainer .preview {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.customizedContainer .isDesign {
+  position: absolute;
+  width: 55%;
+  height: 59%;
+  left: 50%;
+  top: 50%;
+  margin-left: -81.5px;
+  margin-top: -119px;
 }
 /*# sourceMappingURL=styles.css.map */

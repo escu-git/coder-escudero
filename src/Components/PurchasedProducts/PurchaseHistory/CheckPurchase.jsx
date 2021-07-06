@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import { useAuth } from '../../../Contexts/AuthContext';
-import { getFirebase, getFirestore } from '../../../firebase';
+import {getFirestore } from '../../../firebase';
 import Loading from '../../Loading/Loading';
 import Order from './Order';
+import EmptyCart from '../../Cart/EmptyCart';
 const CheckPurchase = () => {
     const auth = useAuth();
     const db= getFirestore();
-    const firebase = getFirebase()
     const [orders, setOrders]=useState(null);
     const[loading, setLoading]=useState(true)
 
@@ -18,14 +18,17 @@ const CheckPurchase = () => {
         purchasesArray.get().then((res)=>res.docs.map(x=>({id:x.id, ...x.data()}))).then((res)=>{
             const orders = (res);
             setOrders(orders);
-            console.log(orders.map(x=>x.id))
+            if(orders.length ===0){
+                setOrders(null)
+            }
             setLoading(false)
         }).catch(err=>console.log(err))
     }else{setOrders(null)}
     },[])
     return (
         <>
-        {loading? <Loading/> : <>{orders?.map(order=>{return(<Order data={order}/>)})}</>}
+        <h1>YOUR PURCHASES HISTORY</h1>
+        {orders ? <>{orders?.map(order=>{return(<Order data={order}/>)})}</> : loading? <Loading/> : <EmptyCart/> }
         </>
     )
 }

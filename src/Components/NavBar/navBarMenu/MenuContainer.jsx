@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import Categories from './Categories';
 import {getFirestore} from '../../../firebase';
 import Loading from '../../Loading/Loading';
+import '../../../Styles/styles.css'
 
-const MenuContainer = () => {
+const MenuContainer = ({classNamed}) => {
     const [categories, setCategories]=useState("")
     const [loading, setLoading]=useState(true)
     useEffect(()=>{
@@ -17,7 +18,7 @@ const MenuContainer = () => {
         },[])
         
     return (
-        <Container>
+        <Container className={classNamed}>
             {loading ? <Loading/> : <Categories key={categories.id} data={categories}></Categories>}
         </Container>
     )
