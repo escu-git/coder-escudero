@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const NonExistentItem = () => {
     return (
         <Container>
-            <img src="https://firebasestorage.googleapis.com/v0/b/deco-etcetera.appspot.com/o/error404.jpg?alt=media&token=73741e44-a16d-4995-949b-c2dd141fb19a" alt='Not found image'/>
+            <img src="https://firebasestorage.googleapis.com/v0/b/deco-etcetera.appspot.com/o/error404.jpg?alt=media&token=73741e44-a16d-4995-949b-c2dd141fb19a" alt='Not found item'/>
         </Container>
     )
 }

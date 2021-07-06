@@ -17,7 +17,6 @@ import '../../Styles/styles.css'
 const NavBar =  ()=> {
 const cart = useCart()
 const auth = useAuth();
-const firebase = getFirebase();
 
 return(
     <AppBar className="appBar">

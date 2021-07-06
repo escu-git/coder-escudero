@@ -13,7 +13,6 @@ const ItemListContainer = ({custom}) => {
     const[products, setProducts]=useState(null);
     const auth = useAuth();
     const user = firebase.auth().currentUser;
-    if(user){console.log(user.email)}else{console.log('Not logged in')}
     useEffect(()=>{
         setLoading(true)
         const db = getFirestore();
@@ -25,14 +24,11 @@ const ItemListContainer = ({custom}) => {
                 const array = res.docs.map(doc=>({id:doc.id, ...doc.data()}))
                 setProducts(array)}).catch((err)=>{console.log(err)})
             }else if(custom===false){
-                console.log('Entró por else')
                 itemsCollection.where('custom',"==",custom).get().then((res)=>{
                     const customItems = res.docs.map(doc=>({id:doc.id, ...doc.data()}));
                     setProducts(customItems)
                 })
             }else if(custom ===true){
-                
-                    console.log('Entró por custom true // user')
                     itemsCollection.where('custom',"==",custom).where('buyer.email', '==', user.email).get().then((res)=>{
                         const standardItems = res.docs.map(doc=>({id:doc.id, ...doc.data()}));
                         setProducts(standardItems)
