@@ -25,8 +25,6 @@ const CheckPurchase = () => {
         }).catch(err=>console.log(err))
     }else{setOrders(null)}
     },[])
-
-    console.log(orders)
     return (
         <>
         <h1>YOUR PURCHASES HISTORY</h1>

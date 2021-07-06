@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Custom  from './CustomItem/Custom';
 import firebase from 'firebase';
 import CustomizedItem from './CustomItem/CustomizedItem';
-import { useAuth } from '../../Contexts/AuthContext';
 import Login from '../Authentication/Login';
 const ItemList = ({products, custom}) => {
     const user = firebase.auth().currentUser;

@@ -13,8 +13,8 @@ const ItemListContainer = ({custom}) => {
     const[products, setProducts]=useState(null);
     const auth = useAuth();
     const user = firebase.auth().currentUser;
-    useEffect(()=>{
-        setLoading(true)
+        useEffect(()=>{
+        setLoading(true);
         const db = getFirestore();
         const itemsCollection = db.collection('items');
         itemsCollection.get().then((item)=>{
@@ -42,7 +42,7 @@ const ItemListContainer = ({custom}) => {
 
     return (
         <div className="itemListDiv">
-            <h1 className="greetings"> {catId ? ` 🔍 ${catId}` : auth.currentUser!== null ? `WELCOME TO DECO.ETC ${auth.currentUser.displayName}!` : "WELCOME TO DECO.ETC E-COMMERCE!"   }</h1>
+            <h1 className="greetings"> {catId ? ` 🔍 ${catId}` : auth.currentUser!== null ? `WELCOME TO DECO.ETC ${auth.currentUser.displayName == null? "!"  : auth.currentUser.displayName}!` : "WELCOME TO DECO.ETC E-COMMERCE!"   }</h1>
             {loading ?<Loading></Loading> : <ItemList products={products} custom={custom}/>}
         </div>
     );

@@ -167,7 +167,6 @@
                 letter-spacing: 4px;
             }
         }
-        
         .cartIcon{
             margin:30px;
             height:100%;
@@ -228,7 +227,12 @@
         }
     }
 }
-
+.menuContainerDrawer{
+    display:none;
+}
+.menuContainer{
+    display:block;
+}
 .btn{
     width:100%;
     height:150px;

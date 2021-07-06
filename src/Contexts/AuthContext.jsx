@@ -9,7 +9,6 @@ export const AuthProvider = ({children}) =>{
     const[currentUser, setCurrentUser] = useState("")
     const db = getFirestore();
     const firebase = getFirebase();
-    // const usersCollection = db.collection('users') //! If error, this could be the cause
     useEffect(()=>{
     firebase.auth().onAuthStateChanged(setCurrentUser) 
 },[])

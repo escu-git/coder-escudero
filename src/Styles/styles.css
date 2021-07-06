@@ -339,6 +339,14 @@
   color: #087008;
 }
 
+.menuContainerDrawer {
+  display: none;
+}
+
+.menuContainer {
+  display: block;
+}
+
 .btn {
   width: 100%;
   height: 150px;
@@ -766,7 +774,7 @@
     -ms-grid-row: 3;
     -ms-grid-column: 3;
     grid-area: linea;
-    font-size: 1em;
+    font-size: 3em;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
@@ -1230,6 +1238,73 @@
   margin: 10px;
 }
 
+#confirmBtn {
+  border: 1.5px solid black;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 3px 3px 3px #087008;
+          box-shadow: 3px 3px 3px #087008;
+}
+
+#confirmBtn :active {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+#confirmBtn #checkIcon {
+  color: #087008;
+  font-size: 2em;
+}
+
+#confirmBtn span {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #087008;
+}
+
+.orderInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 30px;
+  gap: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.orderInfo #receiptIcon {
+  font-size: 4em;
+  color: #087008;
+}
+
+.orderInfo span {
+  font-size: 2em;
+}
+
 @media screen and (max-width: 480px) {
   .orderContainer {
     display: -webkit-box;
@@ -1274,6 +1349,122 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    margin-top: 200px;
+  }
+  .purchaseContainer .userDiv {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .purchaseContainer .userDiv .userData {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  .purchaseContainer .productData {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .purchaseContainer .productData .only-products {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 50%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .purchaseContainer .productData h1 {
+    text-align: center;
+  }
+  .infoContainer {
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: 10px;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .orderContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow-x: scroll;
+    border-bottom: 1px solid black;
+  }
+  .orderContainer .itemDetailPurchase {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .orderContainer span {
+    font-size: 2em;
+  }
+  .purchaseContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 200px;
   }
   .purchaseContainer .userDiv {
     display: -webkit-box;
@@ -1284,27 +1475,64 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .userData {
+  .purchaseContainer .userDiv .userData {
     width: 100%;
   }
-  .productData {
-    width: 100%;
-  }
-  .only-products {
+  .purchaseContainer .userDiv .userData .productData {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  .purchaseContainer .userDiv .userData .productData .only-products {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     height: 50%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-}
-
-@media screen and (min-width: 481px) and (max-width: 768px) {
+  .infoContainer {
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: 10px;
+    width: 100%;
+    max-height: 700px;
+  }
+  .infoContainer #userIcon {
+    font-size: 10em;
+  }
+  .infoContainer .userInfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .infoContainer .userInfo span {
+    font-size: 1em;
+    text-align: center;
+  }
   .orderContainer {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1348,7 +1576,23 @@
 }
 
 @media screen and (min-width: 769px) {
-  .userDiv {
+  .purchaseContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+  }
+  .purchaseContainer .userDiv {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1358,7 +1602,7 @@
             flex-direction: row;
     width: 100%;
   }
-  .userData {
+  .purchaseContainer .userDiv .userData {
     margin: 40px;
     width: 50%;
     display: -webkit-box;
@@ -1372,7 +1616,7 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .productData {
+  .purchaseContainer .userDiv .productData {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1388,11 +1632,11 @@
     width: 60%;
     height: 100%;
   }
-  .productData h1 {
+  .purchaseContainer .userDiv .productData h1 {
     text-align: center;
     font-size: 2em;
   }
-  .productData .only-products {
+  .purchaseContainer .userDiv .productData .only-products {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1404,10 +1648,7 @@
         flex-wrap: wrap;
     height: 50%;
   }
-  button {
-    margin: auto;
-  }
-  .itemDetailPurchase {
+  .purchaseContainer .userDiv .productData .only-products .itemDetailPurchase {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1451,6 +1692,63 @@
   }
   .orderContainer span {
     font-size: 2em;
+  }
+  .infoContainer {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  .infoContainer h2 {
+    font-size: 30px;
+  }
+  .infoContainer #userIcon {
+    font-size: 10em;
+  }
+  .infoContainer .userInfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .infoContainer .userInfo span {
+    font-size: 1em;
+    text-align: center;
+  }
+  .infoContainer .productInfo {
+    margin: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .infoContainer .productInfo span {
+    font-size: 1.5em;
+    font-weight: bold;
   }
 }
 

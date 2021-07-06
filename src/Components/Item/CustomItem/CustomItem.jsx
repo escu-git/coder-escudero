@@ -13,10 +13,8 @@ const CustomItem = () => {
     const[design, setDesign]=useState(null);
     const[img, setImg]=useState(null);
     const[title, setTitle]=useState(INITIAL_TITLE);
-    const[loading, setLoading]=useState(true);
     const[uploaded, setUploaded]=useState(false);
     const[ready, setReady]=useState(false);
-    const auth = useAuth();
     const db = getFirestore();
     const itemsCollection = db.collection('items');
     
@@ -66,9 +64,7 @@ const CustomItem = () => {
                 phoneNumber:phoneNumber},
             date:firebase.firestore.Timestamp.fromDate(new Date())
         }
-        itemsCollection.add(newCustom).then(({id})=>{
-            setLoading(false)
-        }).then((res)=>{
+        itemsCollection.add(newCustom).then((res)=>{
             setUploaded(true)
         }).catch(err=>console.log(err))
     }

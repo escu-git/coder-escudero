@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import ItemDetailPurchase from '../ItemDetailPurchase';
 import '../../../Styles/styles.css'
 const Order = ({data}) => {
-    console.log(data)
     return (
         <OrderContainer >
             <span>ORDER N°: {data.id}</span>
